@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - JetWeb Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+US+Modern:wght@100..400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="assets/img/logo.png" alt="JetWeb Labs Logo" class="logo">
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" id="close-btn">&times;</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="subbrands.html">Sub-Brands</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h2 class="page-title fade-in">Get in Touch</h2>
+                <p class="page-subtitle fade-in" data-delay="100">We'd love to hear from you. Let's build something amazing together.</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container contact-grid">
+                <div class="contact-form-container fade-in">
+                    <form id="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                            <span class="error-message">Name is required.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message">A valid email is required.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                            <span class="error-message">Message cannot be empty.</span>
+                        </div>
+                        <div class="g-recaptcha-placeholder">
+                            This is where the Google reCAPTCHA would be.
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <div id="form-success-message" class="success-message">Thank you! Your message has been sent.</div>
+                    </form>
+                </div>
+                <div class="contact-info fade-in" data-delay="200">
+                    <h3>Contact Information</h3>
+                    <p><strong>Email:</strong> hello@jetweblabs.com</p>
+                    <p><strong>Address:</strong> Tech Park One, Bangalore, India</p>
+
+                    <h3 class="social-title">Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="https://linkedin.com/company/jetweb-labs" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://Instagram.com/jetweblabs" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/jetweblabs" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="schedule-meeting">
+            <div class="container text-center fade-in">
+                <h3 class="section-title">Schedule a Consultation</h3>
+                <p>Let's discuss your project in detail. Book a video conference with our team.</p>
+                <a href="https://calendly.com" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-google"></i> Book with Google Meet via Calendly
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="assets/img/logo.png" alt="JetWeb Labs Logo" class="footer-logo">
+                    <p>Pioneering the next wave of technological innovation.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <a href="https://linkedin.com/company/jetweb-labs" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://Instagram.com/jetweblabs" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/jetweblabs" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Subscribe</h4>
+                    <p>Get the latest updates and news from JetWeb Labs.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 JetWeb Labs PVT LTD. All Rights Reserved.</p>
+                <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <div class="cookie-consent" id="cookie-consent">
+        <p>This site uses cookies to enhance your experience. By continuing to browse, you agree to our use of cookies.</p>
+        <button class="btn btn-primary" id="accept-cookies">Accept</button>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

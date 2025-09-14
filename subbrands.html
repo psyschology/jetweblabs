@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Sub-Brands - JetWeb Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+US+Modern:wght@100..400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="assets/img/logo.png" alt="JetWeb Labs Logo" class="logo">
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" id="close-btn">&times;</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="subbrands.html">Sub-Brands</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h2 class="page-title fade-in">Our Family of Brands</h2>
+                <p class="page-subtitle fade-in" data-delay="100">A diverse portfolio driving specialized innovation.</p>
+            </div>
+        </section>
+
+        <section class="subbrands-list">
+            <div class="container">
+                <div class="subbrand-item fade-in" data-delay="100">
+                    <div class="subbrand-logo">
+                        <img src="assets/img/jetweb-in-logo.png" alt="JetWeb.in Logo">
+                    </div>
+                    <div class="subbrand-description">
+                        <div class="brand-status launched">Live</div>
+                        <h3>JetWeb.in</h3>
+                        <p>As India's premier digital services marketplace, JetWeb.in connects businesses with top-tier talent in web development, marketing, and design. It's a curated ecosystem for quality, reliability, and growth in the domestic digital landscape.</p>
+                        <button class="btn btn-secondary open-modal-btn" data-modal-target="jetweb-modal">Learn More</button>
+                    </div>
+                </div>
+                <div class="subbrand-item fade-in">
+                    <div class="subbrand-logo">
+                        <img src="assets/img/zonex-logo.png" alt="ZoneX Logo">
+                    </div>
+                    <div class="subbrand-description">
+                        <div class="brand-status coming-soon">Coming Soon</div>
+                        <h3>ZoneX</h3>
+                        <p>ZoneX is set to be the ultimate hub for eSports. We will provide robust infrastructure for hosting tournaments, managing teams, and engaging with a global community of gamers. </p>
+                        <button class="btn btn-secondary open-modal-btn" data-modal-target="zonex-modal">Learn More</button>
+                    </div>
+                </div>
+                <div class="subbrand-item fade-in" data-delay="200">
+                    <div class="subbrand-logo">
+                        <img src="assets/img/modx-logo.png" alt="ModX Logo">
+                    </div>
+                    <div class="subbrand-description">
+                        <div class="brand-status coming-soon">Coming Soon</div>
+                        <h3>ModX</h3>
+                        <p>ModX will be a revolutionary platform for game modification creators and players. Discover, create, and share game mods in a collaborative and supportive environment.</p>
+                        <button class="btn btn-secondary open-modal-btn" data-modal-target="modx-modal">Learn More</button>
+                    </div>
+                </div>
+                <div class="subbrand-item fade-in" data-delay="300">
+                    <div class="subbrand-logo">
+                        <img src="https://placehold.co/200x100/1f1f2e/FFFFFF?text=Jet-i" alt="Jet-i Logo">
+                    </div>
+                    <div class="subbrand-description">
+                        <div class="brand-status coming-soon">Coming Soon</div>
+                        <h3>Jet-i (Threaded AI)</h3>
+                        <p>Our stealth division focused on developing next-generation conversational AI and large language models. More details to be unveiled soon.</p>
+                        <button class="btn btn-secondary open-modal-btn" data-modal-target="jeti-modal">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="jetweb-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal-btn">&times;</span>
+            <h2>JetWeb.in</h2>
+            <p>Detailed information about JetWeb.in goes here. This could include core features, target audience, success stories, and links to the actual website.</p>
+        </div>
+    </div>
+    <div id="zonex-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal-btn">&times;</span>
+            <h2>ZoneX</h2>
+            <p>Detailed information about ZoneX. This could include the vision, planned features for tournament hosting, community tools, supported games, etc.</p>
+        </div>
+    </div>
+    <div id="modx-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal-btn">&times;</span>
+            <h2>ModX</h2>
+            <p>Detailed information about ModX. Explain the creator economy focus, the types of mods it will support, and the tools it will provide for developers.</p>
+        </div>
+    </div>
+    <div id="jeti-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal-btn">&times;</span>
+            <h2>Jet-i (Threaded AI)</h2>
+            <p>Information about our advanced AI research division. We are exploring the future of human-computer interaction through threaded AI conversations. Stay tuned for updates.</p>
+        </div>
+    </div>
+
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="assets/img/logo.png" alt="JetWeb Labs Logo" class="footer-logo">
+                    <p>Pioneering the next wave of technological innovation.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <a href="https://linkedin.com/company/jetweb-labs" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://Instagram.com/jetweblabs" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/jetweblabs" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Subscribe</h4>
+                    <p>Get the latest updates and news from JetWeb Labs.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 JetWeb Labs PVT LTD. All Rights Reserved.</p>
+                <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <div class="cookie-consent" id="cookie-consent">
+        <p>This site uses cookies to enhance your experience. By continuing to browse, you agree to our use of cookies.</p>
+        <button class="btn btn-primary" id="accept-cookies">Accept</button>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
