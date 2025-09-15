@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project BharatConnect - A Proposal by Jetweb Labs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Cosmic Night -->
+    <!-- Application Structure Plan: A single-page, vertical scrolling layout with a sticky navigation bar. The structure flows like a presentation: Intro -> Vision -> How it Works (Architecture) -> Security -> Timeline -> Cost -> Why Us. This is a logical, persuasive narrative flow that guides the user from the high-level vision to the detailed execution plan, making it easy for a government official to digest the proposal and find specific information quickly using the nav bar. The interactivity in the architecture, timeline, and cost sections is designed to showcase technical competence and transparency. -->
+    <!-- Visualization & Content Choices: 
+        1. Architecture Diagram: Report Info: Technical stack. Goal: Explain the solution clearly. Viz/Method: HTML/CSS diagram. Interaction: JS toggle to switch between high-level and detailed views. Justification: Demonstrates technical capability and clarity of thought, more professional than a static image. Library: Vanilla JS/HTML/CSS.
+        2. Project Timeline: Report Info: Project phases. Goal: Show a clear roadmap. Viz/Method: Interactive HTML/CSS horizontal timeline. Interaction: Clicking a phase reveals details. Justification: More engaging and space-efficient than a static list, encourages exploration. Library: Vanilla JS/HTML/CSS.
+        3. Cost Breakdown: Report Info: Financial proposal. Goal: Present financials transparently. Viz/Method: Chart.js Donut Chart paired with an HTML table. Interaction: Radio buttons filter table data, and the chart dynamically updates via JS. Justification: The chart gives an instant high-level overview, while the interactive table provides detailed data, building trust and showing transparency. Library: Chart.js.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0D1117;
+            color: #E6EDF3;
+        }
+        .text-accent-pink { color: #F72585; }
+        .bg-accent-pink { background-color: #F72585; }
+        .border-accent-pink { border-color: #F72585; }
+        .text-accent-blue { color: #4CC9F0; }
+        .bg-accent-blue { background-color: #4CC9F0; }
+        .border-accent-blue { border-color: #4CC9F0; }
+        .bg-slate-800 { background-color: #161B22; }
+        .bg-slate-900 { background-color: #010409; }
+        .border-slate-700 { border-color: #30363D; }
+        .nav-link.active {
+            color: #4CC9F0;
+            border-bottom: 2px solid #4CC9F0;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: -8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #4361EE;
+            border: 3px solid #0D1117;
+            z-index: 10;
+        }
+        .timeline-item.active::before {
+            background-color: #4CC9F0;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 40vh;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="header" class="bg-slate-900/80 backdrop-blur-md shadow-lg shadow-black/20 sticky top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <img "assets/img/logo.png" alt="Jetweb Labs Logo" class="h-10 w-10 rounded-full">
+                    <span class="text-2xl font-bold text-slate-100">Jetweb Labs</span>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#vision" class="nav-link text-gray-300 hover:text-accent-blue font-medium pb-1 transition-all duration-200">Vision</a>
+                    <a href="#architecture" class="nav-link text-gray-300 hover:text-accent-blue font-medium pb-1 transition-all duration-200">Architecture</a>
+                    <a href="#security" class="nav-link text-gray-300 hover:text-accent-blue font-medium pb-1 transition-all duration-200">Security</a>
+                    <a href="#timeline" class="nav-link text-gray-300 hover:text-accent-blue font-medium pb-1 transition-all duration-200">Timeline</a>
+                    <a href="#costs" class="nav-link text-gray-300 hover:text-accent-blue font-medium pb-1 transition-all duration-200">Costs</a>
+                    <a href="#why-us" class="nav-link text-gray-300 hover:text-accent-blue font-medium pb-1 transition-all duration-200">Why Us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="relative bg-slate-900 pt-20 pb-24 sm:pt-24 sm:pb-32">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight">
+                    Project <span class="text-accent-blue">BharatConnect</span>
+                </h1>
+                <p class="mt-4 text-lg md:text-xl text-slate-300 max-w-3xl mx-auto">
+                    A proposal for India's Sovereign Communication Platform. Building our nation's Digital Town Square and Secure Lifeline.
+                </p>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                        <div class="text-4xl">🇮🇳</div>
+                        <h3 class="mt-2 text-lg font-semibold text-slate-100">100% Data Sovereign</h3>
+                        <p class="mt-1 text-slate-400 text-sm">All data hosted within India, under Indian jurisdiction, on MeitY-empanelled cloud infrastructure.</p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                        <div class="text-4xl">🛡️</div>
+                        <h3 class="mt-2 text-lg font-semibold text-slate-100">Unbreakable Security</h3>
+                        <p class="mt-1 text-slate-400 text-sm">Military-grade encryption and a zero-trust architecture to protect national communication.</p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                        <div class="text-4xl">🚀</div>
+                        <h3 class="mt-2 text-lg font-semibold text-slate-100">Scalable for a Billion</h3>
+                        <p class="mt-1 text-slate-400 text-sm">Cloud-native design built to handle the scale of India's population from day one.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="vision" class="py-20 sm:py-24 bg-slate-900/50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Our Vision for a Digitally Aatmanirbhar Bharat</h2>
+                    <p class="mt-4 text-lg text-slate-300 max-w-3xl mx-auto">This project is more than just an application; it's a cornerstone for India's digital sovereignty. It provides a secure, reliable, and homegrown platform for public discourse and private communication, free from foreign influence and control, and fully compliant with Indian law.</p>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700">
+                        <h3 class="text-2xl font-bold text-slate-100">Sandesh (सन्देश)</h3>
+                        <p class="text-sm font-medium text-accent-pink">The Public Broadcast Platform</p>
+                        <p class="mt-4 text-slate-300">A dynamic and open platform for citizens, government bodies, and organizations to share information and engage in public discourse. Sandesh will be the digital town square for a new India, fostering transparency and citizen engagement.</p>
+                        <ul class="mt-6 space-y-3 text-slate-300">
+                            <li class="flex items-start"><span class="text-accent-blue mr-3 mt-1">✓</span><span>Verified government channels for authentic information.</span></li>
+                            <li class="flex items-start"><span class="text-accent-blue mr-3 mt-1">✓</span><span>Powerful moderation tools to combat misinformation.</span></li>
+                            <li class="flex items-start"><span class="text-accent-blue mr-3 mt-1">✓</span><span>Support for multiple Indian languages to ensure inclusivity.</span></li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700">
+                        <h3 class="text-2xl font-bold text-slate-100">Varta (वार्ता)</h3>
+                        <p class="text-sm font-medium text-accent-pink">The Secure Messaging App</p>
+                        <p class="mt-4 text-slate-300">A state-of-the-art secure communication tool for citizens and officials. With end-to-end encryption by default, Varta ensures that private conversations remain private, protecting sensitive information and personal privacy.</p>
+                         <ul class="mt-6 space-y-3 text-slate-300">
+                            <li class="flex items-start"><span class="text-accent-blue mr-3 mt-1">✓</span><span>Post-quantum cryptography readiness for future-proof security.</span></li>
+                            <li class="flex items-start"><span class="text-accent-blue mr-3 mt-1">✓</span><span>Secure file sharing, voice, and video calls.</span></li>
+                            <li class="flex items-start"><span class="text-accent-blue mr-3 mt-1">✓</span><span>Designed for low-bandwidth environments to ensure connectivity for all.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="architecture" class="py-20 sm:py-24 bg-slate-900">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Built for Scale, Security, and Resilience</h2>
+                    <p class="mt-4 text-lg text-slate-300 max-w-3xl mx-auto">Our proposed architecture is based on modern, cloud-native principles to ensure the platform is performant, scalable, and easy to maintain. This section outlines the robust technical foundation of Project BharatConnect.</p>
+                </div>
+                
+                <div class="mt-12 max-w-5xl mx-auto">
+                     <div class="text-center mb-6">
+                        <div class="inline-flex items-center bg-slate-800 rounded-lg p-1 border border-slate-700">
+                            <button id="highLevelBtn" class="px-4 py-1 text-sm font-semibold rounded-md bg-accent-blue text-slate-900">High-Level View</button>
+                            <button id="detailedBtn" class="px-4 py-1 text-sm font-semibold text-slate-300">Detailed View</button>
+                        </div>
+                    </div>
+
+                    <div id="architectureView" class="border border-slate-700 rounded-lg p-4 md:p-8 bg-slate-800/50">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="security" class="py-20 sm:py-24 bg-slate-900/50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">An Impenetrable Fortress for National Data</h2>
+                    <p class="mt-4 text-lg text-slate-300 max-w-3xl mx-auto">Security is not an afterthought; it is the bedrock of Project BharatConnect. We propose a multi-layered security strategy that protects data at every stage, ensuring compliance with India's IT Act and data protection laws.</p>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                        <h4 class="font-semibold text-slate-100">End-to-End Encryption (E2EE)</h4>
+                        <p class="text-sm text-slate-400 mt-2">All communications on Varta are secured with the Signal Protocol, ensuring only the sender and recipient can read messages.</p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                        <h4 class="font-semibold text-slate-100">Data-in-Transit & At-Rest Encryption</h4>
+                        <p class="text-sm text-slate-400 mt-2">Using TLS 1.3 for data in transit and AES-256 for data at rest, all platform data is encrypted at all times.</p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                        <h4 class="font-semibold text-slate-100">Zero Trust Architecture</h4>
+                        <p class="text-sm text-slate-400 mt-2">Every request is authenticated and authorized, regardless of its origin, minimizing internal and external threats.</p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                        <h4 class="font-semibold text-slate-100">Regulatory Compliance</h4>
+                        <p class="text-sm text-slate-400 mt-2">Designed from the ground up to comply with the Indian IT Act, DPDP Act, and other relevant government regulations.</p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                        <h4 class="font-semibold text-slate-100">AI-Powered Moderation</h4>
+                        <p class="text-sm text-slate-400 mt-2">Advanced AI/ML models for Sandesh to detect and flag hate speech, misinformation, and harmful content in real-time.</p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                        <h4 class="font-semibold text-slate-100">Regular Security Audits</h4>
+                        <p class="text-sm text-slate-400 mt-2">Continuous VAPT and third-party audits by CERT-In empanelled agencies to ensure the platform's security posture is robust.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline" class="py-20 sm:py-24 bg-slate-900">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Phased Rollout for a Seamless Launch</h2>
+                    <p class="mt-4 text-lg text-slate-300 max-w-3xl mx-auto">We propose an agile, phased development and deployment plan to deliver value quickly and ensure a smooth, stable national rollout. Click on each phase to see key deliverables.</p>
+                </div>
+
+                <div class="mt-16 max-w-5xl mx-auto">
+                    <div class="relative border-l-2 border-slate-700 ml-4">
+                        <div id="timeline-container">
+                        </div>
+                    </div>
+                    <div id="timeline-details" class="mt-8 bg-slate-800 p-6 rounded-lg border border-slate-700 min-h-[150px]">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="costs" class="py-20 sm:py-24 bg-slate-900/50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Transparent & Competitive Costing</h2>
+                    <p class="mt-4 text-lg text-slate-300 max-w-3xl mx-auto">We are committed to providing maximum value. Our cost structure is transparent, comprehensive, and designed to deliver a world-class platform within the proposed budget. This section provides an interactive breakdown of the projected costs.</p>
+                </div>
+                
+                <div class="mt-12 grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+                    <div class="lg:col-span-2">
+                        <div class="bg-slate-800 p-6 rounded-xl shadow-lg border border-slate-700">
+                            <h3 class="font-semibold text-slate-100 text-center">Cost Distribution (Year 1)</h3>
+                            <div class="chart-container mt-4">
+                                <canvas id="costChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-3">
+                         <div class="bg-slate-800 p-6 rounded-xl shadow-lg border border-slate-700">
+                             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                                 <h3 class="font-semibold text-slate-100">Detailed Breakdown (All Costs in INR Lakhs)</h3>
+                                 <div id="cost-filters" class="flex-shrink-0 mt-4 sm:mt-0">
+                                     <label class="mr-2"><input type="radio" name="costFilter" value="all" checked> All</label>
+                                     <label class="mr-2"><input type="radio" name="costFilter" value="y1"> Year 1</label>
+                                     <label><input type="radio" name="costFilter" value="annual"> Annual</label>
+                                 </div>
+                             </div>
+                            <div class="mt-4 overflow-x-auto">
+                                <table class="w-full text-sm text-left">
+                                    <thead class="bg-slate-900 text-slate-300">
+                                        <tr>
+                                            <th class="p-3">Item</th>
+                                            <th class="p-3">Category</th>
+                                            <th class="p-3 text-right">Cost</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="costTableBody">
+                                        
+                                    </tbody>
+                                    <tfoot class="font-bold text-slate-100">
+                                        <tr>
+                                            <td colspan="2" class="p-3 border-t-2 border-slate-700">Total</td>
+                                            <td id="totalCost" class="p-3 border-t-2 border-slate-700 text-right"></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <section id="why-us" class="py-20 sm:py-24 bg-slate-900">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Why Jetweb Labs is the Right Partner</h2>
+                    <p class="mt-4 text-lg text-slate-300 max-w-3xl mx-auto">Choosing a partner for a project of this national importance requires trust, expertise, and a shared vision. Here's why Jetweb Labs is uniquely positioned to deliver Project BharatConnect.</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-accent-blue/10 text-accent-blue mx-auto text-3xl">🏆</div>
+                        <h4 class="mt-4 font-semibold text-slate-100">Proven Expertise</h4>
+                        <p class="mt-2 text-sm text-slate-400">Decade of experience in building large-scale, secure digital platforms for enterprise and government clients.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-accent-blue/10 text-accent-blue mx-auto text-3xl">🇮🇳</div>
+                        <h4 class="mt-4 font-semibold text-slate-100">Committed to India</h4>
+                        <p class="mt-2 text-sm text-slate-400">A 100% Indian company, fully aligned with the 'Make in India' and 'Aatmanirbhar Bharat' missions.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-accent-blue/10 text-accent-blue mx-auto text-3xl">🤝</div>
+                        <h4 class="mt-4 font-semibold text-slate-100">Collaborative Approach</h4>
+                        <p class="mt-2 text-sm text-slate-400">We work as a true partner with government stakeholders, ensuring transparency and alignment at every project phase.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-accent-blue/10 text-accent-blue mx-auto text-3xl">⚙️</div>
+                        <h4 class="mt-4 font-semibold text-slate-100">24/7/365 Support</h4>
+                        <p class="mt-2 text-sm text-slate-400">Dedicated Network Operations Center (NOC) and Security Operations Center (SOC) for round-the-clock platform monitoring and support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 border-t border-slate-700">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+            <h3 class="text-2xl font-bold text-white">Let's Build India's Digital Future, Together.</h3>
+            <p class="mt-4 max-w-2xl mx-auto text-slate-400">We are ready to commence this prestigious project and deliver a platform that every Indian can be proud of. We look forward to discussing this proposal in further detail.</p>
+            <p class="mt-6 text-lg font-semibold text-accent-blue">Contact: info@jetweblabs.in</p>
+            <p class="mt-8 text-sm text-slate-500">&copy; 2025 Jetweb Labs Pvt. Ltd. | Confidential Proposal for the Government of India</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const highLevelArch = `
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                    <div class="p-4 bg-slate-900 rounded-lg border border-slate-700">
+                        <h4 class="font-bold text-accent-pink">Client Tier</h4>
+                        <p class="text-sm mt-2 text-slate-400">Native Mobile Apps (iOS, Android) & Progressive Web App (PWA) for universal access.</p>
+                    </div>
+                    <div class="flex items-center justify-center text-2xl font-mono text-slate-600">&rarr;</div>
+                    <div class="p-4 bg-slate-900 rounded-lg border border-slate-700">
+                        <h4 class="font-bold text-accent-blue">Application Tier</h4>
+                        <p class="text-sm mt-2 text-slate-400">Microservices architecture for scalability and resilience, handling all business logic.</p>
+                    </div>
+                    <div class="hidden md:block"></div>
+                     <div class="flex items-center justify-center text-2xl font-mono text-slate-600 transform rotate-90 md:rotate-0">&darr;</div>
+                    <div class="hidden md:block"></div>
+                    <div class="p-4 bg-slate-900 rounded-lg border border-slate-700">
+                        <h4 class="font-bold text-accent-blue">Data Tier</h4>
+                        <p class="text-sm mt-2 text-slate-400">Polyglot persistence using multiple database types (NoSQL, Relational, Cache) for optimal performance.</p>
+                    </div>
+                     <div class="flex items-center justify-center text-2xl font-mono text-slate-600">&larr;</div>
+                    <div class="p-4 bg-slate-900 rounded-lg border border-slate-700">
+                        <h4 class="font-bold text-accent-pink">Infrastructure Tier</h4>
+                        <p class="text-sm mt-2 text-slate-400">Fully containerized (Kubernetes) and deployed on MeitY-empanelled Indian cloud providers for data sovereignty.</p>
+                    </div>
+                </div>
+            `;
+            const detailedArch = `
+                <div class="text-sm">
+                    <p class="mb-4 text-center text-slate-400">A detailed look at the technology stack for each component.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700">
+                            <h5 class="font-bold text-slate-100">Frontend</h5>
+                            <ul class="list-disc list-inside mt-2 text-slate-400"><li>React Native (Mobile)</li><li>React.js (Web PWA)</li></ul>
+                        </div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700">
+                            <h5 class="font-bold text-slate-100">Backend Microservices</h5>
+                             <ul class="list-disc list-inside mt-2 text-slate-400"><li>Go, Rust, Node.js</li><li>gRPC & REST APIs</li><li>Kafka for event-sourcing</li></ul>
+                        </div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700">
+                            <h5 class="font-bold text-slate-100">Databases</h5>
+                            <ul class="list-disc list-inside mt-2 text-slate-400"><li>Cassandra/ScyllaDB</li><li>PostgreSQL</li><li>Redis (Caching)</li><li>Elasticsearch (Search)</li></ul>
+                        </div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700">
+                            <h5 class="font-bold text-slate-100">Infrastructure & DevOps</h5>
+                            <ul class="list-disc list-inside mt-2 text-slate-400"><li>Kubernetes</li><li>Docker</li><li>CI/CD with Jenkins/GitLab</li><li>Prometheus & Grafana</li></ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            const architectureView = document.getElementById('architectureView');
+            const highLevelBtn = document.getElementById('highLevelBtn');
+            const detailedBtn = document.getElementById('detailedBtn');
+            architectureView.innerHTML = highLevelArch;
+
+            highLevelBtn.addEventListener('click', () => {
+                architectureView.innerHTML = highLevelArch;
+                highLevelBtn.classList.add('bg-accent-blue', 'text-slate-900');
+                detailedBtn.classList.remove('bg-accent-blue', 'text-slate-900');
+            });
+            detailedBtn.addEventListener('click', () => {
+                architectureView.innerHTML = detailedArch;
+                detailedBtn.classList.add('bg-accent-blue', 'text-slate-900');
+                highLevelBtn.classList.remove('bg-accent-blue', 'text-slate-900');
+            });
+
+
+            const timelineData = [
+                {
+                    phase: 'Phase 1: Discovery & Planning',
+                    duration: 'Months 1-2',
+                    details: 'Finalizing requirements, detailed architecture design, setting up core infrastructure, and team onboarding. Complete project blueprint and governance framework established.'
+                },
+                {
+                    phase: 'Phase 2: Core Platform Dev',
+                    duration: 'Months 3-6',
+                    details: 'Development of core microservices for Sandesh & Varta. Building authentication, user profiles, messaging engine, and post functionalities. Initial UI/UX for all client apps.'
+                },
+                {
+                    phase: 'Phase 3: Alpha & Beta Testing',
+                    duration: 'Months 7-9',
+                    details: 'Internal Alpha testing followed by a closed Beta program with select government departments. Focus on stability, security hardening, and performance testing.'
+                },
+                {
+                    phase: 'Phase 4: Phased National Rollout',
+                    duration: 'Months 10-12',
+                    details: 'Initial launch for government employees, followed by a phased public rollout state by state. Scaling up infrastructure based on real-world load.'
+                },
+                {
+                    phase: 'Phase 5: Operations & Enhancement',
+                    duration: 'Ongoing (Year 2+)',
+                    details: '24/7 monitoring, support, and continuous development of new features based on user feedback and evolving requirements. Regular security updates and performance tuning.'
+                }
+            ];
+
+            const timelineContainer = document.getElementById('timeline-container');
+            const detailsContainer = document.getElementById('timeline-details');
+
+            timelineData.forEach((item, index) => {
+                const itemEl = document.createElement('div');
+                itemEl.className = `timeline-item relative pl-8 pb-8 cursor-pointer ${index === 0 ? 'active' : ''}`;
+                itemEl.innerHTML = `<h4 class="font-semibold text-slate-100">${item.phase}</h4><p class="text-sm text-slate-400">${item.duration}</p>`;
+                itemEl.addEventListener('click', () => {
+                    document.querySelectorAll('.timeline-item').forEach(el => el.classList.remove('active'));
+                    itemEl.classList.add('active');
+                    detailsContainer.innerHTML = `<h4 class="font-bold text-slate-100">${item.phase}</h4><p class="mt-2 text-slate-300">${item.details}</p>`;
+                });
+                timelineContainer.appendChild(itemEl);
+            });
+            detailsContainer.innerHTML = `<h4 class="font-bold text-slate-100">${timelineData[0].phase}</h4><p class="mt-2 text-slate-300">${timelineData[0].details}</p>`;
+
+
+            const costData = [
+                { item: 'Cloud Infrastructure (Multi-Region)', category: 'Infrastructure', cost: 12000, type: 'y1' },
+                { item: 'CDN & Egress Costs', category: 'Infrastructure', cost: 1200, type: 'y1' },
+                { item: 'Engineering & Development Team', category: 'Manpower', cost: 3500, type: 'y1' },
+                { item: 'Project Management & Design', category: 'Manpower', cost: 800, type: 'y1' },
+                { item: 'Software Licensing & Tools', category: 'Software', cost: 400, type: 'y1' },
+                { item: 'Third-Party Security Audits', category: 'Security', cost: 150, type: 'y1' },
+                { item: 'Project Contingency (15%)', category: 'Contingency', cost: 2700, type: 'y1' },
+                { item: 'Annual Infra & Ops (Y2+)', category: 'Infrastructure', cost: 3000, type: 'annual' },
+                { item: 'Annual Manpower (Y2+)', category: 'Manpower', cost: 900, type: 'annual' },
+                { item: 'Annual Security & Compliance (Y2+)', category: 'Security', cost: 450, type: 'annual' },
+            ];
+
+            const costTableBody = document.getElementById('costTableBody');
+            const totalCostEl = document.getElementById('totalCost');
+            const costFilters = document.querySelectorAll('input[name="costFilter"]');
+            let costChart;
+
+            function formatCurrency(num) {
+                return `₹${num.toLocaleString('en-IN')} Lakh`;
+            }
+            
+            function renderCosts(filter = 'all') {
+                costTableBody.innerHTML = '';
+                let total = 0;
+                const filteredData = costData.filter(d => filter === 'all' || d.type === filter || (filter === 'y1' && d.type === 'y1'));
+
+                filteredData.forEach(d => {
+                    const row = document.createElement('tr');
+                    row.className = 'border-b border-slate-700';
+                    row.innerHTML = `
+                        <td class="p-3">${d.item}</td>
+                        <td class="p-3 text-slate-400">${d.category}</td>
+                        <td class="p-3 text-right">${formatCurrency(d.cost)}</td>
+                    `;
+                    costTableBody.appendChild(row);
+                    total += d.cost;
+                });
+                totalCostEl.textContent = formatCurrency(total);
+                updateChart(filter);
+            }
+
+            function updateChart(filter) {
+                const year1Data = costData.filter(d => d.type === 'y1');
+                const categoryTotals = year1Data.reduce((acc, item) => {
+                    acc[item.category] = (acc[item.category] || 0) + item.cost;
+                    return acc;
+                }, {});
+
+                if (costChart) {
+                    costChart.data.labels = Object.keys(categoryTotals);
+                    costChart.data.datasets[0].data = Object.values(categoryTotals);
+                    costChart.update();
+                } else {
+                     const ctx = document.getElementById('costChart').getContext('2d');
+                     Chart.defaults.color = '#94a3b8';
+                     costChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: Object.keys(categoryTotals),
+                            datasets: [{
+                                label: 'Year 1 Cost Distribution',
+                                data: Object.values(categoryTotals),
+                                backgroundColor: ['#4361EE', '#F72585', '#4CC9F0', '#7209B7', '#B5179E'],
+                                borderWidth: 0,
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    position: 'bottom',
+                                    labels: {
+                                        color: '#E2E8F0'
+                                    }
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            let label = context.label || '';
+                                            if (label) {
+                                                label += ': ';
+                                            }
+                                            if (context.parsed !== null) {
+                                                label += formatCurrency(context.parsed);
+                                            }
+                                            return label;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+            
+            costFilters.forEach(filter => {
+                filter.addEventListener('change', (e) => renderCosts(e.target.value));
+            });
+
+            renderCosts('all');
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('main section');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 80) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
