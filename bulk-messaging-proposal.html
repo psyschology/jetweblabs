@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Automation Pricing - Jetweb Labs for Burger Booth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The SPA is designed as a guided pricing proposal, moving from a high-level overview to specific costs and features. It uses a thematic, multi-section layout (Overview, Cost Breakdown, Feature Tiers, Meta Fees) instead of a linear document. This structure allows the client (Burger Booth) to interactively explore how different components and feature levels affect the total cost, empowering them to make an informed decision. The core interaction is a central cost estimator that updates in real-time based on user selections in the 'Cost Breakdown' and 'Feature Tiers' sections. This transforms a static quote into a dynamic financial planning tool. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Core cost components (setup, platform, etc.). Goal: Inform/Compare. Method: Interactive info cards with a central updating total. Interaction: Click to reveal details, toggle to include in total. Justification: Deconstructs complex pricing into understandable parts. Library: Vanilla JS.
+        - Report Info: Different service tiers (Starter, Pro). Goal: Organize/Compare. Method: Pricing cards and a horizontal bar chart comparing feature counts. Interaction: Selecting a tier updates the central cost estimate. Justification: Visually links features to cost and value. Library: Chart.js (Canvas).
+        - Report Info: Meta's conversation pricing model. Goal: Inform/Explain. Method: Bar chart for cost comparison and an interactive calculator. Interaction: User inputs conversation volume to see estimated monthly Meta fees. Justification: Clarifies a mandatory, often confusing, third-party cost. Library: Chart.js (Canvas) & Vanilla JS.
+        - Report Info: Project workflow. Goal: Organize. Method: HTML/CSS process flow diagram. Interaction: None, purely informational. Justification: Sets clear project expectations. Library: Tailwind CSS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #4A4A4A;
+        }
+        .bg-warm-base { background-color: #FDFBF8; }
+        .bg-warm-card { background-color: #FFFFFF; }
+        .text-warm-heading { color: #2D2D2D; }
+        .text-warm-body { color: #4A4A4A; }
+        .text-warm-accent { color: #E87A5D; }
+        .border-warm-accent { border-color: #E87A5D; }
+        .bg-warm-accent { background-color: #E87A5D; }
+        .bg-warm-accent-light { background-color: #F9EBE7; }
+        .shadow-custom { box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .tier-card.selected {
+            transform: translateY(-5px);
+            border-color: #E87A5D;
+            box-shadow: 0 8px 20px rgba(232, 122, 93, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-warm-base">
+
+    <header class="bg-warm-card sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-warm-heading">Jetweb Labs <span class="text-warm-accent">&</span> Burger Booth</h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="#overview" class="text-warm-body hover:text-warm-accent transition">Overview</a>
+                <a href="#costs" class="text-warm-body hover:text-warm-accent transition">Cost Breakdown</a>
+                <a href="#tiers" class="text-warm-body hover:text-warm-accent transition">Feature Tiers</a>
+                <a href="#meta" class="text-warm-body hover:text-warm-accent transition">Meta's Fees</a>
+                <a href="#next" class="text-warm-body hover:text-warm-accent transition">Next Steps</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <section id="overview" class="text-center mb-20">
+            <h2 class="text-4xl font-bold text-warm-heading mb-4">Your Guide to WhatsApp Automation Pricing</h2>
+            <p class="max-w-3xl mx-auto text-lg text-warm-body mb-12">
+                Welcome! This interactive guide breaks down the investment required to automate your Burger Booth's WhatsApp channel. We'll explore the components, from one-time setup to ongoing costs, to give you a clear and transparent understanding.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8 text-left">
+                <div class="bg-warm-card p-6 rounded-lg shadow-custom">
+                    <h3 class="text-xl font-semibold text-warm-heading mb-2">🤖 Automate Orders</h3>
+                    <p class="text-warm-body">Allow customers to browse your menu, place orders, and pay directly within WhatsApp, freeing up your staff and reducing errors.</p>
+                </div>
+                <div class="bg-warm-card p-6 rounded-lg shadow-custom">
+                    <h3 class="text-xl font-semibold text-warm-heading mb-2">💬 24/7 Customer Support</h3>
+                    <p class="text-warm-body">Instantly answer frequently asked questions about your hours, location, or specials, providing excellent service even when you're closed.</p>
+                </div>
+                <div class="bg-warm-card p-6 rounded-lg shadow-custom">
+                    <h3 class="text-xl font-semibold text-warm-heading mb-2">📈 Drive Sales</h3>
+                    <p class="text-warm-body">Send targeted promotions, new menu alerts, and special offers to your loyal customers, encouraging repeat business.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="costs" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-warm-heading mb-3">Interactive Cost Breakdown</h2>
+                <p class="max-w-2xl mx-auto text-warm-body">Click on each component to learn more. The total estimate on the right will update based on your selected tier in the next section.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="w-full lg:w-2/3 space-y-4">
+                    <div class="bg-warm-card rounded-lg shadow-custom p-6 cursor-pointer" onclick="toggleDetail('setup')">
+                        <h3 class="text-lg font-semibold text-warm-heading">One-Time Setup Fee</h3>
+                        <p id="detail-setup" class="text-warm-body mt-2 hidden">This covers the initial strategy, design, and development of your chatbot flow. We'll map out customer journeys, write the conversation scripts, and build the core automation logic. This is a one-off investment to get you started.</p>
+                    </div>
+                    <div class="bg-warm-card rounded-lg shadow-custom p-6 cursor-pointer" onclick="toggleDetail('platform')">
+                        <h3 class="text-lg font-semibold text-warm-heading">Monthly Platform Fee</h3>
+                        <p id="detail-platform" class="text-warm-body mt-2 hidden">This is a recurring fee for the software that powers your chatbot. It includes hosting, access to the automation builder, platform updates, and basic support. The price varies based on the features you need (see Feature Tiers below).</p>
+                    </div>
+                    <div class="bg-warm-card rounded-lg shadow-custom p-6 cursor-pointer" onclick="toggleDetail('meta-cost')">
+                        <h3 class="text-lg font-semibold text-warm-heading">Meta's Conversation Fees</h3>
+                        <p id="detail-meta-cost" class="text-warm-body mt-2 hidden">Meta (owner of WhatsApp) charges a small fee per conversation after your first 1,000 free service conversations each month. This is a direct cost from Meta and depends on your usage. We explain this in detail further down.</p>
+                    </div>
+                    <div class="bg-warm-card rounded-lg shadow-custom p-6 cursor-pointer" onclick="toggleDetail('maintenance')">
+                        <h3 class="text-lg font-semibold text-warm-heading">Optional: Monthly Maintenance & Optimization</h3>
+                        <p id="detail-maintenance" class="text-warm-body mt-2 hidden">For businesses that want to continuously improve. This optional retainer includes monthly performance reports, chatbot flow optimizations, updating menus/promos, and priority support.</p>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/3">
+                    <div class="bg-warm-card rounded-lg shadow-custom p-8 sticky top-24 text-center">
+                        <h3 class="text-xl font-semibold text-warm-heading mb-4">Your Estimated Investment</h3>
+                        <div class="mb-4">
+                            <p class="text-warm-body text-sm">One-Time Setup</p>
+                            <p id="cost-setup" class="text-4xl font-bold text-warm-accent">₹25,000</p>
+                        </div>
+                        <div class="mb-4">
+                            <p class="text-warm-body text-sm">Monthly Platform</p>
+                            <p id="cost-monthly" class="text-4xl font-bold text-warm-accent">₹4,000</p>
+                        </div>
+                        <p class="text-xs text-warm-body mt-4">Based on the 'Growth' tier. Select a different tier below to see updated costs. Meta fees are separate and usage-based.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tiers" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-warm-heading mb-3">Choose Your Feature Tier</h2>
+                <p class="max-w-2xl mx-auto text-warm-body">Select a tier to see how features impact your monthly cost. We recommend the 'Growth' tier for most burger booths starting out.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div id="tier-starter" class="tier-card bg-warm-card p-8 rounded-lg border-2 border-transparent transition-all duration-300 cursor-pointer" onclick="selectTier('starter')">
+                    <h3 class="text-2xl font-bold text-warm-heading mb-4">Starter</h3>
+                    <p class="text-warm-body mb-6">Essential automated responses for after-hours and basic queries.</p>
+                    <ul class="space-y-3 text-warm-body">
+                        <li>✔️ Welcome Message</li>
+                        <li>✔️ FAQ Bot (Hours, Location)</li>
+                        <li>✔️ After-Hours Response</li>
+                        <li>❌ Menu Display</li>
+                        <li>❌ Order Taking</li>
+                        <li>❌ Promotions</li>
+                    </ul>
+                </div>
+                <div id="tier-growth" class="tier-card bg-warm-card p-8 rounded-lg border-2 border-transparent transition-all duration-300 cursor-pointer selected" onclick="selectTier('growth')">
+                    <h3 class="text-2xl font-bold text-warm-heading mb-4">Growth</h3>
+                    <p class="text-warm-body mb-6">The complete package to display your menu and take orders automatically.</p>
+                    <ul class="space-y-3 text-warm-body">
+                        <li>✔️ Everything in Starter</li>
+                        <li>✔️ Interactive Menu Display</li>
+                        <li>✔️ Automated Order Taking</li>
+                        <li>✔️ Order Confirmation</li>
+                        <li>✔️ Basic Promotions</li>
+                        <li>❌ Payment Integration</li>
+                    </ul>
+                </div>
+                <div id="tier-pro" class="tier-card bg-warm-card p-8 rounded-lg border-2 border-transparent transition-all duration-300 cursor-pointer" onclick="selectTier('pro')">
+                    <h3 class="text-2xl font-bold text-warm-heading mb-4">Pro</h3>
+                    <p class="text-warm-body mb-6">Advanced features for maximizing revenue and customer loyalty.</p>
+                    <ul class="space-y-3 text-warm-body">
+                        <li>✔️ Everything in Growth</li>
+                        <li>✔️ In-Chat Payment Links</li>
+                        <li>✔️ Customer Loyalty Program</li>
+                        <li>✔️ Abandoned Cart Reminders</li>
+                        <li>✔️ Advanced Analytics</li>
+                        <li>✔️ CRM Integration</li>
+                    </ul>
+                </div>
+            </div>
+             <div class="bg-warm-card p-6 rounded-lg shadow-custom">
+                <h3 class="text-xl font-semibold text-warm-heading text-center mb-4">Feature Comparison</h3>
+                <div class="chart-container h-64 md:h-80">
+                    <canvas id="tierFeaturesChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="meta" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-warm-heading mb-3">Understanding Meta's Fees</h2>
+                <p class="max-w-2xl mx-auto text-warm-body">These are usage-based fees charged directly by WhatsApp. Your first 1,000 'Service' conversations each month are free!</p>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-8 items-center">
+                <div class="w-full lg:w-1/2 bg-warm-card p-6 rounded-lg shadow-custom">
+                     <h3 class="text-xl font-semibold text-warm-heading text-center mb-4">Conversation Cost in India (Approx.)</h3>
+                    <div class="chart-container">
+                        <canvas id="metaFeesChart"></canvas>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 bg-warm-accent-light p-8 rounded-lg">
+                    <h3 class="text-xl font-semibold text-warm-heading mb-4">Estimate Your Monthly Meta Cost</h3>
+                    <p class="text-warm-body mb-4">Enter your estimated monthly conversations (beyond the 1,000 free ones) to get a cost projection.</p>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="user-initiated" class="block text-sm font-medium text-warm-body">Customer Inquiries (Service)</label>
+                            <input type="number" id="user-initiated" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm" placeholder="e.g., 500">
+                        </div>
+                        <div>
+                            <label for="business-initiated" class="block text-sm font-medium text-warm-body">Promotions Sent (Marketing)</label>
+                            <input type="number" id="business-initiated" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm" placeholder="e.g., 2000">
+                        </div>
+                        <button id="calculate-meta-cost" class="w-full bg-warm-accent text-white font-bold py-2 px-4 rounded-lg hover:opacity-90 transition">Calculate</button>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <p class="text-warm-body">Estimated Monthly Meta Fee:</p>
+                        <p id="meta-cost-result" class="text-3xl font-bold text-warm-heading">₹0</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="next" class="text-center bg-warm-card p-12 rounded-lg shadow-custom">
+            <h2 class="text-3xl font-bold text-warm-heading mb-4">Our Process & Next Steps</h2>
+            <p class="max-w-2xl mx-auto text-warm-body mb-10">We follow a simple, collaborative process to bring your WhatsApp automation to life.</p>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
+                <div class="flex items-center">
+                    <div class="bg-warm-accent text-white rounded-full h-10 w-10 flex items-center justify-center font-bold text-lg">1</div>
+                    <p class="ml-4 font-semibold text-warm-heading">Discovery & Strategy</p>
+                </div>
+                 <div class="text-warm-accent hidden md:block">→</div>
+                <div class="flex items-center">
+                    <div class="bg-warm-accent text-white rounded-full h-10 w-10 flex items-center justify-center font-bold text-lg">2</div>
+                    <p class="ml-4 font-semibold text-warm-heading">Bot Development</p>
+                </div>
+                 <div class="text-warm-accent hidden md:block">→</div>
+                <div class="flex items-center">
+                    <div class="bg-warm-accent text-white rounded-full h-10 w-10 flex items-center justify-center font-bold text-lg">3</div>
+                    <p class="ml-4 font-semibold text-warm-heading">Testing & Launch</p>
+                </div>
+                 <div class="text-warm-accent hidden md:block">→</div>
+                <div class="flex items-center">
+                    <div class="bg-warm-accent text-white rounded-full h-10 w-10 flex items-center justify-center font-bold text-lg">4</div>
+                    <p class="ml-4 font-semibold text-warm-heading">Support & Growth</p>
+                </div>
+            </div>
+            <div class="mt-10">
+                <a href="mailto:hello@jetweblabs.com" class="bg-warm-heading text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition text-lg">Schedule Your Discovery Call</a>
+            </div>
+        </section>
+    </main>
+
+<script>
+    const costs = {
+        starter: { setup: 15000, monthly: 2000 },
+        growth: { setup: 25000, monthly: 4000 },
+        pro: { setup: 45000, monthly: 7500 }
+    };
+
+    let selectedTier = 'growth';
+
+    function formatCurrency(amount) {
+        return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', minimumFractionDigits: 0 }).format(amount);
+    }
+
+    function updateCosts() {
+        const tierCosts = costs[selectedTier];
+        document.getElementById('cost-setup').textContent = formatCurrency(tierCosts.setup);
+        document.getElementById('cost-monthly').textContent = formatCurrency(tierCosts.monthly);
+    }
+
+    function selectTier(tier) {
+        selectedTier = tier;
+        document.querySelectorAll('.tier-card').forEach(card => card.classList.remove('selected'));
+        document.getElementById(`tier-${tier}`).classList.add('selected');
+        updateCosts();
+    }
+
+    function toggleDetail(id) {
+        const detailElement = document.getElementById(`detail-${id}`);
+        detailElement.classList.toggle('hidden');
+    }
+
+    function calculateMetaCost() {
+        const userInitiatedCount = parseInt(document.getElementById('user-initiated').value) || 0;
+        const businessInitiatedCount = parseInt(document.getElementById('business-initiated').value) || 0;
+
+        const userInitiatedRate = 0.29; 
+        const businessInitiatedRate = 0.48; 
+
+        const totalCost = (userInitiatedCount * userInitiatedRate) + (businessInitiatedCount * businessInitiatedRate);
+        
+        document.getElementById('meta-cost-result').textContent = formatCurrency(totalCost);
+    }
+
+    document.getElementById('calculate-meta-cost').addEventListener('click', calculateMetaCost);
+
+    window.addEventListener('DOMContentLoaded', () => {
+        updateCosts();
+
+        const tierFeaturesCtx = document.getElementById('tierFeaturesChart').getContext('2d');
+        new Chart(tierFeaturesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Starter', 'Growth', 'Pro'],
+                datasets: [{
+                    label: '# of Core Features',
+                    data: [3, 6, 9],
+                    backgroundColor: ['#F9EBE7', '#E87A5D', '#D35400'],
+                    borderColor: ['#F9EBE7', '#E87A5D', '#D35400'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                           display: false
+                        }
+                    },
+                    y: {
+                        grid: {
+                           display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        const metaFeesCtx = document.getElementById('metaFeesChart').getContext('2d');
+        new Chart(metaFeesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Service (Customer Initiated)', 'Marketing (You Initiate)'],
+                datasets: [{
+                    label: 'Cost per Conversation (₹)',
+                    data: [0.29, 0.48],
+                    backgroundColor: ['#82E0AA', '#F7DC6F'],
+                    borderColor: ['#2ECC71', '#F1C40F'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                         callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += formatCurrency(context.parsed.y);
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value, index, values) {
+                                return '₹' + value;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    });
+
+</script>
+</body>
+</html>
