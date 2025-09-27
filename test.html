@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JetWeb - All Things, IT | Custom Web Development & SEO Services</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="JetWeb, a subsidiary of JetWebLabs, delivers top-tier web development, UI/UX design, e-commerce solutions, and SEO strategies to elevate your digital presence.">
+    <meta name="keywords" content="web development, UI/UX design, SEO, e-commerce, cloud services, digital marketing, JetWeb, JetWebLabs">
+    <meta name="author" content="JetWeb Labs">
+
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+US+Modern:wght@100..400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Embedded CSS -->
+    <style>
+        /* CSS Variables for Theming */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --background-color: #ffffff;
+            --surface-color: #f8f9fa;
+            --text-color: #343a40;
+            --heading-color: #212529;
+            --border-color: #dee2e6;
+            --white: #fff;
+            --orange-accent: #fd7e14;
+            --font-main: 'Poppins', sans-serif;
+            --font-accent: 'Playwrite US Modern', cursive;
+            --shadow: 0 4px 15px rgba(0,0,0,0.07);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #0d6efd;
+            --secondary-color: #adb5bd;
+            --background-color: #0d1117; /* GitHub Dark Background */
+            --surface-color: #161b22;    /* GitHub Dark Surface */
+            --text-color: #c9d1d9;
+            --heading-color: #ffffff;
+            --border-color: #30363d;
+            --shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+
+        /* Header & Navigation */
+        .main-header {
+            background-color: var(--background-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 60px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        /* Theme Toggle Switch */
+        .theme-switch-container { display: flex; align-items: center; gap: 8px; }
+        .theme-switch { position: relative; display: inline-block; width: 50px; height: 26px; }
+        .theme-switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 26px; }
+        .slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--primary-color); }
+        input:checked + .slider:before { transform: translateX(24px); }
+
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        /* Sidebar */
+        .sidebar { position: fixed; top: 0; right: -280px; width: 280px; height: 100%; background-color: var(--surface-color); box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.3s ease-in-out; z-index: 1001; padding: 20px; }
+        .sidebar.open { right: 0; }
+        .sidebar ul { list-style: none; margin-top: 40px; }
+        .sidebar ul li a { display: block; padding: 15px; text-decoration: none; color: var(--text-color); font-size: 1.1rem; border-radius: 5px; }
+        .sidebar ul li a:hover { background-color: var(--border-color); }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 2.5rem; background: none; border: none; color: var(--text-color); cursor: pointer; }
+
+        /* Hero Section */
+        .hero { display: flex; align-items: center; justify-content: center; min-height: 90vh; padding: 60px 0; }
+        .hero .container { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+        .hero-content { max-width: 50%; }
+        .hero-image { max-width: 45%; }
+        .hero-image img { width: 100%; height: auto; }
+        .hero h1 { font-size: 3rem; color: var(--heading-color); margin-bottom: 20px; line-height: 1.2; }
+        .hero .tagline { font-family: var(--font-accent); font-size: 1.8rem; color: var(--primary-color); min-height: 50px; }
+        .typing-cursor { display: inline-block; width: 3px; height: 1.8rem; background-color: var(--primary-color); animation: blink 0.7s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* Dialog Box */
+        .dialog-box { background-color: #111; color: var(--white); padding: 60px 0; text-align: center; }
+        .dialog-box h2 { font-size: 2.5rem; margin-bottom: 15px; }
+        .dialog-box p { max-width: 800px; margin: 0 auto 30px auto; font-size: 1.1rem; color: #ccc; }
+        .btn { padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: 600; transition: all 0.3s ease; display: inline-block; border: 2px solid transparent; }
+        .btn-primary { background-color: var(--primary-color); color: var(--white); border-color: var(--primary-color); }
+        .btn-primary:hover { background-color: transparent; color: var(--primary-color); }
+
+        /* Stats Section */
+        .stats { background-color: var(--surface-color); }
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: center; }
+        .stat-item h3 { font-size: 3rem; color: var(--primary-color); font-weight: 700; }
+        .stat-item p { font-size: 1.1rem; color: var(--secondary-color); }
+
+        /* Services Section */
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--heading-color); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { background-color: var(--surface-color); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); transition: transform 0.3s, box-shadow 0.3s; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow); }
+        .service-card .icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .service-card h4 { font-size: 1.5rem; margin-bottom: 10px; color: var(--heading-color); }
+        .service-card .learn-more { color: var(--primary-color); text-decoration: none; font-weight: 600; margin-top: 15px; display: inline-block; cursor: pointer; }
+        
+        /* Delivery Process & Story Section */
+        .process-timeline { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; position: relative; }
+        .process-timeline::before { content: ''; position: absolute; top: 0; left: 25px; transform: translateX(-50%); width: 3px; height: 100%; background-color: var(--border-color); z-index: 1; }
+        .process-step { display: flex; align-items: flex-start; gap: 20px; position: relative; padding-left: 60px; }
+        .process-icon { position: absolute; left: 0; top: 0; width: 50px; height: 50px; border-radius: 50%; background: var(--primary-color); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; border: 4px solid var(--background-color); z-index: 2; }
+        .process-content h4 { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; margin-bottom: 5px; }
+        .process-content h4 span.icon { font-size: 1.5rem; } /* For emojis */
+        
+        /* Technology Stack Section */
+        .tech-stack-container { max-width: 900px; margin: 0 auto; }
+        .tech-category { margin-bottom: 30px; }
+        .tech-category h4 { margin-bottom: 20px; font-size: 1.5rem; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; display: inline-block; }
+        .tech-icons-grid { display: flex; flex-wrap: wrap; gap: 20px; }
+        .tech-item { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 80px; }
+        .tech-item i { font-size: 2.5rem; color: var(--secondary-color); transition: color 0.3s, transform 0.3s; }
+        .tech-item:hover i { color: var(--primary-color); transform: scale(1.1); }
+        .tech-item span { font-size: 0.9rem; }
+        #hidden-stacks { display: none; }
+        .view-more-btn { background: none; border: 2px solid var(--primary-color); color: var(--primary-color); padding: 10px 20px; cursor: pointer; border-radius: 5px; display: block; margin: 30px auto 0; transition: background-color 0.3s, color 0.3s; }
+        .view-more-btn:hover { background-color: var(--primary-color); color: var(--white); }
+
+        /* Case Studies & Testimonials */
+        .case-studies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card { background-color: var(--surface-color); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); }
+        .testimonial-slider-container { overflow: hidden; padding: 20px 0; position: relative; }
+        .testimonial-slider-container:before, .testimonial-slider-container:after { content: ''; position: absolute; top: 0; width: 100px; height: 100%; z-index: 2; }
+        .testimonial-slider-container:before { left: 0; background: linear-gradient(to right, var(--background-color) 0%, transparent 100%); }
+        .testimonial-slider-container:after { right: 0; background: linear-gradient(to left, var(--background-color) 0%, transparent 100%); }
+        .testimonial-slider { display: flex; animation: scroll 40s linear infinite; }
+        .testimonial-card { flex: 0 0 350px; margin-right: 30px; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-380px * 4)); } }
+        
+        /* Expertise Section */
+        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .expertise-item { text-align: center; }
+        .expertise-item .icon { font-size: 2rem; margin-bottom: 10px; color: var(--primary-color); }
+        .expertise-bar-container { width: 100%; height: 10px; background-color: var(--border-color); border-radius: 5px; overflow: hidden; margin-top: 10px; }
+        .expertise-bar { width: 100%; height: 100%; background-color: var(--primary-color); border-radius: 5px; }
+
+        /* About Section */
+        .about-section .container { display: flex; align-items: center; gap: 40px; }
+        .about-content, .about-image { width: 50%; }
+        .about-image img { width: 100%; border-radius: 8px; }
+
+        /* FAQ Section */
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border-color); padding: 20px 0; }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 1.2rem; font-weight: 500; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .faq-item.active .faq-answer { max-height: 200px; padding-top: 15px; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .faq-question i { transition: transform 0.3s; }
+
+        /* Contact Section */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .contact-form .form-group { margin-bottom: 20px; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; border-radius: 5px; border: 1px solid var(--border-color); background-color: var(--surface-color); color: var(--text-color); }
+        .contact-info p { font-size: 1.1rem; margin-bottom: 15px; }
+
+        /* Footer */
+        .main-footer { background-color: var(--surface-color); padding: 60px 0 20px 0; border-top: 1px solid var(--border-color); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 40px; }
+        .footer-logo { height: 80px; margin-bottom: 15px; }
+        .footer-links ul { list-style: none; }
+        .footer-links ul li a { text-decoration: none; color: var(--text-color); margin-bottom: 10px; display: block; }
+        .footer-social .social-icons { display: flex; gap: 15px; }
+        .footer-social .social-icons a { font-size: 1.5rem; color: var(--text-color); }
+        .footer-bottom { text-align: center; border-top: 1px solid var(--border-color); padding-top: 20px; font-size: 0.9rem; }
+        
+        /* Modal Styles */
+        .modal { display: none; position: fixed; z-index: 1050; left: 0; top: 0; width: 100%; height: 100%; overflow-y: auto; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
+        .modal.show { display: flex; }
+        .modal-content { background-color: var(--background-color); margin: 5% auto; padding: 30px; border: 1px solid var(--border-color); width: 90%; max-width: 900px; border-radius: 8px; position: relative; box-shadow: 0 5px 25px rgba(0,0,0,0.2); }
+        .modal-close { color: var(--text-color); position: absolute; top: 15px; right: 20px; font-size: 2rem; font-weight: bold; cursor: pointer; }
+        .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+        .plan-card { border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; text-align: center; }
+        .plan-card.popular { border-color: var(--primary-color); border-width: 2px; position: relative; }
+        .plan-card.popular::before { content: 'Most Popular'; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary-color); color: var(--white); padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; }
+        .plan-card h4 { font-size: 1.5rem; color: var(--primary-color); }
+        .plan-card .price { font-size: 1.2rem; font-weight: bold; margin: 10px 0; }
+        .plan-card .price span { font-size: 0.9rem; color: var(--secondary-color); }
+        .plan-card ul { list-style: none; margin: 20px 0; }
+        .plan-card ul li { margin-bottom: 10px; }
+        .modal h2 { margin-bottom: 20px; }
+        .case-study-content .tech-list { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0; }
+        .case-study-content .tech-list li { background: var(--surface-color); padding: 5px 10px; border-radius: 5px; font-size: 0.9rem; }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero .container, .about-section .container { flex-direction: column; text-align: center; }
+            .hero-content, .hero-image, .about-content, .about-image { max-width: 100%; width: 100%; }
+            .hero-image { margin-top: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: block; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            .dialog-box h2 { font-size: 2rem; }
+            .section-title { font-size: 2rem; }
+            .process-timeline::before { left: 25px; }
+            .process-step { padding-left: 60px; }
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="assets/img/logo1.png" alt="JetWeb Logo" class="logo">
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="theme-switch-container">
+                    <i class="fas fa-sun"></i>
+                    <label class="theme-switch">
+                      <input type="checkbox" id="theme-toggle">
+                      <span class="slider"></span>
+                    </label>
+                    <i class="fas fa-moon"></i>
+                </div>
+                <button class="hamburger" id="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" id="close-btn">&times;</button>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#case-studies">Case Studies</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Elevate Your Web Presence with JetWeb Labs</h1>
+                    <p class="tagline"><span id="typewriter"></span><span class="typing-cursor"></span></p>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/img/svg.png" alt="JetWeb Services Overview">
+                </div>
+            </div>
+        </section>
+        
+        <section class="dialog-box">
+            <div class="container">
+                <h2>Transforming Ideas into Digital Reality with JetWeb Labs</h2>
+                <p>Innovative web development solutions, SEO-optimized designs, and cloud-based services for modern businesses.</p>
+                <a href="#contact" class="btn btn-primary">Get Started</a>
+            </div>
+        </section>
+
+        <section id="stats" class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="40">0</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="38">0</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="2">0</h3>
+                        <p>Years of Experience</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card"><div class="icon">🖥️</div><h4>Custom Website Development</h4><p>Tailored websites for small businesses, personal brands, and startups.</p><a class="learn-more" data-service="webdev">Learn More→</a></div>
+                    <div class="service-card"><div class="icon">🎨</div><h4>UI/UX Design</h4><p>Modern, mobile-first design approach for optimal user experience.</p><a class="learn-more" data-service="uiux">Learn More→</a></div>
+                    <div class="service-card"><div class="icon">🛒</div><h4>E-commerce Integration</h4><p>WooCommerce, Shopify, or custom solutions to get your business online.</p><a class="learn-more" data-service="ecommerce">Learn More→</a></div>
+                    <div class="service-card"><div class="icon">🔧</div><h4>Maintenance & Support</h4><p>Ongoing support for all delivered projects.</p><a class="learn-more" data-service="support">Learn More→</a></div>
+                    <div class="service-card"><div class="icon">📈</div><h4>SEO and Digital Strategy</h4><p>Ensure your website ranks high in search engine results.</p><a class="learn-more" data-service="seo">Learn More→</a></div>
+                    <div class="service-card"><div class="icon">📱</div><h4>Web App Development</h4><p>Progressive web apps for enhanced user engagement.</p><a class="learn-more" data-service="webapp">Learn More→</a></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="process" class="process">
+            <div class="container">
+                <h2 class="section-title">Our Delivery Process</h2>
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <div class="process-icon">💡</div>
+                        <div class="process-content">
+                            <h4>Idea</h4>
+                            <p>We start by understanding your vision and requirements through in-depth consultation.</p>
+                        </div>
+                    </div>
+                     <div class="process-step">
+                        <div class="process-icon">🎨</div>
+                        <div class="process-content">
+                            <h4>Design</h4>
+                            <p>Our designers create stunning, user-friendly mockups and prototypes for your approval.</p>
+                        </div>
+                    </div>
+                     <div class="process-step">
+                        <div class="process-icon">💻</div>
+                        <div class="process-content">
+                            <h4>Development</h4>
+                            <p>Our developers bring the design to life with clean, efficient, and scalable code.</p>
+                        </div>
+                    </div>
+                     <div class="process-step">
+                        <div class="process-icon">🚀</div>
+                        <div class="process-content">
+                            <h4>Implementation</h4>
+                            <p>We deploy your project to a live environment and provide ongoing support and maintenance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="tech-stack">
+            <div class="container">
+                <h2 class="section-title">Our Technology Stack</h2>
+                <div class="tech-stack-container">
+                    <div class="tech-category">
+                        <h4>Frontend</h4>
+                        <div class="tech-icons-grid">
+                            <div class="tech-item"><i class="fab fa-html5"></i><span>HTML5</span></div>
+                            <div class="tech-item"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+                            <div class="tech-item"><i class="fab fa-js"></i><span>JavaScript</span></div>
+                            <div class="tech-item"><i class="fab fa-react"></i><span>React</span></div>
+                            <div class="tech-item"><i class="fab fa-angular"></i><span>Angular</span></div>
+                            <div class="tech-item"><i class="fab fa-vuejs"></i><span>Vue.js</span></div>
+                            <div class="tech-item"><i class="fas fa-bold"></i><span>TypeScript</span></div>
+                            <div class="tech-item"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></div>
+                            <div class="tech-item"><i class="fas fa-wind"></i><span>Tailwind</span></div>
+                            <div class="tech-item"><i class="fab fa-sass"></i><span>SASS</span></div>
+                        </div>
+                    </div>
+                     <div class="tech-category">
+                        <h4>Backend</h4>
+                        <div class="tech-icons-grid">
+                           <div class="tech-item"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                           <div class="tech-item"><i class="fas fa-box"></i><span>Express.js</span></div>
+                           <div class="tech-item"><i class="fab fa-python"></i><span>Python</span></div>
+                           <div class="tech-item"><i class="fas fa-flask"></i><span>Flask</span></div>
+                           <div class="tech-item"><i class="fas fa-cubes"></i><span>Django</span></div>
+                           <div class="tech-item"><i class="fab fa-php"></i><span>PHP</span></div>
+                           <div class="tech-item"><i class="fab fa-laravel"></i><span>Laravel</span></div>
+                           <div class="tech-item"><i class="fab fa-java"></i><span>Java</span></div>
+                           <div class="tech-item"><i class="fas fa-leaf"></i><span>Spring</span></div>
+                           <div class="tech-item"><i class="fas fa-gem"></i><span>Ruby</span></div>
+                        </div>
+                    </div>
+                    <div id="hidden-stacks">
+                         <div class="tech-category">
+                            <h4>Databases</h4>
+                            <div class="tech-icons-grid">
+                               <div class="tech-item"><i class="fas fa-database"></i><span>MySQL</span></div>
+                               <div class="tech-item"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
+                               <div class="tech-item"><i class="fas fa-leaf"></i><span>MongoDB</span></div>
+                               <div class="tech-item"><i class="fas fa-fire"></i><span>Firebase</span></div>
+                               <div class="tech-item"><i class="fas fa-database"></i><span>SQLite</span></div>
+                               <div class="tech-item"><i class="fas fa-database"></i><span>Redis</span></div>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <h4>Cloud & DevOps</h4>
+                            <div class="tech-icons-grid">
+                               <div class="tech-item"><i class="fab fa-aws"></i><span>AWS</span></div>
+                               <div class="tech-item"><i class="fab fa-google"></i><span>Google Cloud</span></div>
+                               <div class="tech-item"><i class="fab fa-microsoft"></i><span>Azure</span></div>
+                               <div class="tech-item"><i class="fab fa-digital-ocean"></i><span>DigitalOcean</span></div>
+                               <div class="tech-item"><i class="fab fa-docker"></i><span>Docker</span></div>
+                               <div class="tech-item"><i class="fas fa-ship"></i><span>Kubernetes</span></div>
+                               <div class="tech-item"><i class="fab fa-git-alt"></i><span>Git</span></div>
+                               <div class="tech-item"><i class="fab fa-github"></i><span>GitHub</span></div>
+                               <div class="tech-item"><i class="fas fa-tasks"></i><span>Jenkins</span></div>
+                            </div>
+                        </div>
+                         <div class="tech-category">
+                            <h4>Design & Project Management</h4>
+                            <div class="tech-icons-grid">
+                                <div class="tech-item"><i class="fab fa-figma"></i><span>Figma</span></div>
+                                <div class="tech-item"><i class="fab fa-adobe"></i><span>Adobe XD</span></div>
+                                <div class="tech-item"><i class="fas fa-palette"></i><span>Photoshop</span></div>
+                                <div class="tech-item"><i class="fab fa-trello"></i><span>Trello</span></div>
+                                <div class="tech-item"><i class="fab fa-jira"></i><span>Jira</span></div>
+                                <div class="tech-item"><i class="fab fa-slack"></i><span>Slack</span></div>
+                            </div>
+                        </div>
+                         <div class="tech-category">
+                            <h4>AI & Machine Learning</h4>
+                            <div class="tech-icons-grid">
+                                <div class="tech-item"><i class="fas fa-brain"></i><span>TensorFlow</span></div>
+                                <div class="tech-item"><i class="fas fa-robot"></i><span>PyTorch</span></div>
+                                <div class="tech-item"><i class="fas fa-cogs"></i><span>Scikit-learn</span></div>
+                                <div class="tech-item"><i class="fas fa-brain"></i><span>OpenAI API</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="view-more-stack" class="view-more-btn">View More</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="case-studies">
+            <div class="container">
+                <h2 class="section-title">Case Studies</h2>
+                <div class="case-studies-grid">
+                    <div class="card"><h4 class="h5">DJ Heman</h4><p>A dynamic website for a popular DJ, featuring event bookings and music samples.</p><a class="learn-more" data-casestudy="djheman">View Case Study→</a></div>
+                    <div class="card"><h4 class="h5">Academica Coaching</h4><p>An interactive learning platform with course management and student progress tracking.</p><a class="learn-more" data-casestudy="academica">View Case Study→</a></div>
+                    <div class="card"><h4 class="h5">Fun Kraft</h4><p>A fully-featured online store with product catalog, cart, and secure checkout.</p><a class="learn-more" data-casestudy="funkraft">View Case Study→</a></div>
+                    <div class="card"><h4 class="h5">MotoXHub</h4><p>A community blog and news portal for motorcycle enthusiasts with custom post types.</p><a class="learn-more" data-casestudy="motoxhub">View Case Study→</a></div>
+                    <div class="card"><h4 class="h5">HealthBridge</h4><p>A secure patient portal for a local clinic, enabling appointment booking and record access.</p><a class="learn-more" data-casestudy="healthbridge">View Case Study→</a></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="story">
+            <div class="container">
+                <h2 class="section-title">Our Continued Story</h2>
+                <div class="process-timeline story-timeline">
+                     <div class="process-step">
+                        <div class="process-icon">🎉</div>
+                        <div class="process-content"><h4>July 2023</h4><p>JetWeb is founded as a subsidiary of JetWebLabs with a mission to innovate.</p></div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-icon">🚀</div>
+                        <div class="process-content"><h4>September 2023</h4><p>Launched our first client project, a portfolio website for a local artist.</p></div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-icon">🛒</div>
+                        <div class="process-content"><h4>March 2024</h4><p>Expanded services to include comprehensive e-commerce solutions.</p></div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-icon">🌟</div>
+                        <div class="process-content"><h4>December 2024</h4><p>Achieved the 25+ satisfied clients milestone, growing our portfolio.</p></div>
+                    </div>
+                     <div class="process-step">
+                        <div class="process-icon">📱</div>
+                        <div class="process-content"><h4>June 2025</h4><p>Introduced Web App Development and advanced SEO packages.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <div class="container">
+                <h2 class="section-title">What Our Clients Say</h2>
+            </div>
+            <div class="testimonial-slider-container">
+                <div class="testimonial-slider">
+                    <div class="card testimonial-card"><h5>DJ Hemant</h5><p><small>Sunburn Academy Certified DJ</small></p><p>"JetWeb transformed my online presence. Their custom website not only looks fantastic but has significantly improved my user engagement and conversion rates. Highly recommended!"</p></div>
+                    <div class="card testimonial-card"><h5>Gopal Burman</h5><p><small>Founder, Academica</small></p><p>"The form solution provided by JetWeb has been a game-changer. Our online conversions have doubled since our new website launch. Their team is professional, responsive, and truly cares about our success."</p></div>
+                    <div class="card testimonial-card"><h5>Akash Mahato</h5><p><small>Founder, MotoXHub</small></p><p>"JetWeb's SEO and digital strategy services have dramatically improved our online visibility. We're now ranking on the first page for our key terms, and the increase in organic traffic has been phenomenal."</p></div>
+                    <div class="card testimonial-card"><h5>Priya Singh</h5><p><small>Owner, Fun Kraft</small></p><p>"The e-commerce platform they built is robust and easy to manage. Sales have increased by 40% in the first quarter alone. Exceptional work!"</p></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="expertise">
+            <div class="container">
+                <h2 class="section-title">Our Expertise</h2>
+                <div class="expertise-grid">
+                    <div class="expertise-item"><div class="icon">💻</div><h4>Web Development</h4><div class="expertise-bar-container"><div class="expertise-bar"></div></div></div>
+                    <div class="expertise-item"><div class="icon">🎨</div><h4>UI/UX Design</h4><div class="expertise-bar-container"><div class="expertise-bar"></div></div></div>
+                    <div class="expertise-item"><div class="icon">📱</div><h4>Mobile Development</h4><div class="expertise-bar-container"><div class="expertise-bar"></div></div></div>
+                    <div class="expertise-item"><div class="icon">🔒</div><h4>Cybersecurity</h4><div class="expertise-bar-container"><div class="expertise-bar"></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container about-section">
+                <div class="about-content">
+                    <h2 class="section-title" style="text-align:left; margin-bottom: 20px;">About JetWeb – Your Trusted Web Development Partner</h2>
+                    <p>JetWeb, a proud subsidiary of <strong>JetWebLabs</strong>, specializes in delivering <strong>top-notch web development services</strong> tailored to meet your business needs. Our expert team combines <strong>creative design</strong>, <strong>full-stack development</strong>, and the latest <strong>SEO strategies</strong> to create innovative digital solutions.</p>
+                    <p>We are committed to <strong>innovation</strong> and <strong>client satisfaction</strong>, ensuring <strong>exceptional results</strong> in every project we undertake. Our mission is to help businesses grow by exceeding expectations through cutting-edge <strong>web design</strong>, <strong>cloud solutions</strong>, and <strong>digital marketing</strong>.</p>
+                    <a href="#contact" class="btn btn-primary" style="margin-top:20px;">Get in Touch</a>
+                </div>
+                <div class="about-image">
+                    <img src="assets/img/svg.png" alt="About JetWeb">
+                </div>
+            </div>
+        </section>
+
+        <section id="faq">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-container">
+                    <div class="faq-item"><div class="faq-question">What services does JetWeb offer? <i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>JetWeb offers a wide range of web development services including custom website development, UI/UX design, e-commerce integration, web app development, SEO optimization, and ongoing maintenance and support.</p></div></div>
+                    <div class="faq-item"><div class="faq-question">How long does it take to complete a project? <i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Project timelines vary depending on the scope and complexity of the project. A simple website might take 2-4 weeks, while a complex web application could take several months. We provide detailed timelines during our initial consultation.</p></div></div>
+                    <div class="faq-item"><div class="faq-question">Do you offer post-launch support? <i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Yes, we offer comprehensive post-launch support and maintenance packages to ensure your website continues to perform optimally. This includes regular updates, security patches, and technical support.</p></div></div>
+                    <div class="faq-item"><div class="faq-question">What is your pricing model? <i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>We offer both fixed-price project-based pricing and hourly rates depending on the project's nature. We provide a detailed, transparent quote after the initial requirements gathering session.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <p>Have a project in mind or just want to say hello? We'd love to hear from you. Fill out the form or send us an email.</p>
+                        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:support@jetweblabs.in">support@jetweblabs.in</a></p>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
+                        <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
+                        <div class="form-group"><textarea name="message" rows="5" placeholder="Your Message" required></textarea></div>
+                        <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about"><img src="assets/img/logo1.png" alt="JetWeb Labs Logo" class="footer-logo"><p>Pioneering the next wave of technological innovation.</p></div>
+                <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#services">Services</a></li><li><a href="#case-studies">Case Studies</a></li><li><a href="#testimonials">Testimonials</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul></div>
+                <div class="footer-social"><h4>Connect With Us</h4><div class="social-icons"><a href="https://linkedin.com/company/jetweb-labs" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="https://Instagram.com/jetweblabs" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://github.com/jetweblabs" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></div></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 JetWeb. All Rights Reserved.</p></div>
+        </div>
+    </footer>
+    
+    <!-- Modal Structure -->
+    <div id="mainModal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
+    <!-- Embedded JavaScript -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // --- Mobile Menu (Sidebar) ---
+        const hamburger = document.getElementById('hamburger-menu');
+        const sidebar = document.getElementById('sidebar');
+        const closeBtn = document.getElementById('close-btn');
+        const sidebarLinks = sidebar.querySelectorAll('a');
+
+        hamburger.addEventListener('click', () => sidebar.classList.add('open'));
+        closeBtn.addEventListener('click', () => sidebar.classList.remove('open'));
+        sidebarLinks.forEach(link => link.addEventListener('click', () => sidebar.classList.remove('open')));
+
+        // --- Dark/Light Mode Toggle ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                themeToggle.checked = true;
+            }
+        }
+        
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // --- Typewriter Effect ---
+        const typewriterElement = document.getElementById('typewriter');
+        const phrases = ["All things, IT", "You think, we deliver"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            if (!typewriterElement) return;
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+            }
+
+            const typingSpeed = isDeleting ? 100 : 150;
+            setTimeout(type, typingSpeed);
+        }
+        type();
+
+        // --- Stats Counter ---
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; 
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 1);
+                        } else {
+                            counter.innerText = target + '+';
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        counters.forEach(counter => observer.observe(counter));
+        
+        // --- Tech Stack "View More" ---
+        const viewMoreBtn = document.getElementById('view-more-stack');
+        const hiddenStacks = document.getElementById('hidden-stacks');
+
+        viewMoreBtn.addEventListener('click', () => {
+            const isHidden = hiddenStacks.style.display === 'none' || hiddenStacks.style.display === '';
+            if (isHidden) {
+                hiddenStacks.style.display = 'block';
+                viewMoreBtn.textContent = 'View Less';
+            } else {
+                hiddenStacks.style.display = 'none';
+                viewMoreBtn.textContent = 'View More';
+            }
+        });
+
+        // --- FAQ Accordion ---
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // --- Testimonial Scroller ---
+        const sliderContainer = document.querySelector('.testimonial-slider');
+        if(sliderContainer) {
+            const slides = sliderContainer.innerHTML;
+            sliderContainer.innerHTML += slides;
+        }
+
+        // --- Modal Data & Logic ---
+        const modal = document.getElementById('mainModal');
+        const modalBody = document.getElementById('modal-body');
+        const closeModalBtn = document.querySelector('.modal-close');
+
+        // Service Plans Data
+        const serviceData = {
+            webdev: `<h2>Custom Website Development</h2>
+                <div class="plans-grid">
+                    <div class="plan-card"><h4>JetLite</h4><div class="price">$500 / ₹40,000</div><p><small>Best for personal sites & portfolios</small></p><ul><li>Up to 5 Pages</li><li>Responsive Design</li><li>Contact Form</li><li>Basic SEO</li><li>1 Month Support</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                    <div class="plan-card popular"><h4>JetPro</h4><div class="price">$1200 / ₹99,000</div><p><small>Best for small businesses</small></p><ul><li>Up to 10 Pages</li><li>Custom Design</li><li>CMS Integration</li><li>Advanced SEO</li><li>3 Months Support</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                    <div class="plan-card"><h4>JetFlash</h4><div class="price">$2500 / ₹2,00,000</div><p><small>Best for growing businesses</small></p><ul><li>15+ Pages</li><li>Unique UI/UX</li><li>Blog & E-commerce</li><li>Full SEO Strategy</li><li>6 Months Support</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                    <div class="plan-card"><h4>JetEnterprise</h4><div class="price">Custom</div><p><small>For large scale applications</small></p><ul><li>Unlimited Pages</li><li>Custom Functionality</li><li>API Integrations</li><li>Dedicated Support</li><li>Full Maintenance</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                </div>`,
+            uiux: `<h2>UI/UX Design Packages</h2>
+                <div class="plans-grid">
+                    <div class="plan-card"><h4>JetWireframe</h4><div class="price">$400 / ₹32,000</div><p><small>For idea validation</small></p><ul><li>Low-fidelity Wireframes</li><li>Up to 10 Screens</li><li>User Flow Mapping</li><li>2 Rounds of Revision</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                    <div class="plan-card popular"><h4>JetDesign</h4><div class="price">$900 / ₹75,000</div><p><small>For new products</small></p><ul><li>High-fidelity Mockups</li><li>Up to 15 Screens</li><li>Clickable Prototype</li><li>Full Design System</li><li>4 Rounds of Revision</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                    <div class="plan-card"><h4>JetExperience</h4><div class="price">$1800+ / ₹1,50,000+</div><p><small>For complete overhaul</small></p><ul><li>Full UX Research</li><li>User Personas & Journey</li><li>A/B Testing Designs</li><li>Interactive Prototypes</li><li>Unlimited Revisions</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                </div>`,
+            ecommerce: `<h2>E-commerce Integration</h2>
+                <div class="plans-grid">
+                     <div class="plan-card"><h4>JetCart</h4><div class="price">$800 / ₹65,000</div><p><small>For small shops</small></p><ul><li>Shopify/WooCommerce Setup</li><li>Up to 50 Products</li><li>Payment Gateway Setup</li><li>Basic Theme Customization</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                     <div class="plan-card popular"><h4>JetStore</h4><div class="price">$2000 / ₹1,65,000</div><p><small>For serious sellers</small></p><ul><li>Custom Store Design</li><li>Up to 200 Products</li><li>Multiple Payment Options</li><li>SEO for Products</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                     <div class="plan-card"><h4>JetMarketplace</h4><div class="price">Custom</div><p><small>For large-scale platforms</small></p><ul><li>Full Custom Solution</li><li>Unlimited Products</li><li>Vendor Management</li><li>Advanced Analytics</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                </div>`,
+            support: `<h2>Maintenance & Support</h2>
+                 <div class="plans-grid">
+                     <div class="plan-card"><h4>JetCare</h4><div class="price">$50/mo</div><p><small>Basic peace of mind</small></p><ul><li>Weekly Backups</li><li>Software Updates</li><li>Security Monitoring</li><li>Email Support</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                     <div class="plan-card popular"><h4>JetGuard</h4><div class="price">$120/mo</div><p><small>For active sites</small></p><ul><li>Daily Backups</li><li>Priority Support</li><li>Performance Checks</li><li>2hrs Dev Time/Month</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                     <div class="plan-card"><h4>JetSentry</h4><div class="price">$250/mo</div><p><small>For business-critical sites</small></p><ul><li>Real-time Backups</li><li>24/7 Monitoring</li><li>Staging Environment</li><li>5hrs Dev Time/Month</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                </div>`,
+            seo: `<h2>SEO & Digital Strategy</h2>
+                <div class="plans-grid">
+                     <div class="plan-card"><h4>JetRank</h4><div class="price">$300/mo</div><p><small>For new websites</small></p><ul><li>Keyword Research</li><li>On-Page SEO</li><li>Technical SEO Audit</li><li>Monthly Reporting</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                     <div class="plan-card popular"><h4>JetBoost</h4><div class="price">$700/mo</div><p><small>For competitive markets</small></p><ul><li>Everything in JetRank</li><li>Content Strategy</li><li>Backlink Building</li><li>Local SEO</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                     <div class="plan-card"><h4>JetDominate</h4><div class="price">$1500+/mo</div><p><small>For market leaders</small></p><ul><li>Everything in JetBoost</li><li>Competitor Analysis</li><li>Conversion Rate Optimization</li><li>Dedicated Strategist</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                </div>`,
+             webapp: `<h2>Web App Development</h2>
+                <div class="plans-grid">
+                     <div class="plan-card"><h4>JetApp MVP</h4><div class="price">$3000+</div><p><small>For startups</small></p><ul><li>Core Feature Development</li><li>User Authentication</li><li>Database Setup</li><li>Deployment</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                     <div class="plan-card popular"><h4>JetApp Scale</h4><div class="price">$8000+</div><p><small>For growing businesses</small></p><ul><li>Full-featured App</li><li>API Integrations</li><li>Scalable Architecture</li><li>Admin Dashboard</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                     <div class="plan-card"><h4>JetApp Enterprise</h4><div class="price">Custom</div><p><small>For complex systems</small></p><ul><li>Microservices Architecture</li><li>Advanced Security</li><li>CI/CD Pipeline</li><li>Dedicated Team</li></ul><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+                </div>`,
+        };
+
+        // Case Study Data
+        const caseStudyData = {
+            djheman: `<div class="case-study-content"><h2>DJ Heman: Artist Portfolio & Booking</h2><p><strong>The Challenge:</strong> DJ Heman, a rising star, needed a dynamic online presence to showcase his music, list upcoming events, and manage booking inquiries, moving away from unreliable social media DMs.</p><p><strong>Our Solution:</strong> We developed a visually striking, mobile-first website using React.js for a fluid user experience. An integrated SoundCloud player allows visitors to stream his mixes, while a custom-built event calendar, managed through a simple CMS, keeps fans updated. A dedicated booking form with date-checking functionality streamlined his inquiry process.</p><strong>Key Features:</strong><ul><li>Embedded Music Player</li><li>Dynamic Events Calendar</li><li>Booking Inquiry Form with Validation</li><li>Photo & Video Gallery</li></ul><strong>Technologies Used:</strong><ul class="tech-list"><li>React.js</li><li>Node.js</li><li>CSS Modules</li><li>Firebase</li></ul><p><strong>The Result:</strong> A 40% increase in qualified booking inquiries within the first 3 months and a significant boost in fan engagement on the platform.</p><a href="#" class="btn btn-primary">View Live Project</a></div>`,
+            academica: `<div class="case-study-content"><h2>Academica: Student Management Platform</h2><p><strong>The Challenge:</strong> Academica Coaching Center was struggling with manual processes for student enrollment, fee tracking, and communication, leading to administrative overhead and errors.</p><p><strong>Our Solution:</strong> We built a secure web application that digitized their entire workflow. The platform features separate portals for administrators, teachers, and students. Admins can manage courses and batches, teachers can upload notes and track attendance, and students can access materials and view their progress.</p><strong>Key Features:</strong><ul><li>Role-based Access Control</li><li>Course & Batch Management</li><li>Online Fee Payment Integration</li><li>Student Progress Tracking</li></ul><strong>Technologies Used:</strong><ul class="tech-list"><li>Laravel (PHP)</li><li>MySQL</li><li>JavaScript</li><li>Bootstrap</li></ul><p><strong>The Result:</strong> Reduced administrative workload by 60% and improved parent-teacher communication, leading to higher student retention rates.</p><a href="#" class="btn btn-primary">View Live Project</a></div>`,
+            funkraft: `<div class="case-study-content"><h2>Fun Kraft: E-commerce Store</h2><p><strong>The Challenge:</strong> Fun Kraft, a seller of handmade crafts, wanted to expand their reach beyond local markets with a professional online store that was easy for them to manage.</p><p><strong>Our Solution:</strong> We implemented a full-featured e-commerce website on the Shopify platform, allowing for rapid deployment and ease of use. We created a custom theme to match their brand's aesthetic and integrated secure payment gateways. We also provided training to their team on how to manage products, inventory, and orders.</p><strong>Key Features:</strong><ul><li>Custom Shopify Theme</li><li>Secure Payment Gateway (Stripe & PayPal)</li><li>Inventory Management</li><li>Product Filtering & Search</li></ul><strong>Technologies Used:</strong><ul class="tech-list"><li>Shopify</li><li>Liquid</li><li>HTML/CSS</li><li>JavaScript</li></ul><p><strong>The Result:</strong> A 150% increase in sales in the first six months, with 70% of orders coming from outside their local region.</p><a href="#" class="btn btn-primary">View Live Project</a></div>`,
+            // Add other case studies here...
+        };
+
+        document.querySelectorAll('.learn-more').forEach(button => {
+            button.addEventListener('click', e => {
+                e.preventDefault();
+                let contentHTML = '<h2>Content Not Found</h2><p>Please check back later.</p>';
+                if (button.dataset.service && serviceData[button.dataset.service]) {
+                    contentHTML = serviceData[button.dataset.service];
+                } else if (button.dataset.casestudy && caseStudyData[button.dataset.casestudy]) {
+                    contentHTML = caseStudyData[button.dataset.casestudy];
+                }
+                
+                modalBody.innerHTML = contentHTML;
+                modal.classList.add('show');
+            });
+        });
+        
+        closeModalBtn.addEventListener('click', () => modal.classList.remove('show'));
+        window.addEventListener('click', e => {
+            if (e.target == modal) {
+                modal.classList.remove('show');
+            }
+        });
+
+    });
+    </script>
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+</body>
+</html>
