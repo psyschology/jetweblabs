@@ -223,7 +223,151 @@
     </style>
 </head>
 <body>
-    
+    <style>
+
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0d1117;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .animation-container {
+            text-align: center;
+        }
+
+        /* Typewriter Text Styles */
+        .animation-container h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+            border-right: 4px solid #007bff; /* Cursor */
+            white-space: nowrap;
+            overflow: hidden;
+            margin: 0 auto 10px auto;
+            letter-spacing: .1em;
+            display: inline-block; /* Important for the effect */
+        }
+        
+        .animation-container p {
+            font-family: 'Playwrite US Modern', cursive;
+            font-size: 1.5rem;
+            color: #adb5bd;
+            border-right: 3px solid #007bff; /* Cursor */
+            white-space: nowrap;
+            overflow: hidden;
+            margin: 0 auto;
+            letter-spacing: .1em;
+            display: inline-block; /* Important for the effect */
+            visibility: hidden; /* Hide until the first line is done */
+        }
+
+        /* Blinking animation for the cursor */
+        .typing {
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #007bff; }
+        }
+        
+        /* Main content that appears after animation */
+        .main-content {
+            display: none;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .main-content.visible {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+    </style>
+    <div id="preloader">
+        <div class="animation-container">
+            <h1 id="animated-line-1"></h1>
+            <p id="animated-line-2"></p>
+        </div>
+    </div>
+ <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const preloader = document.getElementById('preloader');
+            const mainContent = document.getElementById('main-content');
+            const line1 = document.getElementById('animated-line-1');
+            const line2 = document.getElementById('animated-line-2');
+
+            const text1 = "JetWeb Labs";
+            const text2 = "All things, IT";
+            const typeSpeed = 120;
+            const pauseBetweenLines = 500;
+            const pauseBeforeExit = 1200;
+
+            function typeWriter(element, text, callback) {
+                let i = 0;
+                element.innerHTML = ''; // Clear previous content
+                element.classList.add('typing');
+                if (element.tagName === 'P') {
+                    element.style.visibility = 'visible';
+                }
+
+                function type() {
+                    if (i < text.length) {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(type, typeSpeed);
+                    } else {
+                        element.classList.remove('typing');
+                        element.style.borderRight = 'none'; // Keep cursor solid at the end
+                        if (callback) {
+                            callback();
+                        }
+                    }
+                }
+                type();
+            }
+
+            // Start the animation chain as soon as the DOM is ready
+            typeWriter(line1, text1, () => {
+                setTimeout(() => {
+                    typeWriter(line2, text2, () => {
+                        setTimeout(() => {
+                            // Fade out preloader
+                            preloader.style.opacity = '0';
+                            preloader.style.visibility = 'hidden';
+                            
+                            // Show main content
+                            mainContent.classList.add('visible');
+                            document.body.style.overflow = 'auto'; // Restore scrolling
+
+                            // Optional: remove preloader from DOM after transition
+                            setTimeout(() => {
+                                preloader.remove();
+                            }, 800);
+
+                        }, pauseBeforeExit);
+                    });
+                }, pauseBetweenLines);
+            });
+        });
+    </script>
     <header class="main-header">
         <div class="container">
             <a href="index.html" class="logo-link">
@@ -650,4 +794,3 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>
-
