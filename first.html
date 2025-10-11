@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jetweb Labs | Custom Web Development & Digital Strategy</title>
+
+    <!-- === Favicon === -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/6nZ14p4/logo-1.png">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/6nZ14p4/logo-1.png">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Jetweb Labs delivers expert custom web development, UI/UX design, e-commerce solutions, and results-driven SEO to elevate your brand's digital presence.">
+    <meta name="keywords" content="web development agency, custom websites, ui/ux design, e-commerce developer, seo services, web app development, Jetweb Labs">
+    <meta name="author" content="Jetweb Labs">
+    <link rel="canonical" href="https://www.jetweblabs.in/"> <!-- Replace with actual domain -->
+    <meta name="robots" content="index, follow">
+
+    <!-- === Open Graph / Facebook Meta Tags === -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.jetweblabs.in/">
+    <meta property="og:title" content="Jetweb Labs | Custom Web Development & Digital Strategy">
+    <meta property="og:description" content="Jetweb Labs delivers expert custom web development, UI/UX design, e-commerce solutions, and results-driven SEO to elevate your brand's digital presence.">
+    <meta property="og:image" content="https://i.ibb.co/6nZ14p4/logo-1.png">
+
+    <!-- === Twitter Card Meta Tags === -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.jetweblabs.in/">
+    <meta name="twitter:title" content="Jetweb Labs | Custom Web Development & Digital Strategy">
+    <meta name="twitter:description" content="Jetweb Labs delivers expert custom web development, UI/UX design, e-commerce solutions, and results-driven SEO to elevate your brand's digital presence.">
+    <meta name="twitter:image" content="https://i.ibb.co/6nZ14p4/logo-1.png">
+    
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+
+    <!-- Embedded CSS -->
+    <style>
+        /* CSS Variables for Theming */
+        :root {
+            --primary-color: #007bff;
+            --accent-color: #ffc107;
+            --background-color: #ffffff;
+            --surface-color: #f8f9fa;
+            --text-color: #343a40;
+            --heading-color: #1a202c;
+            --border-color: #e2e8f0;
+            --white: #fff;
+            --font-main: 'Inter', sans-serif;
+            --font-heading: 'Poppins', sans-serif;
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #007bff;
+            --accent-color: #ffc107;
+            --background-color: #0d1117;
+            --surface-color: #161b22;
+            --text-color: #c9d1d9;
+            --heading-color: #ffffff;
+            --border-color: #30363d;
+        }
+
+        /* Base Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: var(--font-main); 
+            background-color: var(--background-color); 
+            color: var(--text-color); 
+            transition: background-color 0.3s, color 0.3s; 
+            line-height: 1.7; 
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        section.page { padding: 80px 0; display: none; }
+        section.page.active { display: block; animation: fadeIn 0.6s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Typography & Buttons */
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); color: var(--heading-color); line-height: 1.3; }
+        h1 { font-size: 3.5rem; font-weight: 800; }
+        h2 { font-size: 2.5rem; font-weight: 700; }
+        h3 { font-size: 1.75rem; font-weight: 600; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .btn { padding: 12px 28px; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; display: inline-block; border: 2px solid transparent; font-family: var(--font-heading); cursor: pointer; }
+        .btn-primary { background-color: var(--primary-color); color: var(--white); }
+        .btn-primary:hover { background-color: #0069d9; transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        .btn-secondary { background-color: transparent; color: var(--primary-color); border-color: var(--primary-color); }
+        .btn-secondary:hover { background-color: var(--primary-color); color: var(--white); }
+        
+        /* Preloader */
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #0d1117; display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.8s ease-in-out; }
+        #preloader img { width: 150px; animation: pulse 1.5s infinite ease-in-out; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+
+        /* Header & Navigation */
+        .main-header { background-color: var(--background-color); border-bottom: 1px solid var(--border-color); padding: 15px 0; position: sticky; top: 0; z-index: 1000; transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s; }
+        .main-header.scrolled { box-shadow: var(--shadow-md); }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { height: 50px; }
+        .nav-links { list-style: none; display: flex; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--text-color); font-weight: 600; transition: color 0.2s; position: relative; padding-bottom: 5px; font-family: var(--font-heading); }
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 3px; bottom: 0; left: 0; background-color: var(--primary-color); transition: width 0.3s; border-radius: 2px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
+        .nav-links a.active::after { width: 100%; }
+        .header-actions { display: flex; align-items: center; gap: 20px; }
+        .theme-switch-container { display: flex; align-items: center; gap: 8px; color: var(--text-color); }
+        .theme-switch { position: relative; display: inline-block; width: 50px; height: 26px; }
+        .theme-switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 26px; }
+        .slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--primary-color); }
+        input:checked + .slider:before { transform: translateX(24px); }
+        .hamburger { display: none; font-size: 1.5rem; background: none; border: none; color: var(--text-color); cursor: pointer; }
+
+        /* Sidebar (Mobile Menu) */
+        .sidebar { position: fixed; top: 0; right: -280px; width: 280px; height: 100%; background-color: var(--surface-color); box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.3s ease-in-out; z-index: 1001; padding: 20px; }
+        .sidebar.open { right: 0; }
+        .sidebar ul { list-style: none; margin-top: 40px; }
+        .sidebar ul li a { display: block; padding: 15px; text-decoration: none; color: var(--text-color); font-size: 1.1rem; border-radius: 5px; font-family: var(--font-heading); }
+        .sidebar ul li a:hover { background-color: var(--border-color); }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 2.5rem; background: none; border: none; color: var(--text-color); cursor: pointer; }
+
+        /* Hero Section */
+        .hero { min-height: 90vh; display: flex; align-items: center; }
+        .hero .container { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 50px; }
+        .hero-image img { width: 100%; height: auto; animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+        .hero h1 { margin-bottom: 20px; }
+        .hero .pitch { font-size: 1.2rem; margin-bottom: 30px; max-width: 500px; }
+
+        /* Services Overview Section */
+        .services-overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { background-color: var(--surface-color); padding: 30px; border-radius: 12px; border: 1px solid var(--border-color); transition: transform 0.3s, box-shadow 0.3s; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+        .service-card .icon { font-size: 2.5rem; margin-bottom: 20px; color: var(--primary-color); }
+        .service-card h4 { font-size: 1.5rem; margin-bottom: 10px; }
+        .service-card .learn-more { color: var(--primary-color); text-decoration: none; font-weight: 600; margin-top: 15px; display: inline-block; cursor: pointer; font-family: var(--font-heading); }
+        .service-card .learn-more:hover { text-decoration: underline; }
+
+        /* Portfolio & Case Studies */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
+        .portfolio-card { background-color: var(--surface-color); border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; box-shadow: var(--shadow-md); transition: transform 0.3s, box-shadow 0.3s; }
+        .portfolio-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+        .portfolio-card .portfolio-image { width: 100%; height: 220px; object-fit: cover; display: block; }
+        .portfolio-card .portfolio-content { padding: 25px; }
+        .portfolio-card h4 { margin-bottom: 10px; }
+
+        /* Testimonials Section */
+        .testimonial-card { background-color: var(--surface-color); padding: 30px; border-radius: 12px; border-left: 5px solid var(--primary-color); }
+        .testimonial-author { display: flex; align-items: center; gap: 15px; margin-top: 20px; }
+        .testimonial-author img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
+        .testimonial-author-info strong { display: block; color: var(--heading-color); }
+        
+        /* Auto-Scroller for Testimonials & Brands */
+        .scroller { overflow: hidden; -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent); mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent); }
+        .scroller__inner { display: flex; flex-wrap: nowrap; gap: 30px; width: max-content; }
+        .scroller__inner { animation: scroll 60s linear infinite; }
+        .scroller[data-animated="true"]:hover .scroller__inner { animation-play-state: paused; }
+        @keyframes scroll { to { transform: translate(calc(-50% - 15px)); } }
+        .testimonial-card-scrolling { width: 380px; flex-shrink: 0; }
+        .brand-logo-scrolling { height: 60px; filter: grayscale(100%); transition: filter 0.3s; opacity: 0.8; object-fit: contain; width: 150px; }
+        .brand-logo-scrolling:hover { filter: grayscale(0%); opacity: 1; }
+        .brands-scroller .scroller__inner { animation-duration: 40s; }
+
+
+        /* Tech Stack Section */
+        .tech-stack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 20px; }
+        .tech-item { text-align: center; }
+        .tech-item i { font-size: 2.5rem; color: var(--text-color); transition: color 0.3s, transform 0.3s; }
+        .tech-item:hover i { color: var(--primary-color); transform: scale(1.1); }
+        .tech-item span { font-size: 0.8rem; display: block; margin-top: 5px; }
+        #hidden-tech-stacks { display: none; margin-top: 30px; }
+        .tech-category { margin-top: 30px; }
+        .tech-category h4 { margin-bottom: 15px; border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; display: inline-block; }
+        .view-more-btn { margin-top: 30px; display: block; margin-left: auto; margin-right: auto; }
+
+        /* CTA Section */
+        .cta-section { background-color: var(--heading-color); color: var(--white); padding: 80px 0; text-align: center; border-radius: 20px; }
+        .cta-section h2 { color: var(--white); }
+        .cta-section p { max-width: 600px; margin: 20px auto 30px; opacity: 0.9; }
+
+        /* About Page */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
+        .team-member { text-align: center; }
+        .team-member img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 4px solid var(--border-color); }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
+        .value-card { background: var(--surface-color); padding: 20px; border-radius: 12px; text-align: center; }
+        .value-card i { font-size: 2rem; color: var(--primary-color); margin-bottom: 10px; }
+
+        /* Individual Service & Case Study Pages */
+        .page-header { text-align: center; margin-bottom: 60px; }
+        .page-header h1 { font-size: 3rem; }
+        .page-header p { font-size: 1.2rem; max-width: 700px; margin: 15px auto 0; }
+        .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; }
+        .main-content h3 { margin-top: 40px; margin-bottom: 15px; }
+        .sidebar-box { background: var(--surface-color); padding: 25px; border-radius: 12px; position: sticky; top: 120px; }
+        .sidebar-box h4 { margin-bottom: 15px; }
+        .sidebar-box ul { list-style: none; padding-left: 0; }
+        .sidebar-box ul li { margin-bottom: 10px; display: flex; align-items: flex-start; }
+        .sidebar-box ul li i { color: var(--primary-color); margin-right: 10px; margin-top: 4px; }
+        .process-list { list-style: none; counter-reset: process-counter; margin-top: 20px; padding-left: 0;}
+        .process-list li { counter-increment: process-counter; margin-bottom: 20px; display: flex; align-items: flex-start; }
+        .process-list li::before { content: counter(process-counter); font-weight: 700; background: var(--primary-color); color: var(--white); width: 30px; height: 30px; border-radius: 50%; display: inline-flex; justify-content: center; align-items: center; margin-right: 15px; flex-shrink: 0; }
+        
+        /* Contact Page */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: flex-start; }
+        .contact-form .form-group { margin-bottom: 20px; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 15px; border-radius: 8px; border: 1px solid var(--border-color); background-color: var(--surface-color); color: var(--text-color); font-family: var(--font-main); font-size: 1rem; }
+        .contact-info-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .contact-info-item i { font-size: 1.5rem; color: var(--primary-color); }
+        
+        /* Footer */
+        .main-footer { background-color: var(--surface-color); padding: 60px 0 20px 0; border-top: 1px solid var(--border-color); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 30px; margin-bottom: 40px; }
+        .footer-about .logo { margin-bottom: 15px; }
+        .footer-links h4 { margin-bottom: 15px; }
+        .footer-links ul { list-style: none; padding-left: 0; }
+        .footer-links ul li a { text-decoration: none; color: var(--text-color); margin-bottom: 10px; display: block; transition: color 0.3s; }
+        .footer-links ul li a:hover { color: var(--primary-color); }
+        .social-icons { display: flex; gap: 15px; margin-top: 15px; }
+        .social-icons a { font-size: 1.5rem; color: var(--text-color); transition: color 0.3s, transform 0.3s; }
+        .social-icons a:hover { color: var(--primary-color); transform: scale(1.1); }
+        .footer-bottom { text-align: center; border-top: 1px solid var(--border-color); padding-top: 20px; font-size: 0.9rem; }
+        
+        /* Scroll-triggered animations */
+        .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.2rem; }
+            .hero .container { grid-template-columns: 1fr; text-align: center; }
+            .hero-image { order: -1; margin-bottom: 30px; }
+            .hero .pitch { margin: 20px auto 30px; }
+            .about-grid, .content-grid, .contact-grid { grid-template-columns: 1fr; }
+            .sidebar-box { position: static; margin-top: 40px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: block; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .testimonial-card-scrolling { width: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="preloader">
+        <img src="assets/img/logo.png" alt="Jetweb Labs Logo Loading Animation">
+    </div>
+
+    <header class="main-header" id="main-header">
+        <div class="container">
+            <a href="#home" class="logo-link nav-link">
+                <img src="assets/img/logo.png" alt="Jetweb Labs Logo" class="logo">
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="theme-switch-container">
+                    <i class="fas fa-sun"></i>
+                    <label class="theme-switch">
+                      <input type="checkbox" id="theme-toggle">
+                      <span class="slider"></span>
+                    </label>
+                    <i class="fas fa-moon"></i>
+                </div>
+                <button class="hamburger" id="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" id="close-btn">&times;</button>
+        <ul>
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+            <li><a href="#about" class="nav-link">About Us</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <main id="main-content">
+        <!-- PAGE: Homepage -->
+        <section id="home" class="page active">
+            <!-- Hero Section -->
+            <div class="hero">
+                <div class="container">
+                    <div class="hero-content fade-in-section is-visible">
+                        <h1>Elevate Your Web Presence with Jetweb Labs</h1>
+                        <p class="pitch">We build high-performance websites and digital experiences that drive growth for startups, small businesses, and personal brands. Let's create something exceptional together.</p>
+                        <a href="#contact" class="btn btn-primary nav-link">Get a Free Proposal</a>
+                        <a href="#portfolio" class="btn btn-secondary nav-link" style="margin-left: 10px;">View Our Work</a>
+                    </div>
+                    <div class="hero-image fade-in-section is-visible">
+                        <img src="https://i.ibb.co/L5tN0zG/undraw-creative-team-re-85gn-1.png" alt="A team collaborating on a web development project">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services Overview -->
+            <div class="container fade-in-section" style="padding: 80px 20px;">
+                <h2 class="section-title">Our Core Services</h2>
+                <div class="services-overview-grid">
+                    <div class="service-card">
+                        <div class="icon">🖥️</div><h4>Custom Web Development</h4><p>Bespoke websites built from the ground up to meet your unique business goals.</p><a href="#service-development" class="learn-more nav-link">Learn More →</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon">🎨</div><h4>UI/UX Design</h4><p>Intuitive, beautiful interfaces designed to delight users and drive conversions.</p><a href="#service-uiux" class="learn-more nav-link">Learn More →</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon">🛒</div><h4>E-commerce Integration</h4><p>Powerful online stores that turn visitors into loyal customers.</p><a href="#service-ecommerce" class="learn-more nav-link">Learn More →</a>
+                    </div>
+                </div>
+                 <div style="text-align: center; margin-top: 40px;">
+                    <a href="#services" class="btn btn-secondary nav-link">View All Services</a>
+                </div>
+            </div>
+
+            <!-- Portfolio Showcase -->
+            <div class="fade-in-section" style="padding: 80px 0; background-color: var(--surface-color);">
+                <div class="container">
+                    <h2 class="section-title">Featured Work</h2>
+                    <div class="portfolio-grid">
+                        <div class="portfolio-card">
+                            <img src="https://placehold.co/600x400/007bff/white?text=Academica" alt="Academica Coaching Platform Screenshot" class="portfolio-image">
+                            <div class="portfolio-content">
+                                <h4>Academica Coaching</h4>
+                                <p>An interactive learning platform that doubled online conversions.</p>
+                                <a href="#case-study-academica" class="learn-more nav-link">View Case Study →</a>
+                            </div>
+                        </div>
+                        <div class="portfolio-card">
+                            <img src="https://placehold.co/600x400/ffc107/black?text=Fun+Kraft" alt="Fun Kraft E-commerce Store Screenshot" class="portfolio-image">
+                            <div class="portfolio-content">
+                                <h4>Fun Kraft</h4>
+                                <p>A Shopify e-commerce store that led to a 40% increase in sales.</p>
+                                <a href="#case-study-funkraft" class="learn-more nav-link">View Case Study →</a>
+                            </div>
+                        </div>
+                        <div class="portfolio-card">
+                            <img src="https://placehold.co/600x400/17a2b8/white?text=Imperial+Logistics" alt="Imperial Logistics Website Screenshot" class="portfolio-image">
+                            <div class="portfolio-content">
+                                <h4>Imperial Logistics</h4>
+                                <p>A professional site that boosted quote requests by 30%.</p>
+                                <a href="#case-study-imperial" class="learn-more nav-link">View Case Study →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trust Section / Testimonials -->
+            <div style="padding: 80px 0;">
+                <div class="container fade-in-section">
+                    <h2 class="section-title">What Our Clients Say</h2>
+                </div>
+                <div class="scroller testimonial-scroller fade-in-section" data-animated="true">
+                    <div class="scroller__inner" id="testimonial-scroller-inner">
+                        <div class="testimonial-card testimonial-card-scrolling">
+                            <p>"The platform provided by Jetweb Labs has been a game-changer. Our online conversions have doubled since our new website launch. Their team is professional, responsive, and truly cares about our success."</p>
+                            <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=GB" alt="Gopal Burman"><div class="testimonial-author-info"><strong>Gopal Burman</strong><span>Founder, Academica Coaching</span></div></div>
+                        </div>
+                        <div class="testimonial-card testimonial-card-scrolling">
+                            <p>"Jetweb Labs' SEO and digital strategy services have dramatically improved our online visibility. We're now ranking on the first page for our key terms, and the increase in organic traffic has been phenomenal."</p>
+                            <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=AM" alt="Akash Mahato"><div class="testimonial-author-info"><strong>Akash Mahato</strong><span>Founder, MotoXHub</span></div></div>
+                        </div>
+                         <div class="testimonial-card testimonial-card-scrolling">
+                            <p>"The e-commerce platform they built is robust and easy to manage. Sales have increased by 40% in the first quarter alone. Exceptional work and a fantastic team to work with!"</p>
+                            <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=PS" alt="Priya Singh"><div class="testimonial-author-info"><strong>Priya Singh</strong><span>Owner, Fun Kraft</span></div></div>
+                        </div>
+                        <div class="testimonial-card testimonial-card-scrolling">
+                            <p>"Jetweb Labs delivered a world-class website that perfectly represents our global brand. The new tracking feature is a huge hit with our clients. Professional, efficient, and highly recommended."</p>
+                            <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=JD" alt="John Doe"><div class="testimonial-author-info"><strong>John Doe</strong><span>CEO, Imperial Logistics</span></div></div>
+                        </div>
+                         <div class="testimonial-card testimonial-card-scrolling">
+                            <p>"From concept to launch, the process was seamless. Their UI/UX design transformed our user engagement, leading to longer session times and a lower bounce rate. We couldn't be happier with the result."</p>
+                            <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=SC" alt="Sarah Chen"><div class="testimonial-author-info"><strong>Sarah Chen</strong><span>Marketing Head, HealthBridge</span></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technology Stack -->
+            <div class="fade-in-section" style="padding: 80px 0; background-color: var(--surface-color);">
+                <div class="container">
+                    <h2 class="section-title">Technologies We Use</h2>
+                     <div class="tech-stack-grid">
+                        <div class="tech-item"><i class="devicon-html5-plain"></i><span>HTML5</span></div>
+                        <div class="tech-item"><i class="devicon-css3-plain"></i><span>CSS3</span></div>
+                        <div class="tech-item"><i class="devicon-javascript-plain"></i><span>JavaScript</span></div>
+                        <div class="tech-item"><i class="devicon-react-original"></i><span>React</span></div>
+                        <div class="tech-item"><i class="devicon-nodejs-plain"></i><span>Node.js</span></div>
+                        <div class="tech-item"><i class="devicon-python-plain"></i><span>Python</span></div>
+                        <div class="tech-item"><i class="devicon-php-plain"></i><span>PHP</span></div>
+                        <div class="tech-item"><i class="devicon-mysql-plain"></i><span>MySQL</span></div>
+                        <div class="tech-item"><i class="devicon-amazonwebservices-original"></i><span>AWS</span></div>
+                        <div class="tech-item"><i class="devicon-docker-plain"></i><span>Docker</span></div>
+                        <div class="tech-item"><i class="devicon-git-plain"></i><span>Git</span></div>
+                        <div class="tech-item"><i class="devicon-figma-plain"></i><span>Figma</span></div>
+                    </div>
+                    <div id="hidden-tech-stacks">
+                        <div class="tech-category"><h4>Frontend</h4><div class="tech-stack-grid">
+                            <div class="tech-item"><i class="devicon-typescript-plain"></i><span>TypeScript</span></div>
+                            <div class="tech-item"><i class="devicon-angularjs-plain"></i><span>Angular</span></div>
+                            <div class="tech-item"><i class="devicon-vuejs-plain"></i><span>Vue.js</span></div>
+                            <div class="tech-item"><i class="devicon-nextjs-original"></i><span>Next.js</span></div>
+                            <div class="tech-item"><i class="devicon-svelte-plain"></i><span>Svelte</span></div>
+                            <div class="tech-item"><i class="devicon-jquery-plain"></i><span>jQuery</span></div>
+                            <div class="tech-item"><i class="devicon-bootstrap-plain"></i><span>Bootstrap</span></div>
+                            <div class="tech-item"><i class="devicon-tailwindcss-plain"></i><span>TailwindCSS</span></div>
+                            <div class="tech-item"><i class="devicon-sass-original"></i><span>SASS</span></div>
+                            <div class="tech-item"><i class="devicon-less-plain-wordmark"></i><span>LESS</span></div>
+                            <div class="tech-item"><i class="devicon-redux-original"></i><span>Redux</span></div>
+                            <div class="tech-item"><i class="devicon-webpack-plain"></i><span>Webpack</span></div>
+                            <div class="tech-item"><i class="devicon-babel-plain"></i><span>Babel</span></div>
+                            <div class="tech-item"><i class="devicon-graphql-plain"></i><span>GraphQL</span></div>
+                            <div class="tech-item"><i class="devicon-jest-plain"></i><span>Jest</span></div>
+                        </div></div>
+                         <div class="tech-category"><h4>Backend</h4><div class="tech-stack-grid">
+                            <div class="tech-item"><i class="devicon-express-original"></i><span>Express</span></div>
+                            <div class="tech-item"><i class="devicon-django-plain"></i><span>Django</span></div>
+                            <div class="tech-item"><i class="devicon-flask-original"></i><span>Flask</span></div>
+                            <div class="tech-item"><i class="devicon-laravel-plain"></i><span>Laravel</span></div>
+                            <div class="tech-item"><i class="devicon-ruby-plain"></i><span>Ruby</span></div>
+                            <div class="tech-item"><i class="devicon-rails-plain"></i><span>Rails</span></div>
+                            <div class="tech-item"><i class="devicon-java-plain"></i><span>Java</span></div>
+                            <div class="tech-item"><i class="devicon-spring-plain"></i><span>Spring</span></div>
+                            <div class="tech-item"><i class="devicon-go-original-wordmark"></i><span>Go</span></div>
+                            <div class="tech-item"><i class="devicon-csharp-plain"></i><span>C#</span></div>
+                            <div class="tech-item"><i class="devicon-dot-net-plain"></i><span>.NET</span></div>
+                            <div class="tech-item"><i class="devicon-nestjs-plain"></i><span>NestJS</span></div>
+                        </div></div>
+                        <div class="tech-category"><h4>Databases</h4><div class="tech-stack-grid">
+                            <div class="tech-item"><i class="devicon-postgresql-plain"></i><span>PostgreSQL</span></div>
+                            <div class="tech-item"><i class="devicon-mongodb-plain"></i><span>MongoDB</span></div>
+                            <div class="tech-item"><i class="devicon-redis-plain"></i><span>Redis</span></div>
+                            <div class="tech-item"><i class="devicon-firebase-plain"></i><span>Firebase</span></div>
+                            <div class="tech-item"><i class="devicon-sqlite-plain"></i><span>SQLite</span></div>
+                            <div class="tech-item"><i class="devicon-oracle-original"></i><span>Oracle</span></div>
+                            <div class="tech-item"><i class="devicon-microsoftsqlserver-plain"></i><span>SQL Server</span></div>
+                            <div class="tech-item"><i><i class="fas fa-database"></i></i><span>MariaDB</span></div>
+                            <div class="tech-item"><i><i class="fas fa-database"></i></i><span>DynamoDB</span></div>
+                        </div></div>
+                        <div class="tech-category"><h4>Mobile</h4><div class="tech-stack-grid">
+                            <div class="tech-item"><i class="devicon-react-original"></i><span>React Native</span></div>
+                            <div class="tech-item"><i class="devicon-flutter-plain"></i><span>Flutter</span></div>
+                            <div class="tech-item"><i class="devicon-swift-plain"></i><span>Swift</span></div>
+                            <div class="tech-item"><i class="devicon-kotlin-plain"></i><span>Kotlin</span></div>
+                            <div class="tech-item"><i class="devicon-android-plain"></i><span>Android</span></div>
+                            <div class="tech-item"><i class="devicon-apple-original"></i><span>iOS</span></div>
+                        </div></div>
+                         <div class="tech-category"><h4>CMS</h4><div class="tech-stack-grid">
+                            <div class="tech-item"><i class="devicon-wordpress-plain"></i><span>WordPress</span></div>
+                            <div class="tech-item"><i class="devicon-shopify-plain"></i><span>Shopify</span></div>
+                            <div class="tech-item"><i class="devicon-drupal-plain"></i><span>Drupal</span></div>
+                            <div class="tech-item"><i class="devicon-joomla-plain"></i><span>Joomla</span></div>
+                            <div class="tech-item"><i><i class="fas fa-feather"></i></i><span>Strapi</span></div>
+                            <div class="tech-item"><i><i class="fas fa-ghost"></i></i><span>Ghost</span></div>
+                            <div class="tech-item"><i><i class="fas fa-file-alt"></i></i><span>Contentful</span></div>
+                        </div></div>
+                        <div class="tech-category"><h4>Cloud & DevOps</h4><div class="tech-stack-grid">
+                            <div class="tech-item"><i class="devicon-googlecloud-plain"></i><span>Google Cloud</span></div>
+                            <div class="tech-item"><i class="devicon-azure-plain"></i><span>Azure</span></div>
+                            <div class="tech-item"><i class="devicon-kubernetes-plain"></i><span>Kubernetes</span></div>
+                            <div class="tech-item"><i class="devicon-jenkins-line"></i><span>Jenkins</span></div>
+                            <div class="tech-item"><i class="devicon-githubactions-original"></i><span>GH Actions</span></div>
+                            <div class="tech-item"><i class="devicon-gitlab-plain"></i><span>GitLab CI</span></div>
+                            <div class="tech-item"><i class="devicon-terraform-plain"></i><span>Terraform</span></div>
+                            <div class="tech-item"><i class="devicon-ansible-plain"></i><span>Ansible</span></div>
+                            <div class="tech-item"><i class="devicon-nginx-original"></i><span>Nginx</span></div>
+                        </div></div>
+                        <div class="tech-category"><h4>Design & PM</h4><div class="tech-stack-grid">
+                            <div class="tech-item"><i class="devicon-xd-plain"></i><span>Adobe XD</span></div>
+                            <div class="tech-item"><i class="devicon-photoshop-plain"></i><span>Photoshop</span></div>
+                            <div class="tech-item"><i class="devicon-illustrator-plain"></i><span>Illustrator</span></div>
+                            <div class="tech-item"><i class="devicon-sketch-line"></i><span>Sketch</span></div>
+                            <div class="tech-item"><i class="devicon-jira-plain"></i><span>Jira</span></div>
+                            <div class="tech-item"><i class="devicon-trello-plain"></i><span>Trello</span></div>
+                            <div class="tech-item"><i class="devicon-slack-plain"></i><span>Slack</span></div>
+                        </div></div>
+                    </div>
+                    <button id="view-more-tech-btn" class="btn btn-secondary view-more-btn">Show More</button>
+                </div>
+            </div>
+
+             <!-- Brands We've Worked With -->
+            <div class="fade-in-section" style="padding: 80px 0;">
+                <div class="container">
+                    <h2 class="section-title">Brands We've Worked With</h2>
+                    <div class="scroller brands-scroller" data-animated="true">
+                        <div class="scroller__inner" id="brands-scroller-inner">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=StartupX" alt="Brand Logo" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=InnovateCo" alt="Brand Logo" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=TechGears" alt="Brand Logo" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=EcoLife" alt="Brand Logo" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=MarketRise" alt="Brand Logo" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=HealthPlus" alt="Brand Logo" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=FutureScape" alt="Brand Logo" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=ApexGlobal" alt="Brand Logo" class="brand-logo-scrolling">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Final CTA -->
+            <div class="container fade-in-section" style="padding-bottom: 80px;">
+                <div class="cta-section">
+                    <h2>Let's Build Your Digital Future</h2>
+                    <p>Ready to start a project or have a question? We are here to help you turn your vision into a reality.</p>
+                    <a href="#contact" class="btn btn-primary nav-link">Get a Free Proposal</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE: Services Overview -->
+        <section id="services" class="page">
+             <div class="container">
+                <div class="page-header fade-in-section">
+                    <h1>Our Services</h1>
+                    <p>We offer a comprehensive suite of digital services designed to build, grow, and maintain your online presence. From initial concept to final deployment and beyond, we are your dedicated digital partner.</p>
+                </div>
+                <div class="services-overview-grid fade-in-section">
+                    <div class="service-card">
+                        <div class="icon">🖥️</div><h4>Custom Website Development</h4><p>High-quality, scalable websites tailored to your specific needs.</p><a href="#service-development" class="learn-more nav-link">Learn More →</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon">🎨</div><h4>UI/UX Design</h4><p>Creating user-centric designs that are both beautiful and functional.</p><a href="#service-uiux" class="learn-more nav-link">Learn More →</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon">🛒</div><h4>E-commerce Integration</h4><p>Robust e-commerce solutions to sell your products effectively online.</p><a href="#service-ecommerce" class="learn-more nav-link">Learn More →</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon">🔧</div><h4>Maintenance & Support</h4><p>Keeping your website secure, updated, and performing at its best.</p><a href="#service-support" class="learn-more nav-link">Learn More →</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon">📈</div><h4>SEO & Digital Strategy</h4><p>Boosting your visibility and driving targeted traffic to your site.</p><a href="#service-seo" class="learn-more nav-link">Learn More →</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon">📱</div><h4>Web App Development</h4><p>Building powerful, interactive web applications for complex tasks.</p><a href="#service-webapp" class="learn-more nav-link">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE: Portfolio Overview -->
+        <section id="portfolio" class="page">
+            <div class="container">
+                <div class="page-header fade-in-section">
+                    <h1>Our Work</h1>
+                    <p>We are proud of the work we do and the results we deliver. Explore our case studies to see how we've helped businesses like yours succeed in the digital world.</p>
+                </div>
+                <div class="portfolio-grid fade-in-section">
+                    <div class="portfolio-card"><img src="https://placehold.co/600x400/ff69b4/white?text=DJ+Heman" class="portfolio-image" alt="DJ Heman Website"><div class="portfolio-content"><h4>DJ Heman</h4><p>A dynamic portfolio and booking site for a professional DJ.</p><a href="#case-study-djheman" class="learn-more nav-link">View Case Study →</a></div></div>
+                    <div class="portfolio-card"><img src="https://placehold.co/600x400/007bff/white?text=Academica" class="portfolio-image" alt="Academica Coaching Platform"><div class="portfolio-content"><h4>Academica Coaching</h4><p>An interactive learning platform for a growing coaching center.</p><a href="#case-study-academica" class="learn-more nav-link">View Case Study →</a></div></div>
+                    <div class="portfolio-card"><img src="https://placehold.co/600x400/ffc107/black?text=Fun+Kraft" class="portfolio-image" alt="Fun Kraft E-commerce Site"><div class="portfolio-content"><h4>Fun Kraft</h4><p>A vibrant e-commerce store for handmade craft products.</p><a href="#case-study-funkraft" class="learn-more nav-link">View Case Study →</a></div></div>
+                    <div class="portfolio-card"><img src="https://placehold.co/600x400/343a40/white?text=MotoXHub" class="portfolio-image" alt="MotoXHub Blog"><div class="portfolio-content"><h4>MotoXHub</h4><p>A community blog and news portal for motorcycle enthusiasts.</p><a href="#case-study-motoxhub" class="learn-more nav-link">View Case Study →</a></div></div>
+                    <div class="portfolio-card"><img src="https://placehold.co/600x400/28a745/white?text=HealthBridge" class="portfolio-image" alt="HealthBridge Patient Portal"><div class="portfolio-content"><h4>HealthBridge</h4><p>A secure patient portal for a local healthcare clinic.</p><a href="#case-study-healthbridge" class="learn-more nav-link">View Case Study →</a></div></div>
+                    <div class="portfolio-card"><img src="https://placehold.co/600x400/17a2b8/white?text=Imperial+Logistics" class="portfolio-image" alt="Imperial Logistics Website"><div class="portfolio-content"><h4>Imperial Logistics</h4><p>A professional website for a global logistics company.</p><a href="#case-study-imperial" class="learn-more nav-link">View Case Study →</a></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE: About Us -->
+        <section id="about" class="page">
+            <div class="container">
+                <div class="page-header fade-in-section">
+                    <h1>Pioneering Your Digital Future</h1>
+                    <p>We are more than just a technology company; we are architects of the digital frontier, committed to innovation and our clients' success.</p>
+                </div>
+                <div class="about-grid fade-in-section">
+                    <div class="about-image">
+                        <img src="https://i.ibb.co/VMy4v2h/undraw-about-us-page-re-2jfm.png" alt="Illustration of the Jetweb Labs team working together" style="border-radius: 12px;">
+                    </div>
+                    <div class="about-content">
+                        <h3>Our Story</h3>
+                        <p>Founded on the principle of turning great ideas into digital reality, Jetweb Labs started as a small team of passionate developers and designers. We saw a need for a web development partner that was not just technically proficient, but also deeply invested in the business goals of its clients. Today, we've grown into a full-service agency that helps businesses of all sizes to thrive online.</p>
+                        <h3>What's in a Name?</h3>
+                        <p>Our name reflects our core philosophy:</p>
+                        <ul>
+                            <li><strong>Jet:</strong> We operate with the speed and precision of a jet, ensuring your project is delivered efficiently without compromising on quality.</li>
+                            <li><strong>Web:</strong> We are masters of the digital world, navigating the complexities of the web to build your kingdom online.</li>
+                            <li><strong>Labs:</strong> We are constantly experimenting with the latest technologies and strategies, ensuring your solution is innovative and future-proof.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="fade-in-section" style="margin-top: 80px;">
+                    <h2 class="section-title">Meet the Team</h2>
+                    <div class="team-grid">
+                        <div class="team-member"><img src="https://placehold.co/150x150/0d1117/c9d1d9?text=CEO" alt="Team Member"><h4>Alex Johnson</h4><p>Founder & CEO</p></div>
+                        <div class="team-member"><img src="https://placehold.co/150x150/0d1117/c9d1d9?text=Lead" alt="Team Member"><h4>Jane Doe</h4><p>Lead Developer</p></div>
+                        <div class="team-member"><img src="https://placehold.co/150x150/0d1117/c9d1d9?text=Designer" alt="Team Member"><h4>Sam Wilson</h4><p>Lead UI/UX Designer</p></div>
+                        <div class="team-member"><img src="https://placehold.co/150x150/0d1117/c9d1d9?text=Manager" alt="Team Member"><h4>Emily Carter</h4><p>Project Manager</p></div>
+                    </div>
+                </div>
+
+                 <div class="fade-in-section" style="margin-top: 80px;">
+                    <h2 class="section-title">Our Values</h2>
+                     <div class="values-grid">
+                         <div class="value-card"><h4><i class="fas fa-handshake"></i> Partnership</h4><p>We work with you, not for you. Your success is our success.</p></div>
+                         <div class="value-card"><h4><i class="fas fa-lightbulb"></i> Innovation</h4><p>We embrace new ideas and technologies to deliver the best solutions.</p></div>
+                         <div class="value-card"><h4><i class="fas fa-check-circle"></i> Quality</h4><p>We hold ourselves to the highest standards of excellence in every line of code and pixel we design.</p></div>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE: Contact -->
+        <section id="contact" class="page">
+             <div class="container">
+                <div class="page-header fade-in-section">
+                    <h1>Get in Touch</h1>
+                    <p>Have a project in mind or just want to say hello? We'd love to hear from you. Fill out the form or use one of the methods below to reach us.</p>
+                </div>
+                <div class="contact-grid fade-in-section">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p>We're available to discuss your project from Monday to Friday, 9 AM to 6 PM.</p>
+                        <div class="contact-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                <a href="mailto:support@jetweblabs.in">support@jetweblabs.in</a>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Phone</strong><br>
+                                <span>(Phone number placeholder)</span>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Location</strong><br>
+                                <span>City, Country (Placeholder)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <div class="form-group">
+                            <label for="name" class="sr-only">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="sr-only">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="sr-only">Message</label>
+                            <textarea name="message" id="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <p style="font-size: 0.8rem; margin-top: 15px;">We respect your privacy. Read our Privacy Policy.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- All individual service and case study pages will be injected here by JS -->
+        <div id="dynamic-page-content"></div>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="https://i.ibb.co/6nZ14p4/logo-1.png" alt="Jetweb Labs Logo" class="logo">
+                    <p>Architects of the digital frontier, building exceptional web experiences.</p>
+                    <div class="social-icons">
+                        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                 <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about" class="nav-link">About Us</a></li>
+                        <li><a href="#services" class="nav-link">Services</a></li>
+                        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#contact" class="nav-link">Contact Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#service-development" class="nav-link">Web Development</a></li>
+                        <li><a href="#service-uiux" class="nav-link">UI/UX Design</a></li>
+                        <li><a href="#service-ecommerce" class="nav-link">E-commerce</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jetweb Labs. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Embedded JavaScript -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const pageContent = {
+            // Service Pages
+            'service-development': {
+                title: 'Custom Web Development | Jetweb Labs',
+                description: 'Expert custom web development services for businesses that need a powerful, scalable, and unique online presence. We build websites that perform.',
+                content: `
+                    <section id="service-development" class="page">
+                        <div class="container">
+                            <div class="page-header fade-in-section">
+                                <h1>Custom Website Development</h1>
+                                <p>Tired of generic templates? We build bespoke websites from the ground up that are fast, secure, and perfectly aligned with your brand.</p>
+                            </div>
+                            <div class="content-grid fade-in-section">
+                                <div class="main-content">
+                                    <h3>Your Website is Your Digital Storefront. Make it Count.</h3>
+                                    <p>In today's digital marketplace, a one-size-fits-all website doesn't cut it. Your business is unique, and your website should be too. Off-the-shelf solutions often come with limitations in design, functionality, and scalability, holding back your potential for growth.</p>
+                                    
+                                    <h3>Our Solution: A Tailored Digital Experience</h3>
+                                    <p>At Jetweb Labs, we take a collaborative approach to web development. We dive deep to understand your business, your audience, and your goals. Our team then designs and develops a custom website that not only looks stunning but also functions flawlessly and drives results.</p>
+                                    
+                                    <h3>Our Process</h3>
+                                    <ol class="process-list">
+                                        <li><strong>Discovery & Strategy:</strong> We start by defining project goals, target audience, and key functionalities.</li>
+                                        <li><strong>Design & Prototyping:</strong> We create wireframes and high-fidelity mockups for your review and approval.</li>
+                                        <li><strong>Development:</strong> Our expert developers write clean, efficient code using the latest technologies.</li>
+                                        <li><strong>Testing & QA:</strong> We rigorously test across all devices and browsers to ensure a bug-free launch.</li>
+                                        <li><strong>Deployment & Launch:</strong> We handle the seamless launch of your new website.</li>
+                                    </ol>
+                                </div>
+                                <aside class="sidebar-box">
+                                    <h4>Benefits & Value</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> A unique design that stands out.</li>
+                                        <li><i class="fas fa-check-circle"></i> Optimized for search engines (SEO).</li>
+                                        <li><i class="fas fa-check-circle"></i> Scalable architecture for future growth.</li>
+                                        <li><i class="fas fa-check-circle"></i> Full control over features and content.</li>
+                                        <li><i class="fas fa-check-circle"></i> Enhanced security against threats.</li>
+                                    </ul>
+                                    <a href="#contact" class="btn btn-primary nav-link" style="width: 100%; text-align: center; margin-top: 20px;">Request a Custom Plan</a>
+                                </aside>
+                            </div>
+                        </div>
+                    </section>`
+            },
+             'service-uiux': {
+                title: 'UI/UX Design Services | Jetweb Labs',
+                description: 'User-centric UI/UX design services that create intuitive, engaging, and beautiful digital products. We design experiences that users love.',
+                content: `
+                    <section id="service-uiux" class="page">
+                        <div class="container">
+                            <div class="page-header fade-in-section">
+                                <h1>UI/UX Design</h1>
+                                <p>Good design is good business. We create intuitive and beautiful user experiences that captivate your audience and drive conversions.</p>
+                            </div>
+                             <div class="content-grid fade-in-section">
+                                <div class="main-content">
+                                    <h3>Is Your Website Frustrating Your Visitors?</h3>
+                                    <p>A confusing layout, hard-to-find information, or an unappealing design can cause visitors to leave your site in seconds. Poor user experience leads to high bounce rates, low engagement, and lost revenue. Your digital product should be a joy to use, not a chore.</p>
+                                    
+                                    <h3>Our Solution: Design That Puts Users First</h3>
+                                    <p>Our UI/UX design process is rooted in a deep understanding of your users. We conduct research, create user personas, and map out user journeys to inform every design decision. The result is a product that is not only visually stunning (UI) but also easy and enjoyable to use (UX).</p>
+                                </div>
+                                <aside class="sidebar-box">
+                                    <h4>Benefits & Value</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> Increased user engagement and retention.</li>
+                                        <li><i class="fas fa-check-circle"></i> Higher conversion rates.</li>
+                                        <li><i class="fas fa-check-circle"></i> Stronger brand loyalty and trust.</li>
+                                        <li><i class="fas fa-check-circle"></i> Reduced development rework.</li>
+                                    </ul>
+                                    <a href="#contact" class="btn btn-primary nav-link" style="width: 100%; text-align: center; margin-top: 20px;">Schedule a Design Consultation</a>
+                                </aside>
+                            </div>
+                        </div>
+                    </section>`
+            },
+            'service-ecommerce': {
+                 title: 'E-commerce Solutions | Jetweb Labs',
+                description: 'Powerful e-commerce solutions with Shopify, WooCommerce, and custom platforms. We build online stores that sell and scale.',
+                content: `
+                    <section id="service-ecommerce" class="page">
+                        <div class="container">
+                             <div class="page-header fade-in-section">
+                                <h1>E-commerce Integration</h1>
+                                <p>Turn your website into a powerful sales engine. We build secure, scalable, and user-friendly online stores that convert visitors into customers.</p>
+                            </div>
+                             <div class="content-grid fade-in-section">
+                                <div class="main-content">
+                                    <h3>Losing Sales to a Clunky Online Store?</h3>
+                                    <p>An unreliable or difficult-to-navigate e-commerce platform can kill your sales. Complicated checkouts, slow loading times, and poor product displays lead to abandoned carts and lost customers. You need an online store that works as hard as you do.</p>
+                                    
+                                    <h3>Our Solution: Seamless & Secure E-commerce</h3>
+                                    <p>We build robust e-commerce solutions on platforms like Shopify and WooCommerce, or create fully custom platforms for unique needs. Our focus is on creating a seamless shopping experience, from product discovery to secure checkout, encouraging repeat business and building customer loyalty.</p>
+                                     <p style="margin-top: 15px;"><strong>Featured Case Study:</strong> See how we helped <a href="#case-study-funkraft" class="nav-link" style="font-weight: bold;">Fun Kraft</a> achieve a 40% increase in sales with a new Shopify store.</p>
+                                </div>
+                                <aside class="sidebar-box">
+                                    <h4>Benefits & Value</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> Secure payment gateway integration.</li>
+                                        <li><i class="fas fa-check-circle"></i> Easy-to-manage product inventory.</li>
+                                        <li><i class="fas fa-check-circle"></i> Mobile-optimized for shopping on the go.</li>
+                                        <li><i class="fas fa-check-circle"></i> SEO-friendly to attract more shoppers.</li>
+                                    </ul>
+                                    <a href="#contact" class="btn btn-primary nav-link" style="width: 100%; text-align: center; margin-top: 20px;">Request an E-commerce Plan</a>
+                                </aside>
+                            </div>
+                        </div>
+                    </section>`
+            },
+            // Add other services similarly...
+            'service-support': { title: 'Maintenance & Support | Jetweb Labs', description: 'Website maintenance and support plans to keep your site secure, updated, and running smoothly.', content: '...' },
+            'service-seo': { title: 'SEO & Digital Strategy | Jetweb Labs', description: 'Drive organic traffic and increase your search engine rankings with our data-driven SEO and digital strategies.', content: '...' },
+            'service-webapp': { title: 'Web App Development | Jetweb Labs', description: 'Custom web application development to solve complex business challenges and automate processes.', content: '...' },
+            
+            // Case Study Pages
+            'case-study-academica': {
+                title: 'Case Study: Academica Coaching | Jetweb Labs',
+                description: 'Discover how we built an interactive learning platform for Academica Coaching that doubled their online conversions and streamlined their operations.',
+                content: `
+                    <section id="case-study-academica" class="page">
+                        <div class="container">
+                            <div class="page-header fade-in-section">
+                                <h1>Academica Coaching Platform</h1>
+                                <p>An interactive learning platform that doubled online conversions and reduced administrative workload by 60%.</p>
+                            </div>
+                             <div class="content-grid fade-in-section">
+                                <div class="main-content">
+                                    <h3>The Challenge</h3>
+                                    <p>Academica Coaching Center was grappling with inefficient, manual systems for student enrollment, fee collection, and communication. This led to significant administrative bottlenecks, a risk of human error, and a disconnected experience for students and parents.</p>
+                                    
+                                    <h3>Our Process & Strategy</h3>
+                                    <p>Our primary goal was to digitize and automate their core operations. We began with a thorough discovery phase, interviewing staff and students to map out existing workflows and identify pain points. Based on this, we designed a role-based web application with three distinct portals: one for administrators, one for teachers, and one for students. The architecture was built using Laravel for a robust and secure backend.</p>
+                                    
+                                    <h3>The Solution</h3>
+                                    <p>We delivered a comprehensive web application that transformed their operations. The platform allows admins to manage courses and fees effortlessly, teachers to upload materials and track attendance, and students to access resources and monitor their progress. An integrated payment gateway automated fee collection, providing a seamless experience for parents.</p>
+
+                                    <h3>The Results</h3>
+                                    <div class="testimonial-card" style="margin-top: 20px;">
+                                        <p>"The platform provided by Jetweb Labs has been a game-changer. Our online conversions have doubled since our new website launch. Their team is professional, responsive, and truly cares about our success."</p>
+                                        <div class="testimonial-author">
+                                            <img src="https://placehold.co/100x100/0d1117/c9d1d9?text=GB" alt="Gopal Burman, Founder of Academica">
+                                            <div class="testimonial-author-info"><strong>Gopal Burman</strong><span>Founder, Academica</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <aside class="sidebar-box">
+                                    <h4>Project Details</h4>
+                                    <ul>
+                                        <li><i class="fas fa-user"></i> <strong>Client:</strong> Academica Coaching</li>
+                                        <li><i class="fas fa-cogs"></i> <strong>Services:</strong> Web App Development, UI/UX Design</li>
+                                        <li><i class="fas fa-code"></i> <strong>Tech:</strong> Laravel, MySQL, JavaScript</li>
+                                        <li><i class="fas fa-link"></i> <strong>Link:</strong> <a href="#">View Live Project</a></li>
+                                    </ul>
+                                     <h4 style="margin-top:20px;">Key Outcomes</h4>
+                                    <ul>
+                                        <li><i class="fas fa-arrow-up"></i> <strong>Doubled</strong> Online Conversions</li>
+                                        <li><i class="fas fa-arrow-down"></i> <strong>60% Reduction</strong> in Admin Work</li>
+                                        <li><i class="fas fa-smile"></i> Improved Student & Parent Satisfaction</li>
+                                    </ul>
+                                </aside>
+                            </div>
+                        </div>
+                    </section>`
+            },
+            'case-study-imperial': {
+                title: 'Case Study: Imperial Logistics | Jetweb Labs',
+                description: 'Learn how we developed a professional website for Imperial Logistics, increasing their quote requests by 30% and enhancing customer experience.',
+                content: `
+                    <section id="case-study-imperial" class="page">
+                        <div class="container">
+                            <div class="page-header fade-in-section">
+                                <h1>Imperial Logistics</h1>
+                                <p>A modern, professional website for a global logistics leader that increased quote requests by 30%.</p>
+                            </div>
+                             <div class="content-grid fade-in-section">
+                                <div class="main-content">
+                                    <h3>The Challenge</h3>
+                                    <p>Imperial Logistics, a global freight forwarder, had an outdated web presence that failed to reflect their company's scale and professionalism. They needed a modern, trustworthy website to clearly present their complex services, establish credibility with enterprise clients, and offer a simple way for customers to track shipments.</p>
+                                    
+                                    <h3>Our Process & Strategy</h3>
+                                    <p>Our strategy focused on building trust and simplifying complexity. We conducted competitor analysis to identify industry best practices and designed a clean, corporate aesthetic. The information architecture was restructured to logically categorize their services (Air, Sea, Land). We prioritized a "Track & Trace" feature, making it highly visible on the homepage to improve customer experience.</p>
+                                    
+                                    <h3>The Solution</h3>
+                                    <p>We developed a fully responsive, professional website using Next.js for superior performance and SEO. The site features clear calls-to-action for "Get a Quote," detailed service pages to inform potential clients, and an intuitive tracking portal. The final product is a credible, high-performance digital hub for their global operations.</p>
+
+                                    <h3>The Results</h3>
+                                    <div class="testimonial-card" style="margin-top: 20px;">
+                                        <p>"Jetweb Labs delivered a world-class website that perfectly represents our global brand. The new tracking feature is a huge hit with our clients. Professional, efficient, and highly recommended."</p>
+                                        <div class="testimonial-author">
+                                            <img src="https://placehold.co/100x100/0d1117/c9d1d9?text=JD" alt="John Doe, CEO of Imperial Logistics">
+                                            <div class="testimonial-author-info"><strong>John Doe</strong><span>CEO, Imperial Logistics</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <aside class="sidebar-box">
+                                    <h4>Project Details</h4>
+                                    <ul>
+                                        <li><i class="fas fa-user"></i> <strong>Client:</strong> Imperial Logistics</li>
+                                        <li><i class="fas fa-cogs"></i> <strong>Services:</strong> Custom Web Development</li>
+                                        <li><i class="fas fa-code"></i> <strong>Tech:</strong> Next.js, React, Node.js</li>
+                                        <li><i class="fas fa-link"></i> <strong>Link:</strong> <a href="https://imperiallogisitics.online" target="_blank">View Live Project</a></li>
+                                    </ul>
+                                     <h4 style="margin-top:20px;">Key Outcomes</h4>
+                                    <ul>
+                                        <li><i class="fas fa-arrow-up"></i> <strong>30% Increase</strong> in Quote Requests</li>
+                                        <li><i class="fas fa-phone-slash"></i> Reduced Customer Service Calls</li>
+                                        <li><i class="fas fa-globe"></i> Strengthened Global Brand Image</li>
+                                    </ul>
+                                </aside>
+                            </div>
+                        </div>
+                    </section>`
+            },
+            // Add other case studies similarly...
+            'case-study-djheman': { title: 'Case Study: DJ Heman | Jetweb Labs', description: '...', content: '...' },
+            'case-study-funkraft': { title: 'Case Study: Fun Kraft | Jetweb Labs', description: '...', content: '...' },
+            'case-study-motoxhub': { title: 'Case Study: MotoXHub | Jetweb Labs', description: '...', content: '...' },
+            'case-study-healthbridge': { title: 'Case Study: HealthBridge | Jetweb Labs', description: '...', content: '...' },
+        };
+        // Fill in placeholder content for brevity in this example
+        ['service-support', 'service-seo', 'service-webapp', 'case-study-djheman', 'case-study-funkraft', 'case-study-motoxhub', 'case-study-healthbridge'].forEach(id => {
+            if (!pageContent[id].content || pageContent[id].content === '...') {
+                 const title = pageContent[id].title.split(' | ')[0];
+                pageContent[id].content = `<section id="${id}" class="page"><div class="container" style="text-align:center; padding: 100px 0;"><h1>${title}</h1><p>This page is under construction. Please check back later for more details!</p></div></section>`;
+            }
+        });
+
+
+        const mainContentContainer = document.getElementById('main-content');
+        const dynamicContentContainer = document.getElementById('dynamic-page-content');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+
+        function updateMeta(pageId) {
+            const pageData = pageContent[pageId];
+            if (pageData && pageData.title) {
+                document.title = pageData.title;
+                document.querySelector('meta[name="description"]').setAttribute("content", pageData.description);
+            } else {
+                 // Default for static pages like home, about, etc.
+                const defaultTitle = 'Jetweb Labs | Custom Web Development & Digital Strategy';
+                const defaultDesc = 'Jetweb Labs delivers expert custom web development, UI/UX design, e-commerce solutions, and results-driven SEO to elevate your brand\'s digital presence.';
+                const pageTitleElement = document.querySelector(`#${pageId} h1`);
+                const pageDescElement = document.querySelector(`#${pageId} p`);
+
+                document.title = pageTitleElement ? `${pageTitleElement.textContent} | Jetweb Labs` : defaultTitle;
+                document.querySelector('meta[name="description"]').setAttribute("content", pageDescElement ? pageDescElement.textContent : defaultDesc);
+            }
+        }
+
+        function showPage(pageId) {
+            pages.forEach(page => page.classList.remove('active'));
+            
+            const staticPage = document.getElementById(pageId);
+            
+            if (staticPage) {
+                staticPage.classList.add('active');
+                dynamicContentContainer.innerHTML = '';
+            } else if (pageContent[pageId]) {
+                dynamicContentContainer.innerHTML = pageContent[pageId].content;
+                const newPage = document.getElementById(pageId);
+                if (newPage) newPage.classList.add('active');
+            }
+            
+            updateMeta(pageId);
+            updateActiveLink(pageId);
+            window.scrollTo(0, 0);
+        }
+
+        function updateActiveLink(pageId) {
+            const headerLinks = document.querySelectorAll('.main-header .nav-link');
+            headerLinks.forEach(link => {
+                link.classList.remove('active');
+                const linkPage = link.getAttribute('href').substring(1);
+                let mainPage = pageId.startsWith('service-') ? 'services' :
+                               pageId.startsWith('case-study-') ? 'portfolio' :
+                               pageId;
+                if (linkPage === mainPage) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        document.body.addEventListener('click', e => {
+            const link = e.target.closest('.nav-link');
+            if (link) {
+                e.preventDefault();
+                const pageId = link.getAttribute('href').substring(1);
+                if (pageId) {
+                    history.pushState({pageId}, null, `#${pageId}`);
+                    showPage(pageId);
+                    if (sidebar.classList.contains('open')) {
+                        sidebar.classList.remove('open');
+                    }
+                }
+            }
+        });
+        
+        window.addEventListener('popstate', (e) => {
+            const pageId = (e.state && e.state.pageId) ? e.state.pageId : 'home';
+            showPage(pageId);
+        });
+
+        function handleInitialLoad() {
+            const hash = window.location.hash.substring(1);
+            const pageId = hash || 'home';
+            history.replaceState({pageId}, null, `#${pageId}`);
+            showPage(pageId);
+        }
+
+        // --- Preloader ---
+        const preloader = document.getElementById('preloader');
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+                preloader.style.transition = 'opacity 0.5s ease, visibility 0.5s ease';
+                document.body.style.overflow = 'auto';
+                handleInitialLoad(); // Show page after preloader is gone
+            }, 500);
+        });
+        
+        // --- Mobile Menu (Sidebar) ---
+        const hamburger = document.getElementById('hamburger-menu');
+        const sidebar = document.getElementById('sidebar');
+        const closeBtn = document.getElementById('close-btn');
+        hamburger.addEventListener('click', () => sidebar.classList.add('open'));
+        closeBtn.addEventListener('click', () => sidebar.classList.remove('open'));
+
+        // --- Dark/Light Mode Toggle ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') themeToggle.checked = true;
+        
+        themeToggle.addEventListener('change', function() {
+            const theme = this.checked ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        });
+
+        // --- Header Scroll Effect ---
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // --- Auto Scrollers ---
+        function initializeScrollers() {
+            const scrollers = document.querySelectorAll(".scroller");
+            if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                scrollers.forEach((scroller) => {
+                    scroller.setAttribute("data-animated", true);
+                    const scrollerInner = scroller.querySelector(".scroller__inner");
+                    const scrollerContent = Array.from(scrollerInner.children);
+                    scrollerContent.forEach((item) => {
+                        const duplicatedItem = item.cloneNode(true);
+                        duplicatedItem.setAttribute("aria-hidden", true);
+                        scrollerInner.appendChild(duplicatedItem);
+                    });
+                });
+            }
+        }
+        initializeScrollers();
+
+        // --- Tech Stack "Show More" ---
+        const viewMoreBtn = document.getElementById('view-more-tech-btn');
+        const hiddenStacks = document.getElementById('hidden-tech-stacks');
+        if(viewMoreBtn && hiddenStacks) {
+            viewMoreBtn.addEventListener('click', () => {
+                const isHidden = hiddenStacks.style.display === 'none' || hiddenStacks.style.display === '';
+                hiddenStacks.style.display = isHidden ? 'block' : 'none';
+                viewMoreBtn.textContent = isHidden ? 'Show Less' : 'Show More';
+            });
+        }
+
+
+        // --- Scroll-triggered Fade-in Animations ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        function observeSections() {
+            document.querySelectorAll('.fade-in-section').forEach(section => {
+                observer.observe(section);
+            });
+        }
+        
+        const mutationObserver = new MutationObserver(observeSections);
+        mutationObserver.observe(mainContentContainer, { childList: true, subtree: true });
+        mutationObserver.observe(dynamicContentContainer, { childList: true, subtree: true });
+        observeSections(); // Initial call
+    });
+    </script>
+</body>
+</html>
+
