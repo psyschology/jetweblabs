@@ -5,32 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jetweb Labs | Custom Web Development & Digital Strategy</title>
 
-    <!-- === Favicon === -->
     <link rel="icon" type="image/png" href="https://i.ibb.co/6nZ14p4/logo-1.png">
     <link rel="apple-touch-icon" href="https://i.ibb.co/6nZ14p4/logo-1.png">
 
-    <!-- SEO Meta Tags -->
     <meta name="description" content="Jetweb Labs delivers expert custom web development, UI/UX design, e-commerce solutions, and results-driven SEO to elevate your brand's digital presence.">
     <meta name="keywords" content="web development agency, custom websites, ui/ux design, e-commerce developer, seo services, web app development, Jetweb Labs">
     <meta name="author" content="Jetweb Labs">
-    <link rel="canonical" href="https://www.jetweblabs.in/"> <!-- Replace with actual domain -->
-    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.jetweblabs.in/"> <meta name="robots" content="index, follow">
 
-    <!-- === Open Graph / Facebook Meta Tags === -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.jetweblabs.in/">
     <meta property="og:title" content="Jetweb Labs | Custom Web Development & Digital Strategy">
     <meta property="og:description" content="Jetweb Labs delivers expert custom web development, UI/UX design, e-commerce solutions, and results-driven SEO to elevate your brand's digital presence.">
     <meta property="og:image" content="https://i.ibb.co/6nZ14p4/logo-1.png">
 
-    <!-- === Twitter Card Meta Tags === -->
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.jetweblabs.in/">
     <meta name="twitter:title" content="Jetweb Labs | Custom Web Development & Digital Strategy">
     <meta name="twitter:description" content="Jetweb Labs delivers expert custom web development, UI/UX design, e-commerce solutions, and results-driven SEO to elevate your brand's digital presence.">
     <meta name="twitter:image" content="https://i.ibb.co/6nZ14p4/logo-1.png">
     
-    <!-- Google Fonts & Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -38,7 +32,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
 
-    <!-- Embedded CSS -->
     <style>
         /* CSS Variables for Theming */
         :root {
@@ -87,7 +80,8 @@
         h1 { font-size: 3.5rem; font-weight: 800; }
         h2 { font-size: 2.5rem; font-weight: 700; }
         h3 { font-size: 1.75rem; font-weight: 600; }
-        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title { text-align: center; margin-bottom: 20px; }
+        .section-subtitle { font-size: 1.125rem; color: var(--text-color); max-width: 48rem; margin: 0 auto 40px; text-align: center; }
         .btn { padding: 12px 28px; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; display: inline-block; border: 2px solid transparent; font-family: var(--font-heading); cursor: pointer; }
         .btn-primary { background-color: var(--primary-color); color: var(--white); }
         .btn-primary:hover { background-color: #0069d9; transform: translateY(-3px); box-shadow: var(--shadow-md); }
@@ -143,6 +137,25 @@
         .service-card h4 { font-size: 1.5rem; margin-bottom: 10px; }
         .service-card .learn-more { color: var(--primary-color); text-decoration: none; font-weight: 600; margin-top: 15px; display: inline-block; cursor: pointer; font-family: var(--font-heading); }
         .service-card .learn-more:hover { text-decoration: underline; }
+
+        /* NEW: Service Plans Section Styles */
+        .service-tabs-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 40px; }
+        .tab-button { padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s ease-in-out; border: 2px solid transparent; background-color: var(--surface-color); color: var(--primary-color); }
+        .tab-button.active { background-color: var(--primary-color); color: var(--white); box-shadow: var(--shadow-sm); }
+        .tab-content.hidden { display: none; }
+        .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .plan-card { display: flex; flex-direction: column; height: 100%; background-color: var(--surface-color); padding: 25px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all 0.2s ease-in-out; }
+        .plan-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .plan-card.highlighted { border: 2px solid var(--primary-color); }
+        .plan-card h3 { font-size: 1.75rem; font-weight: 700; color: var(--heading-color); }
+        .plan-card .price { font-size: 2.5rem; font-weight: 800; color: var(--primary-color); margin-bottom: 5px; }
+        .plan-card .price-sub { font-size: 0.9rem; color: var(--text-color); margin-bottom: 1.2rem; }
+        .plan-card .feature-category { font-size: 1rem; font-weight: 700; color: var(--heading-color); margin-top: 1.2rem; margin-bottom: 0.75rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; }
+        .plan-card ul { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+        .plan-card li { display: flex; align-items: flex-start; margin-bottom: 0.8rem; font-size: 0.9rem; color: var(--text-color); line-height: 1.4; }
+        .plan-card li .icon { margin-right: 10px; margin-top: 4px; flex-shrink: 0; width: 16px; text-align: center; }
+        .plan-card li .icon.fa-check-circle { color: #28a745; }
+        .plan-card li .icon.fa-times-circle { color: #dc3545; }
 
         /* Portfolio & Case Studies */
         .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
@@ -256,13 +269,13 @@
 <body>
 
     <div id="preloader">
-        <img src="assets/img/logo1.png" alt="Jetweb Labs Logo Loading Animation">
+        <img src="https://i.ibb.co/6nZ14p4/logo-1.png" alt="Jetweb Labs Logo Loading Animation">
     </div>
 
     <header class="main-header" id="main-header">
         <div class="container">
             <a href="#home" class="logo-link nav-link">
-                <img src="assets/img/logo1.png" alt="Jetweb Labs Logo" class="logo">
+                <img src="https://i.ibb.co/6nZ14p4/logo-1.png" alt="Jetweb Labs Logo" class="logo">
             </a>
             <nav class="main-nav">
                 <ul class="nav-links">
@@ -301,9 +314,7 @@
     </div>
 
     <main id="main-content">
-        <!-- PAGE: Homepage -->
         <section id="home" class="page active">
-            <!-- Hero Section -->
             <div class="hero">
                 <div class="container">
                     <div class="hero-content fade-in-section is-visible">
@@ -318,7 +329,6 @@
                 </div>
             </div>
 
-            <!-- Services Overview -->
             <div class="container fade-in-section" style="padding: 80px 20px;">
                 <h2 class="section-title">Our Core Services</h2>
                 <div class="services-overview-grid">
@@ -333,11 +343,10 @@
                     </div>
                 </div>
                  <div style="text-align: center; margin-top: 40px;">
-                    <a href="#services" class="btn btn-secondary nav-link">View All Services</a>
+                    <a href="#services" class="btn btn-secondary nav-link">View All Services & Pricing</a>
                 </div>
             </div>
 
-            <!-- Portfolio Showcase -->
             <div class="fade-in-section" style="padding: 80px 0; background-color: var(--surface-color);">
                 <div class="container">
                     <h2 class="section-title">Featured Work</h2>
@@ -370,7 +379,6 @@
                 </div>
             </div>
             
-            <!-- Trust Section / Testimonials -->
             <div style="padding: 80px 0;">
                 <div class="container fade-in-section">
                     <h2 class="section-title">What Our Clients Say</h2>
@@ -401,23 +409,22 @@
                 </div>
             </div>
 
-            <!-- Technology Stack -->
             <div class="fade-in-section" style="padding: 80px 0; background-color: var(--surface-color);">
                 <div class="container">
                     <h2 class="section-title">Technologies We Use</h2>
                      <div class="tech-stack-grid">
-                        <div class="tech-item"><i class="devicon-html5-plain"></i><span>HTML5</span></div>
-                        <div class="tech-item"><i class="devicon-css3-plain"></i><span>CSS3</span></div>
-                        <div class="tech-item"><i class="devicon-javascript-plain"></i><span>JavaScript</span></div>
-                        <div class="tech-item"><i class="devicon-react-original"></i><span>React</span></div>
-                        <div class="tech-item"><i class="devicon-nodejs-plain"></i><span>Node.js</span></div>
-                        <div class="tech-item"><i class="devicon-python-plain"></i><span>Python</span></div>
-                        <div class="tech-item"><i class="devicon-php-plain"></i><span>PHP</span></div>
-                        <div class="tech-item"><i class="devicon-mysql-plain"></i><span>MySQL</span></div>
-                        <div class="tech-item"><i class="devicon-amazonwebservices-original"></i><span>AWS</span></div>
-                        <div class="tech-item"><i class="devicon-docker-plain"></i><span>Docker</span></div>
-                        <div class="tech-item"><i class="devicon-git-plain"></i><span>Git</span></div>
-                        <div class="tech-item"><i class="devicon-figma-plain"></i><span>Figma</span></div>
+                         <div class="tech-item"><i class="devicon-html5-plain"></i><span>HTML5</span></div>
+                         <div class="tech-item"><i class="devicon-css3-plain"></i><span>CSS3</span></div>
+                         <div class="tech-item"><i class="devicon-javascript-plain"></i><span>JavaScript</span></div>
+                         <div class="tech-item"><i class="devicon-react-original"></i><span>React</span></div>
+                         <div class="tech-item"><i class="devicon-nodejs-plain"></i><span>Node.js</span></div>
+                         <div class="tech-item"><i class="devicon-python-plain"></i><span>Python</span></div>
+                         <div class="tech-item"><i class="devicon-php-plain"></i><span>PHP</span></div>
+                         <div class="tech-item"><i class="devicon-mysql-plain"></i><span>MySQL</span></div>
+                         <div class="tech-item"><i class="devicon-amazonwebservices-original"></i><span>AWS</span></div>
+                         <div class="tech-item"><i class="devicon-docker-plain"></i><span>Docker</span></div>
+                         <div class="tech-item"><i class="devicon-git-plain"></i><span>Git</span></div>
+                         <div class="tech-item"><i class="devicon-figma-plain"></i><span>Figma</span></div>
                     </div>
                     <div id="hidden-tech-stacks">
                         <div class="tech-category"><h4>Frontend</h4><div class="tech-stack-grid">
@@ -437,7 +444,7 @@
                             <div class="tech-item"><i class="devicon-graphql-plain"></i><span>GraphQL</span></div>
                             <div class="tech-item"><i class="devicon-jest-plain"></i><span>Jest</span></div>
                         </div></div>
-                         <div class="tech-category"><h4>Backend</h4><div class="tech-stack-grid">
+                        <div class="tech-category"><h4>Backend</h4><div class="tech-stack-grid">
                             <div class="tech-item"><i class="devicon-express-original"></i><span>Express</span></div>
                             <div class="tech-item"><i class="devicon-django-plain"></i><span>Django</span></div>
                             <div class="tech-item"><i class="devicon-flask-original"></i><span>Flask</span></div>
@@ -504,8 +511,7 @@
                 </div>
             </div>
 
-             <!-- Brands We've Worked With -->
-            <div class="fade-in-section" style="padding: 80px 0;">
+             <div class="fade-in-section" style="padding: 80px 0;">
                 <div class="container">
                     <h2 class="section-title">Brands We've Worked With</h2>
                     <div class="scroller brands-scroller" data-animated="true">
@@ -523,7 +529,6 @@
                 </div>
             </div>
             
-            <!-- Final CTA -->
             <div class="container fade-in-section" style="padding-bottom: 80px;">
                 <div class="cta-section">
                     <h2>Let's Build Your Digital Future</h2>
@@ -533,37 +538,275 @@
             </div>
         </section>
 
-        <!-- PAGE: Services Overview -->
         <section id="services" class="page">
-             <div class="container">
+            <div class="container">
                 <div class="page-header fade-in-section">
-                    <h1>Our Services</h1>
-                    <p>We offer a comprehensive suite of digital services designed to build, grow, and maintain your online presence. From initial concept to final deployment and beyond, we are your dedicated digital partner.</p>
+                    <h2 class="section-title">The JetWeb Labs Comprehensive Service Matrix</h2>
+                    <p class="section-subtitle">Our complete ecosystem of solutions. Each plan is meticulously detailed to demonstrate overwhelming value, building client trust and creating clear pathways for their growth with us.</p>
                 </div>
-                <div class="services-overview-grid fade-in-section">
-                    <div class="service-card">
-                        <div class="icon">🖥️</div><h4>Custom Website Development</h4><p>High-quality, scalable websites tailored to your specific needs.</p><a href="#service-development" class="learn-more nav-link">Learn More →</a>
+                
+                <div class="service-tabs-container" id="serviceTabs">
+                    <button class="tab-button active" data-tab="websites">Websites</button>
+                    <button class="tab-button" data-tab="ecommerce">E-commerce</button>
+                    <button class="tab-button" data-tab="software">Software</button>
+                    <button class="tab-button" data-tab="marketing">Marketing</button>
+                </div>
+    
+                <div id="websites" class="tab-content fade-in-section">
+                    <div class="plans-grid">
+                        <div class="plan-card">
+                            <h3>JetHandle</h3>
+                            <div class="price">₹1,999</div>
+                            <p class="price-sub">+ GST / $29 USD (One-time)</p>
+                            <div class="feature-category">Core Offering</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>Digital ID Card Site</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>your-name.jetweblabs.in</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>QR Code for Instant Sharing</li>
+                                <li><span class="icon fas fa-check-circle"></span>1 Year Secure Hosting</li>
+                                <li><span class="icon fas fa-times-circle"></span>Custom Domain Support</li>
+                                <li><span class="icon fas fa-times-circle"></span>Content Management System</li>
+                            </ul>
+                        </div>
+                         <div class="plan-card">
+                            <h3>JetSpark</h3>
+                            <div class="price">₹9,999</div>
+                            <p class="price-sub">+ GST / $199 USD</p>
+                            <div class="feature-category">Design & Content</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>1-Page Professional Website</li>
+                                <li><span class="icon fas fa-check-circle"></span>Choice of 15 Premium Templates</li>
+                                <li><span class="icon fas fa-check-circle"></span>Client's Branding & Colors</li>
+                                <li><span class="icon fas fa-check-circle"></span>Up to 8 Content Sections</li>
+                            </ul>
+                            <div class="feature-category">Technical Features</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>1 Year Free .com Domain</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Interactive Contact Form</li>
+                                <li><span class="icon fas fa-check-circle"></span>Image & Video Gallery</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>1 Business Email Account</b></li>
+                                <li><span class="icon fas fa-times-circle"></span>Blog / CMS Functionality</li>
+                            </ul>
+                        </div>
+                        <div class="plan-card highlighted">
+                            <h3>JetBoost</h3>
+                            <div class="price">₹49,999</div>
+                            <p class="price-sub">+ GST / $999 USD</p>
+                            <div class="feature-category">Design & Architecture</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>Up to 10 Custom Pages</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Custom UI/UX Design Process</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>Full Blog/Portfolio CMS</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>2 Rounds of Major Revisions</li>
+                            </ul>
+                            <div class="feature-category">Technical & Marketing</div>
+                            <ul>
+                                 <li><span class="icon fas fa-check-circle"></span><b>Basic E-commerce (50 products)</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Basic On-Page SEO Setup</li>
+                                <li><span class="icon fas fa-check-circle"></span>Google Analytics Setup</li>
+                                 <li><span class="icon fas fa-check-circle"></span>5 Business Email Accounts</li>
+                                 <li><span class="icon fas fa-check-circle"></span><b>Chat & Email Support + Training</b></li>
+                            </ul>
+                        </div>
+                         <div class="plan-card">
+                            <h3>JetVelocity</h3>
+                            <div class="price">₹1,49,999</div>
+                            <p class="price-sub">+ GST / $2,999 USD</p>
+                              <div class="feature-category">Design & Architecture</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>Up to 20 Pages or Web App</b></li>
+                                 <li><span class="icon fas fa-check-circle"></span>Data-Driven UI/UX Research</li>
+                                 <li><span class="icon fas fa-check-circle"></span>Wireframing & Prototyping</li>
+                            </ul>
+                            <div class="feature-category">Technical & Marketing</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>Advanced E-commerce Suite</b></li>
+                                 <li><span class="icon fas fa-check-circle"></span>Custom User Dashboards</li>
+                                 <li><span class="icon fas fa-check-circle"></span>Third-party API Integrations</li>
+                                 <li><span class="icon fas fa-check-circle"></span>Advanced Technical SEO</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>Priority Phone Support</b></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="service-card">
-                        <div class="icon">🎨</div><h4>UI/UX Design</h4><p>Creating user-centric designs that are both beautiful and functional.</p><a href="#service-uiux" class="learn-more nav-link">Learn More →</a>
+                </div>
+    
+                <div id="ecommerce" class="tab-content hidden fade-in-section">
+                     <div class="plans-grid">
+                         <div class="plan-card">
+                            <h3>JetPay</h3>
+                            <div class="price">₹3,999</div>
+                            <p class="price-sub">+ GST / $79 USD</p>
+                            <div class="feature-category">Core Offering</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>Integrate Payment Button</li>
+                                <li><span class="icon fas fa-check-circle"></span>For Existing Website/Social Page</li>
+                                <li><span class="icon fas fa-check-circle"></span>Sell 1 Product or Service</li>
+                                <li><span class="icon fas fa-check-circle"></span>Razorpay/Stripe Setup Aid</li>
+                                <li><span class="icon fas fa-times-circle"></span>Shopping Cart Functionality</li>
+                                <li><span class="icon fas fa-times-circle"></span>Inventory Management</li>
+                            </ul>
+                        </div>
+                        <div class="plan-card">
+                            <h3>JetCart</h3>
+                            <div class="price">₹14,999</div>
+                            <p class="price-sub">+ GST / $299 USD</p>
+                              <div class="feature-category">Store Add-on</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>Add Store to Existing Site</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Up to 25 Products Uploaded</li>
+                                <li><span class="icon fas fa-check-circle"></span>Full Cart & Checkout Pages</li>
+                                <li><span class="icon fas fa-check-circle"></span>Basic Inventory Tracking</li>
+                                 <li><span class="icon fas fa-times-circle"></span>Full Website Design</li>
+                            </ul>
+                        </div>
+                        <div class="plan-card highlighted">
+                            <h3>JetStore</h3>
+                            <div class="price">₹74,999</div>
+                            <p class="price-sub">+ GST / $1,499 USD</p>
+                            <div class="feature-category">Complete Store Build</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>Full E-commerce Website</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Up to 250 Products</li>
+                                <li><span class="icon fas fa-check-circle"></span>Premium Theme Customization</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>Discount & Coupon Engine</b></li>
+                                <li><span class="icon fas fa-check-circle"></span><b>Abandoned Cart Recovery</b></li>
+                                 <li><span class="icon fas fa-check-circle"></span>Customer Account System</li>
+                            </ul>
+                        </div>
+                        <div class="plan-card">
+                            <h3>JetMarketplace</h3>
+                            <div class="price">From ₹2,99,999</div>
+                            <p class="price-sub">+ GST / $5,999 USD</p>
+                            <div class="feature-category">Platform Development</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>Multi-Vendor Marketplace</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Unlimited Products & Vendors</li>
+                                <li><span class="icon fas fa-check-circle"></span>Vendor Dashboards & Payouts</li>
+                                <li><span class="icon fas fa-check-circle"></span>Multi-Currency & Language</li>
+                                <li><span class="icon fas fa-check-circle"></span>Headless Commerce / API-first</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="service-card">
-                        <div class="icon">🛒</div><h4>E-commerce Integration</h4><p>Robust e-commerce solutions to sell your products effectively online.</p><a href="#service-ecommerce" class="learn-more nav-link">Learn More →</a>
+                </div>
+    
+                <div id="software" class="tab-content hidden fade-in-section">
+                    <div class="plans-grid">
+                        <div class="plan-card">
+                            <h3>JetForm</h3>
+                            <div class="price">₹4,999</div>
+                            <p class="price-sub">+ GST / $99 USD</p>
+                            <div class="feature-category">Advanced Forms</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>Multi-Step Quote/Contact Form</li>
+                                <li><span class="icon fas fa-check-circle"></span>Conditional Logic Fields</li>
+                                <li><span class="icon fas fa-check-circle"></span>Integration into your site</li>
+                                <li><span class="icon fas fa-check-circle"></span>Email Notifications Setup</li>
+                                 <li><span class="icon fas fa-times-circle"></span>Data storage / Database</li>
+                                 <li><span class="icon fas fa-times-circle"></span>PDF Generation</li>
+                            </ul>
+                        </div>
+                        <div class="plan-card">
+                            <h3>JetTool</h3>
+                            <div class="price">₹24,999</div>
+                            <p class="price-sub">+ GST / $499 USD</p>
+                            <div class="feature-category">Branded Software Solution</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>Standalone Invoice Generator</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Secure User Login System</li>
+                                <li><span class="icon fas fa-check-circle"></span>Client & Item Database</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>Your Logo & Branding</b></li>
+                                 <li><span class="icon fas fa-check-circle"></span>Export Invoices to PDF</li>
+                                 <li><span class="icon fas fa-check-circle"></span>1 Year Hosting & Maintenance</li>
+                            </ul>
+                        </div>
+                        <div class="plan-card highlighted">
+                            <h3>JetDash</h3>
+                            <div class="price">From ₹99,999</div>
+                            <p class="price-sub">+ GST / $1,999 USD</p>
+                            <div class="feature-category">Custom BI Dashboard</div>
+                            <ul>
+                                 <li><span class="icon fas fa-check-circle"></span><b>Custom Business Dashboard</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Connect up to 3 Data Sources</li>
+                                <li><span class="icon fas fa-check-circle"></span>Real-time Charts & KPIs</li>
+                                <li><span class="icon fas fa-check-circle"></span>Secure User Roles & Permissions</li>
+                                 <li><span class="icon fas fa-check-circle"></span>Automated Email Reports</li>
+                            </ul>
+                        </div>
+                        <div class="plan-card">
+                            <h3>JetLogic</h3>
+                            <div class="price">Custom Quote</div>
+                            <p class="price-sub">(Enterprise Scale)</p>
+                            <div class="feature-category">Full Application Build</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>Custom Web/Mobile App</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Full SDLC: Discovery to Deploy</li>
+                                <li><span class="icon fas fa-check-circle"></span>Scalable Cloud Architecture</li>
+                                <li><span class="icon fas fa-check-circle"></span>Dedicated Project Manager</li>
+                                <li><span class="icon fas fa-check-circle"></span>Ongoing Support & SLA</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="service-card">
-                        <div class="icon">🔧</div><h4>Maintenance & Support</h4><p>Keeping your website secure, updated, and performing at its best.</p><a href="#service-support" class="learn-more nav-link">Learn More →</a>
-                    </div>
-                    <div class="service-card">
-                        <div class="icon">📈</div><h4>SEO & Digital Strategy</h4><p>Boosting your visibility and driving targeted traffic to your site.</p><a href="#service-seo" class="learn-more nav-link">Learn More →</a>
-                    </div>
-                    <div class="service-card">
-                        <div class="icon">📱</div><h4>Web App Development</h4><p>Building powerful, interactive web applications for complex tasks.</p><a href="#service-webapp" class="learn-more nav-link">Learn More →</a>
+                </div>
+    
+                <div id="marketing" class="tab-content hidden fade-in-section">
+                    <div class="plans-grid">
+                        <div class="plan-card">
+                            <h3>JetSpark Social</h3>
+                            <div class="price">₹4,999</div>
+                            <p class="price-sub">/month + GST | $99 USD</p>
+                            <div class="feature-category">Starter Social Media</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>1 Social Platform (FB or IG)</li>
+                                <li><span class="icon fas fa-check-circle"></span>8 Template-based Posts/Month</li>
+                                <li><span class="icon fas fa-check-circle"></span>Basic Community Engagement</li>
+                                 <li><span class="icon fas fa-times-circle"></span>Custom Graphics / Reels</li>
+                                <li><span class="icon fas fa-times-circle"></span>Monthly Reporting</li>
+                            </ul>
+                        </div>
+                        <div class="plan-card">
+                            <h3>JetSignal</h3>
+                            <div class="price">₹19,999</div>
+                            <p class="price-sub">/month + GST | $399 USD</p>
+                               <div class="feature-category">Managed Presence</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>2 Social Platforms</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>12 Custom Posts per Month</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Basic On-Page SEO Monitoring</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>Monthly Performance Report</b></li>
+                                <li><span class="icon fas fa-times-circle"></span>Paid Ad Management</li>
+                            </ul>
+                        </div>
+                        <div class="plan-card highlighted">
+                            <h3>JetThrust</h3>
+                            <div class="price">₹59,999</div>
+                            <p class="price-sub">/month + GST | $1,199 USD</p>
+                            <div class="feature-category">Growth Engine</div>
+                            <ul>
+                                 <li><span class="icon fas fa-check-circle"></span>3 Social Platforms</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>20 Posts + 2 Reels/Shorts</b></li>
+                                 <li><span class="icon fas fa-check-circle"></span><b>Technical SEO & Link Building</b></li>
+                                 <li><span class="icon fas fa-check-circle"></span>Basic Google/Meta Ads Mgmt</li>
+                                 <li><span class="icon fas fa-check-circle"></span><b>Bi-weekly Reporting & Call</b></li>
+                            </ul>
+                        </div>
+                        <div class="plan-card">
+                            <h3>JetOrbit</h3>
+                            <div class="price">From ₹1,24,999</div>
+                            <p class="price-sub">/month + GST | $2,499 USD</p>
+                               <div class="feature-category">Market Domination</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>Omni-channel Strategy</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Full Content Marketing Engine</li>
+                                 <li><span class="icon fas fa-check-circle"></span>Advanced SEO & CRO</li>
+                                 <li><span class="icon fas fa-check-circle"></span>Multi-platform Ad Campaigns</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>Dedicated Account Strategist</b></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- PAGE: Portfolio Overview -->
         <section id="portfolio" class="page">
             <div class="container">
                 <div class="page-header fade-in-section">
@@ -581,7 +824,6 @@
             </div>
         </section>
 
-        <!-- PAGE: About Us -->
         <section id="about" class="page">
             <div class="container">
                 <div class="page-header fade-in-section">
@@ -626,7 +868,6 @@
             </div>
         </section>
 
-        <!-- PAGE: Contact -->
         <section id="contact" class="page">
              <div class="container">
                 <div class="page-header fade-in-section">
@@ -680,7 +921,6 @@
             </div>
         </section>
 
-        <!-- All individual service and case study pages will be injected here by JS -->
         <div id="dynamic-page-content"></div>
 
     </main>
@@ -689,7 +929,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-about">
-                    <img src="assets/img/logo1.png" alt="Jetweb Labs Logo" class="logo">
+                    <img src="https://i.ibb.co/6nZ14p4/logo-1.png" alt="Jetweb Labs Logo" class="logo">
                     <p>Architects of the digital frontier, building exceptional web experiences.</p>
                     <div class="social-icons">
                         <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -728,7 +968,6 @@
         </div>
     </footer>
 
-    <!-- Embedded JavaScript -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const pageContent = {
@@ -973,11 +1212,11 @@
                  // Default for static pages like home, about, etc.
                 const defaultTitle = 'Jetweb Labs | Custom Web Development & Digital Strategy';
                 const defaultDesc = 'Jetweb Labs delivers expert custom web development, UI/UX design, e-commerce solutions, and results-driven SEO to elevate your brand\'s digital presence.';
-                const pageTitleElement = document.querySelector(`#${pageId} h1`);
+                const pageTitleElement = document.querySelector(`#${pageId} h1, #${pageId} h2`);
                 const pageDescElement = document.querySelector(`#${pageId} p`);
 
-                document.title = pageTitleElement ? `${pageTitleElement.textContent} | Jetweb Labs` : defaultTitle;
-                document.querySelector('meta[name="description"]').setAttribute("content", pageDescElement ? pageDescElement.textContent : defaultDesc);
+                document.title = pageTitleElement ? `${pageTitleElement.textContent.trim()} | Jetweb Labs` : defaultTitle;
+                document.querySelector('meta[name="description"]').setAttribute("content", pageDescElement ? pageDescElement.textContent.trim() : defaultDesc);
             }
         }
 
@@ -1107,6 +1346,31 @@
             });
         }
 
+        // --- NEW: Service Plans Tab Switching Logic ---
+        const serviceTabsContainer = document.getElementById('serviceTabs');
+        if (serviceTabsContainer) {
+            const tabButtons = serviceTabsContainer.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('#services .tab-content');
+            
+            serviceTabsContainer.addEventListener('click', (e) => {
+                const targetButton = e.target.closest('.tab-button');
+                if (targetButton) {
+                    const tab = targetButton.dataset.tab;
+                    
+                    tabButtons.forEach(button => button.classList.remove('active'));
+                    targetButton.classList.add('active');
+                    
+                    tabContents.forEach(content => {
+                        if (content.id === tab) {
+                            content.classList.remove('hidden');
+                        } else {
+                            content.classList.add('hidden');
+                        }
+                    });
+                }
+            });
+        }
+
 
         // --- Scroll-triggered Fade-in Animations ---
         const observer = new IntersectionObserver((entries) => {
@@ -1132,4 +1396,3 @@
     </script>
 </body>
 </html>
-
