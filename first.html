@@ -43,6 +43,7 @@
             --heading-color: #1a202c;
             --border-color: #e2e8f0;
             --white: #fff;
+            --whatsapp-color: #25D366;
             --font-main: 'Inter', sans-serif;
             --font-heading: 'Poppins', sans-serif;
             --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -82,7 +83,7 @@
         h3 { font-size: 1.75rem; font-weight: 600; }
         .section-title { text-align: center; margin-bottom: 20px; }
         .section-subtitle { font-size: 1.125rem; color: var(--text-color); max-width: 48rem; margin: 0 auto 40px; text-align: center; }
-        .btn { padding: 12px 28px; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; display: inline-block; border: 2px solid transparent; font-family: var(--font-heading); cursor: pointer; }
+        .btn { padding: 12px 28px; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; display: inline-block; border: 2px solid transparent; font-family: var(--font-heading); cursor: pointer; text-align: center; }
         .btn-primary { background-color: var(--primary-color); color: var(--white); }
         .btn-primary:hover { background-color: #0069d9; transform: translateY(-3px); box-shadow: var(--shadow-md); }
         .btn-secondary { background-color: transparent; color: var(--primary-color); border-color: var(--primary-color); }
@@ -138,7 +139,7 @@
         .service-card .learn-more { color: var(--primary-color); text-decoration: none; font-weight: 600; margin-top: 15px; display: inline-block; cursor: pointer; font-family: var(--font-heading); }
         .service-card .learn-more:hover { text-decoration: underline; }
 
-        /* NEW: Service Plans Section Styles */
+        /* Service Plans Section Styles */
         .service-tabs-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 40px; }
         .tab-button { padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s ease-in-out; border: 2px solid transparent; background-color: var(--surface-color); color: var(--primary-color); }
         .tab-button.active { background-color: var(--primary-color); color: var(--white); box-shadow: var(--shadow-sm); }
@@ -156,14 +157,20 @@
         .plan-card li .icon { margin-right: 10px; margin-top: 4px; flex-shrink: 0; width: 16px; text-align: center; }
         .plan-card li .icon.fa-check-circle { color: #28a745; }
         .plan-card li .icon.fa-times-circle { color: #dc3545; }
+        .plan-actions { margin-top: auto; padding-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+        .btn-whatsapp { background-color: var(--whatsapp-color); color: var(--white); }
+        .btn-whatsapp:hover { background-color: #1EBE57; }
 
         /* Portfolio & Case Studies */
         .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
-        .portfolio-card { background-color: var(--surface-color); border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; box-shadow: var(--shadow-md); transition: transform 0.3s, box-shadow 0.3s; }
+        .portfolio-card { background-color: var(--surface-color); border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; box-shadow: var(--shadow-md); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
         .portfolio-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
         .portfolio-card .portfolio-image { width: 100%; height: 220px; object-fit: cover; display: block; }
-        .portfolio-card .portfolio-content { padding: 25px; }
+        .portfolio-card .portfolio-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
         .portfolio-card h4 { margin-bottom: 10px; }
+        .portfolio-card .portfolio-description { flex-grow: 1; }
+        .portfolio-actions { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+
 
         /* Testimonials Section */
         .testimonial-card { background-color: var(--surface-color); padding: 30px; border-radius: 12px; border-left: 5px solid var(--primary-color); }
@@ -198,6 +205,10 @@
         .cta-section { background-color: var(--heading-color); color: var(--white); padding: 80px 0; text-align: center; border-radius: 20px; }
         .cta-section h2 { color: var(--white); }
         .cta-section p { max-width: 600px; margin: 20px auto 30px; opacity: 0.9; }
+        /* DARK MODE CTA FIX */
+        [data-theme="dark"] .cta-section { background-color: var(--surface-color); }
+        [data-theme="dark"] .cta-section h2, [data-theme="dark"] .cta-section p { color: var(--heading-color); }
+
 
         /* About Page */
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
@@ -242,6 +253,11 @@
         .social-icons a { font-size: 1.5rem; color: var(--text-color); transition: color 0.3s, transform 0.3s; }
         .social-icons a:hover { color: var(--primary-color); transform: scale(1.1); }
         .footer-bottom { text-align: center; border-top: 1px solid var(--border-color); padding-top: 20px; font-size: 0.9rem; }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: var(--whatsapp-color); color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 6px rgba(0,0,0,0.25); z-index: 100; transition: transform 0.3s ease; }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        .whatsapp-float i { margin-top: 15px; }
         
         /* Scroll-triggered animations */
         .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
@@ -263,6 +279,8 @@
             .hamburger { display: block; }
             .footer-grid { grid-template-columns: 1fr; }
             .testimonial-card-scrolling { width: 300px; }
+            .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 24px; }
+            .whatsapp-float i { margin-top: 13px; }
         }
     </style>
 </head>
@@ -352,22 +370,6 @@
                     <h2 class="section-title">Featured Work</h2>
                     <div class="portfolio-grid">
                         <div class="portfolio-card">
-                            <img src="https://placehold.co/600x400/007bff/white?text=Academica" alt="Academica Coaching Platform Screenshot" class="portfolio-image">
-                            <div class="portfolio-content">
-                                <h4>Academica Coaching</h4>
-                                <p>An interactive learning platform that doubled online conversions.</p>
-                                <a href="#case-study-academica" class="learn-more nav-link">View Case Study →</a>
-                            </div>
-                        </div>
-                        <div class="portfolio-card">
-                            <img src="https://placehold.co/600x400/ffc107/black?text=Fun+Kraft" alt="Fun Kraft E-commerce Store Screenshot" class="portfolio-image">
-                            <div class="portfolio-content">
-                                <h4>Fun Kraft</h4>
-                                <p>A Shopify e-commerce store that led to a 40% increase in sales.</p>
-                                <a href="#case-study-funkraft" class="learn-more nav-link">View Case Study →</a>
-                            </div>
-                        </div>
-                        <div class="portfolio-card">
                             <img src="https://placehold.co/600x400/17a2b8/white?text=Imperial+Logistics" alt="Imperial Logistics Website Screenshot" class="portfolio-image">
                             <div class="portfolio-content">
                                 <h4>Imperial Logistics</h4>
@@ -375,6 +377,27 @@
                                 <a href="#case-study-imperial" class="learn-more nav-link">View Case Study →</a>
                             </div>
                         </div>
+                        <div class="portfolio-card">
+                             <img src="https://placehold.co/600x400/6f42c1/white?text=Safarmiles" alt="Safarmiles Travel Agency Website" class="portfolio-image">
+                            <div class="portfolio-content">
+                                <h4>Safarmiles Travel Agency</h4>
+                                <p>A modern travel portal with a focus on user experience.</p>
+                                <div class="portfolio-actions" style="margin-top:15px;">
+                                    <a href="https://safar-miles.vercel.app" target="_blank" class="btn btn-secondary" style="padding: 5px 10px; font-size: 0.8rem;">View Project</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-card">
+                            <img src="https://placehold.co/600x400/007bff/white?text=Academica" alt="Academica Coaching Platform Screenshot" class="portfolio-image">
+                            <div class="portfolio-content">
+                                <h4>Academica Institute</h4>
+                                <p>An interactive learning platform that doubled online conversions.</p>
+                                <a href="#case-study-academica" class="learn-more nav-link">View Case Study →</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div style="text-align: center; margin-top: 40px;">
+                        <a href="#portfolio" class="btn btn-primary nav-link">View All Projects</a>
                     </div>
                 </div>
             </div>
@@ -387,23 +410,23 @@
                     <div class="scroller__inner" id="testimonial-scroller-inner">
                         <div class="testimonial-card testimonial-card-scrolling">
                             <p>"The platform provided by Jetweb Labs has been a game-changer. Our online conversions have doubled since our new website launch. Their team is professional, responsive, and truly cares about our success."</p>
-                            <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=GB" alt="Gopal Burman"><div class="testimonial-author-info"><strong>Gopal Burman</strong><span>Founder, Academica Coaching</span></div></div>
+                            <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=GB" alt="Gopal Burman"><div class="testimonial-author-info"><strong>Gopal Burman</strong><span>Founder, Academica Institute</span></div></div>
                         </div>
                         <div class="testimonial-card testimonial-card-scrolling">
-                            <p>"Jetweb Labs' SEO and digital strategy services have dramatically improved our online visibility. We're now ranking on the first page for our key terms, and the increase in organic traffic has been phenomenal."</p>
-                            <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=AM" alt="Akash Mahato"><div class="testimonial-author-info"><strong>Akash Mahato</strong><span>Founder, MotoXHub</span></div></div>
+                           <p>"Jetweb Labs delivered a world-class website that perfectly represents our global brand. The new tracking feature is a huge hit with our clients. Professional, efficient, and highly recommended."</p>
+                           <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=RK" alt="Ravi Kumar"><div class="testimonial-author-info"><strong>Ravi Kumar</strong><span>CEO, Imperial Logistics</span></div></div>
                         </div>
                          <div class="testimonial-card testimonial-card-scrolling">
-                            <p>"The e-commerce platform they built is robust and easy to manage. Sales have increased by 40% in the first quarter alone. Exceptional work and a fantastic team to work with!"</p>
-                            <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=PS" alt="Priya Singh"><div class="testimonial-author-info"><strong>Priya Singh</strong><span>Owner, Fun Kraft</span></div></div>
+                            <p>"The team's attention to detail in the UI/UX for our travel portal was outstanding. They understood our vision perfectly and delivered a product that our customers love to use."</p>
+                            <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=AV" alt="Anjali Verma"><div class="testimonial-author-info"><strong>Anjali Verma</strong><span>Founder, Safarmiles</span></div></div>
                         </div>
                         <div class="testimonial-card testimonial-card-scrolling">
-                            <p>"Jetweb Labs delivered a world-class website that perfectly represents our global brand. The new tracking feature is a huge hit with our clients. Professional, efficient, and highly recommended."</p>
-                            <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=JD" alt="John Doe"><div class="testimonial-author-info"><strong>John Doe</strong><span>CEO, Imperial Logistics</span></div></div>
+                            <p>"The Notion automation they built for us has been a game-changer for our internal processes. It saved us countless hours of manual work. A truly innovative solution."</p>
+                            <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=SR" alt="Sanjay Rawal"><div class="testimonial-author-info"><strong>Sanjay Rawal</strong><span>Director, Rawalwasia Group</span></div></div>
                         </div>
                          <div class="testimonial-card testimonial-card-scrolling">
-                            <p>"From concept to launch, the process was seamless. Their UI/UX design transformed our user engagement, leading to longer session times and a lower bounce rate. We couldn't be happier with the result."</p>
-                            <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=SC" alt="Sarah Chen"><div class="testimonial-author-info"><strong>Sarah Chen</strong><span>Marketing Head, HealthBridge</span></div></div>
+                            <p>"Developing a dating site requires a deep understanding of user interaction and security. Jetweb Labs handled the complexity with ease and delivered a robust, scalable platform."</p>
+                            <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=VS" alt="Vikram Singh"><div class="testimonial-author-info"><strong>Vikram Singh</strong><span>Project Lead, FriendshipKlub</span></div></div>
                         </div>
                     </div>
                 </div>
@@ -516,14 +539,14 @@
                     <h2 class="section-title">Brands We've Worked With</h2>
                     <div class="scroller brands-scroller" data-animated="true">
                         <div class="scroller__inner" id="brands-scroller-inner">
-                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=StartupX" alt="Brand Logo" class="brand-logo-scrolling">
-                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=InnovateCo" alt="Brand Logo" class="brand-logo-scrolling">
-                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=TechGears" alt="Brand Logo" class="brand-logo-scrolling">
-                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=EcoLife" alt="Brand Logo" class="brand-logo-scrolling">
-                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=MarketRise" alt="Brand Logo" class="brand-logo-scrolling">
-                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=HealthPlus" alt="Brand Logo" class="brand-logo-scrolling">
-                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=FutureScape" alt="Brand Logo" class="brand-logo-scrolling">
-                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=ApexGlobal" alt="Brand Logo" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=Imperial+Logistics" alt="Brand Logo Imperial Logistics" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=Safarmiles" alt="Brand Logo Safarmiles" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=Patni+Asset" alt="Brand Logo Patni Asset" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=Rawalwasia" alt="Brand Logo Rawalwasia Group" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=Oven+Cakes" alt="Brand Logo Oven Cakes" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=FriendshipKlub" alt="Brand Logo FriendshipKlub" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=Academica" alt="Brand Logo Academica" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=Tambola" alt="Brand Logo Tambola" class="brand-logo-scrolling">
                         </div>
                     </div>
                 </div>
@@ -567,6 +590,10 @@
                                 <li><span class="icon fas fa-times-circle"></span>Custom Domain Support</li>
                                 <li><span class="icon fas fa-times-circle"></span>Content Management System</li>
                             </ul>
+                            <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetHandle%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
                         </div>
                          <div class="plan-card">
                             <h3>JetSpark</h3>
@@ -587,6 +614,10 @@
                                 <li><span class="icon fas fa-check-circle"></span><b>1 Business Email Account</b></li>
                                 <li><span class="icon fas fa-times-circle"></span>Blog / CMS Functionality</li>
                             </ul>
+                             <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetSpark%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
                         </div>
                         <div class="plan-card highlighted">
                             <h3>JetBoost</h3>
@@ -607,6 +638,10 @@
                                  <li><span class="icon fas fa-check-circle"></span>5 Business Email Accounts</li>
                                  <li><span class="icon fas fa-check-circle"></span><b>Chat & Email Support + Training</b></li>
                             </ul>
+                             <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetBoost%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
                         </div>
                          <div class="plan-card">
                             <h3>JetVelocity</h3>
@@ -626,6 +661,28 @@
                                  <li><span class="icon fas fa-check-circle"></span>Advanced Technical SEO</li>
                                 <li><span class="icon fas fa-check-circle"></span><b>Priority Phone Support</b></li>
                             </ul>
+                             <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetVelocity%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                        <div class="plan-card">
+                            <h3>Custom Quote</h3>
+                            <div class="price">Let's Talk</div>
+                            <p class="price-sub">Enterprise & Bespoke Solutions</p>
+                            <div class="feature-category">What You Get</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>Full Project Discovery & Scoping</li>
+                                <li><span class="icon fas fa-check-circle"></span>Dedicated Project Manager</li>
+                                <li><span class="icon fas fa-check-circle"></span>Agile Development Sprints</li>
+                                <li><span class="icon fas fa-check-circle"></span>Scalable Cloud Architecture</li>
+                                <li><span class="icon fas fa-check-circle"></span>Ongoing Support & SLA</li>
+                                <li><span class="icon fas fa-check-circle"></span>Anything You Can Imagine</li>
+                            </ul>
+                            <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'd%20like%20a%20custom%20quote%20for%20a%20website%20project." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -645,6 +702,10 @@
                                 <li><span class="icon fas fa-times-circle"></span>Shopping Cart Functionality</li>
                                 <li><span class="icon fas fa-times-circle"></span>Inventory Management</li>
                             </ul>
+                             <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetPay%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
                         </div>
                         <div class="plan-card">
                             <h3>JetCart</h3>
@@ -658,6 +719,10 @@
                                 <li><span class="icon fas fa-check-circle"></span>Basic Inventory Tracking</li>
                                  <li><span class="icon fas fa-times-circle"></span>Full Website Design</li>
                             </ul>
+                             <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetCart%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
                         </div>
                         <div class="plan-card highlighted">
                             <h3>JetStore</h3>
@@ -672,6 +737,10 @@
                                 <li><span class="icon fas fa-check-circle"></span><b>Abandoned Cart Recovery</b></li>
                                  <li><span class="icon fas fa-check-circle"></span>Customer Account System</li>
                             </ul>
+                             <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetStore%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
                         </div>
                         <div class="plan-card">
                             <h3>JetMarketplace</h3>
@@ -685,6 +754,27 @@
                                 <li><span class="icon fas fa-check-circle"></span>Multi-Currency & Language</li>
                                 <li><span class="icon fas fa-check-circle"></span>Headless Commerce / API-first</li>
                             </ul>
+                             <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetMarketplace%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                        <div class="plan-card">
+                            <h3>Custom Quote</h3>
+                            <div class="price">Let's Talk</div>
+                            <p class="price-sub">Enterprise & Bespoke Solutions</p>
+                            <div class="feature-category">What You Get</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>Custom Marketplace Features</li>
+                                <li><span class="icon fas fa-check-circle"></span>Advanced Commission Structures</li>
+                                <li><span class="icon fas fa-check-circle"></span>Dedicated API Development</li>
+                                <li><span class="icon fas fa-check-circle"></span>Full Systems Integration</li>
+                                <li><span class="icon fas fa-check-circle"></span>Performance & Scalability Consulting</li>
+                            </ul>
+                            <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'd%20like%20a%20custom%20quote%20for%20an%20e-commerce%20project." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -704,6 +794,10 @@
                                  <li><span class="icon fas fa-times-circle"></span>Data storage / Database</li>
                                  <li><span class="icon fas fa-times-circle"></span>PDF Generation</li>
                             </ul>
+                             <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetForm%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
                         </div>
                         <div class="plan-card">
                             <h3>JetTool</h3>
@@ -718,6 +812,10 @@
                                  <li><span class="icon fas fa-check-circle"></span>Export Invoices to PDF</li>
                                  <li><span class="icon fas fa-check-circle"></span>1 Year Hosting & Maintenance</li>
                             </ul>
+                             <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetTool%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
                         </div>
                         <div class="plan-card highlighted">
                             <h3>JetDash</h3>
@@ -731,6 +829,10 @@
                                 <li><span class="icon fas fa-check-circle"></span>Secure User Roles & Permissions</li>
                                  <li><span class="icon fas fa-check-circle"></span>Automated Email Reports</li>
                             </ul>
+                             <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetDash%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
                         </div>
                         <div class="plan-card">
                             <h3>JetLogic</h3>
@@ -744,6 +846,27 @@
                                 <li><span class="icon fas fa-check-circle"></span>Dedicated Project Manager</li>
                                 <li><span class="icon fas fa-check-circle"></span>Ongoing Support & SLA</li>
                             </ul>
+                             <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetLogic%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                         <div class="plan-card">
+                            <h3>Custom Quote</h3>
+                            <div class="price">Let's Talk</div>
+                            <p class="price-sub">Enterprise & Bespoke Solutions</p>
+                            <div class="feature-category">What You Get</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>Complete SaaS Product Dev</li>
+                                <li><span class="icon fas fa-check-circle"></span>AI & Machine Learning Integration</li>
+                                <li><span class="icon fas fa-check-circle"></span>Blockchain Development</li>
+                                <li><span class="icon fas fa-check-circle"></span>Enterprise Resource Planning (ERP)</li>
+                                <li><span class="icon fas fa-check-circle"></span>DevOps & CI/CD Pipeline Setup</li>
+                            </ul>
+                            <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'd%20like%20a%20custom%20quote%20for%20a%20software%20project." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -762,6 +885,10 @@
                                  <li><span class="icon fas fa-times-circle"></span>Custom Graphics / Reels</li>
                                 <li><span class="icon fas fa-times-circle"></span>Monthly Reporting</li>
                             </ul>
+                             <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetSpark%20Social%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
                         </div>
                         <div class="plan-card">
                             <h3>JetSignal</h3>
@@ -775,6 +902,10 @@
                                 <li><span class="icon fas fa-check-circle"></span><b>Monthly Performance Report</b></li>
                                 <li><span class="icon fas fa-times-circle"></span>Paid Ad Management</li>
                             </ul>
+                             <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetSignal%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
                         </div>
                         <div class="plan-card highlighted">
                             <h3>JetThrust</h3>
@@ -788,6 +919,10 @@
                                  <li><span class="icon fas fa-check-circle"></span>Basic Google/Meta Ads Mgmt</li>
                                  <li><span class="icon fas fa-check-circle"></span><b>Bi-weekly Reporting & Call</b></li>
                             </ul>
+                             <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetThrust%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
                         </div>
                         <div class="plan-card">
                             <h3>JetOrbit</h3>
@@ -801,6 +936,27 @@
                                  <li><span class="icon fas fa-check-circle"></span>Multi-platform Ad Campaigns</li>
                                 <li><span class="icon fas fa-check-circle"></span><b>Dedicated Account Strategist</b></li>
                             </ul>
+                             <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetOrbit%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                        <div class="plan-card">
+                            <h3>Custom Quote</h3>
+                            <div class="price">Let's Talk</div>
+                            <p class="price-sub">Enterprise & Bespoke Solutions</p>
+                            <div class="feature-category">What You Get</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>Full Funnel Marketing Strategy</li>
+                                <li><span class="icon fas fa-check-circle"></span>Advanced Programmatic Advertising</li>
+                                <li><span class="icon fas fa-check-circle"></span>Marketing Automation & CRM</li>
+                                <li><span class="icon fas fa-check-circle"></span>Market Research & Analysis</li>
+                                <li><span class="icon fas fa-check-circle"></span>PR & Brand Management</li>
+                            </ul>
+                            <div class="plan-actions">
+                                <a href="https://www.instagram.com/jetweblabs/" target="_blank" class="btn btn-primary">Choose This Plan</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'd%20like%20a%20custom%20quote%20for%20a%20marketing%20project." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -814,12 +970,72 @@
                     <p>We are proud of the work we do and the results we deliver. Explore our case studies to see how we've helped businesses like yours succeed in the digital world.</p>
                 </div>
                 <div class="portfolio-grid fade-in-section">
-                    <div class="portfolio-card"><img src="https://placehold.co/600x400/ff69b4/white?text=DJ+Heman" class="portfolio-image" alt="DJ Heman Website"><div class="portfolio-content"><h4>DJ Heman</h4><p>A dynamic portfolio and booking site for a professional DJ.</p><a href="#case-study-djheman" class="learn-more nav-link">View Case Study →</a></div></div>
-                    <div class="portfolio-card"><img src="https://placehold.co/600x400/007bff/white?text=Academica" class="portfolio-image" alt="Academica Coaching Platform"><div class="portfolio-content"><h4>Academica Coaching</h4><p>An interactive learning platform for a growing coaching center.</p><a href="#case-study-academica" class="learn-more nav-link">View Case Study →</a></div></div>
-                    <div class="portfolio-card"><img src="https://placehold.co/600x400/ffc107/black?text=Fun+Kraft" class="portfolio-image" alt="Fun Kraft E-commerce Site"><div class="portfolio-content"><h4>Fun Kraft</h4><p>A vibrant e-commerce store for handmade craft products.</p><a href="#case-study-funkraft" class="learn-more nav-link">View Case Study →</a></div></div>
-                    <div class="portfolio-card"><img src="https://placehold.co/600x400/343a40/white?text=MotoXHub" class="portfolio-image" alt="MotoXHub Blog"><div class="portfolio-content"><h4>MotoXHub</h4><p>A community blog and news portal for motorcycle enthusiasts.</p><a href="#case-study-motoxhub" class="learn-more nav-link">View Case Study →</a></div></div>
-                    <div class="portfolio-card"><img src="https://placehold.co/600x400/28a745/white?text=HealthBridge" class="portfolio-image" alt="HealthBridge Patient Portal"><div class="portfolio-content"><h4>HealthBridge</h4><p>A secure patient portal for a local healthcare clinic.</p><a href="#case-study-healthbridge" class="learn-more nav-link">View Case Study →</a></div></div>
-                    <div class="portfolio-card"><img src="https://placehold.co/600x400/17a2b8/white?text=Imperial+Logistics" class="portfolio-image" alt="Imperial Logistics Website"><div class="portfolio-content"><h4>Imperial Logistics</h4><p>A professional website for a global logistics company.</p><a href="#case-study-imperial" class="learn-more nav-link">View Case Study →</a></div></div>
+                    <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/17a2b8/white?text=Imperial+Logistics" class="portfolio-image" alt="Imperial Logistics Website">
+                        <div class="portfolio-content">
+                            <h4>Imperial Logistics</h4>
+                            <p class="portfolio-description">Developed a professional, responsive corporate website to enhance their global brand image. The site features a clean UI, detailed service pages, and an intuitive 'Track & Trace' portal, resulting in a 30% increase in quote requests.</p>
+                            <div class="portfolio-actions">
+                                <a href="https://imperiallogistics.online" target="_blank" class="btn btn-primary">View Live Site</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/6f42c1/white?text=Safarmiles" class="portfolio-image" alt="Safarmiles Travel Agency Website">
+                        <div class="portfolio-content">
+                            <h4>Safarmiles</h4>
+                            <p class="portfolio-description">Designed and built a dynamic travel agency website with a focus on user experience. Features a robust search and booking interface for flights and hotels, showcasing modern frontend development with a Vercel deployment pipeline.</p>
+                            <div class="portfolio-actions">
+                                <a href="https://safar-miles.vercel.app" target="_blank" class="btn btn-primary">View Project</a>
+                                <a href="https://github.com/psyschology/safar-miles" target="_blank" class="btn btn-secondary">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/28a745/white?text=Patni+Asset+Dashboard" class="portfolio-image" alt="Patni Asset Financial Dashboard">
+                        <div class="portfolio-content">
+                            <h4>Patni Asset Financial Dashboard</h4>
+                            <p class="portfolio-description">Created a bespoke financial data visualization dashboard. The tool provides real-time insights into market trends and portfolio performance through interactive charts, enabling data-driven decision-making for asset managers.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/343a40/white?text=Rawalwasia+Group" class="portfolio-image" alt="Rawalwasia Group Notion Automation">
+                        <div class="portfolio-content">
+                            <h4>Rawalwasia Group Notion Automation</h4>
+                            <p class="portfolio-description">Engineered a custom Notion automation solution to streamline internal workflows. The system automates task management, document generation, and reporting, significantly improving operational efficiency and reducing manual data entry.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/ffc107/black?text=Oven+Cakes" class="portfolio-image" alt="Oven Cakes Local SEO">
+                        <div class="portfolio-content">
+                            <h4>Oven Cakes Local Growth</h4>
+                            <p class="portfolio-description">Executed a targeted local SEO and Google Business Profile optimization strategy. Achieved top-3 local map rankings for key search terms, leading to a measurable increase in foot traffic, online orders, and phone inquiries.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/fd7e14/white?text=FriendshipKlub" class="portfolio-image" alt="FriendshipKlub Dating Site">
+                        <div class="portfolio-content">
+                            <h4>FriendshipKlub Dating Site</h4>
+                            <p class="portfolio-description">Developed the core platform for FriendshipKlub, a social discovery and dating website. Built features for secure user profiles, intelligent matching algorithms, real-time chat functionality, and a robust membership system.</p>
+                        </div>
+                    </div>
+                     <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/dc3545/white?text=Tambola+Game" class="portfolio-image" alt="Tambola Housie Game">
+                        <div class="portfolio-content">
+                            <h4>Tambola Housie Game</h4>
+                            <p class="portfolio-description">Created an engaging online multiplayer Tambola (Housie) game. The application features real-time ticket generation, randomized number calling, and automatic win detection, providing a seamless digital version of the popular game.</p>
+                        </div>
+                    </div>
+                     <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/007bff/white?text=Academica" class="portfolio-image" alt="Academica Institute Website">
+                        <div class="portfolio-content">
+                            <h4>Academica Institute</h4>
+                            <p class="portfolio-description">Provided a dual solution of local SEO boosting and full website development. Enhanced local search visibility while delivering an interactive platform for course information and student enrollment, resulting in doubled online conversions.</p>
+                             <div class="portfolio-actions">
+                                <a href="#case-study-academica" class="btn btn-secondary nav-link">View Case Study</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -924,6 +1140,10 @@
         <div id="dynamic-page-content"></div>
 
     </main>
+    
+    <a href="https://wa.me/910000000000?text=Hi%2C%20I%20found%20your%20website%20and%20would%20like%20to%20inquire%20about%20your%20services." class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <footer class="main-footer">
         <div class="container">
@@ -963,7 +1183,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Jetweb Labs. All Rights Reserved.</p>
+                <p>&copy; 2025 Jetweb Labs. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -1063,7 +1283,7 @@
                                     
                                     <h3>Our Solution: Seamless & Secure E-commerce</h3>
                                     <p>We build robust e-commerce solutions on platforms like Shopify and WooCommerce, or create fully custom platforms for unique needs. Our focus is on creating a seamless shopping experience, from product discovery to secure checkout, encouraging repeat business and building customer loyalty.</p>
-                                     <p style="margin-top: 15px;"><strong>Featured Case Study:</strong> See how we helped <a href="#case-study-funkraft" class="nav-link" style="font-weight: bold;">Fun Kraft</a> achieve a 40% increase in sales with a new Shopify store.</p>
+                                     <p style="margin-top: 15px;"><strong>Check out our <a href="#services" class="nav-link" style="font-weight: bold;">E-commerce Plans</a> to get started.</strong></p>
                                 </div>
                                 <aside class="sidebar-box">
                                     <h4>Benefits & Value</h4>
@@ -1159,8 +1379,8 @@
                                     <div class="testimonial-card" style="margin-top: 20px;">
                                         <p>"Jetweb Labs delivered a world-class website that perfectly represents our global brand. The new tracking feature is a huge hit with our clients. Professional, efficient, and highly recommended."</p>
                                         <div class="testimonial-author">
-                                            <img src="https://placehold.co/100x100/0d1117/c9d1d9?text=JD" alt="John Doe, CEO of Imperial Logistics">
-                                            <div class="testimonial-author-info"><strong>John Doe</strong><span>CEO, Imperial Logistics</span></div>
+                                            <img src="https://placehold.co/100x100/0d1117/c9d1d9?text=RK" alt="Ravi Kumar, CEO of Imperial Logistics">
+                                            <div class="testimonial-author-info"><strong>Ravi Kumar</strong><span>CEO, Imperial Logistics</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -1170,7 +1390,7 @@
                                         <li><i class="fas fa-user"></i> <strong>Client:</strong> Imperial Logistics</li>
                                         <li><i class="fas fa-cogs"></i> <strong>Services:</strong> Custom Web Development</li>
                                         <li><i class="fas fa-code"></i> <strong>Tech:</strong> Next.js, React, Node.js</li>
-                                        <li><i class="fas fa-link"></i> <strong>Link:</strong> <a href="https://imperiallogisitics.online" target="_blank">View Live Project</a></li>
+                                        <li><i class="fas fa-link"></i> <strong>Link:</strong> <a href="https://imperiallogistics.online" target="_blank">View Live Project</a></li>
                                     </ul>
                                      <h4 style="margin-top:20px;">Key Outcomes</h4>
                                     <ul>
@@ -1346,7 +1566,7 @@
             });
         }
 
-        // --- NEW: Service Plans Tab Switching Logic ---
+        // --- Service Plans Tab Switching Logic ---
         const serviceTabsContainer = document.getElementById('serviceTabs');
         if (serviceTabsContainer) {
             const tabButtons = serviceTabsContainer.querySelectorAll('.tab-button');
