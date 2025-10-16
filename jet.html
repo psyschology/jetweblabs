@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <!-- 
+        ================================================================================
+        | META & CORE CONFIGURATION                                                    |
+        ================================================================================
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jetweb Labs | Custom Web Development & Digital Strategy</title>
+
+    <link rel="icon" type="image/png" href="https://i.ibb.co/6nZ14p4/logo-1.png">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/6nZ14p4/logo-1.png">
+
+    <meta name="description" content="Jetweb Labs delivers expert custom web development, UI/UX design, e-commerce solutions, and results-driven SEO to elevate your brand's digital presence.">
+    <meta name="keywords" content="web development agency, custom websites, ui/ux design, e-commerce developer, seo services, web app development, Jetweb Labs">
+    <meta name="author" content="Jetweb Labs">
+    <link rel="canonical" href="https://www.jetweblabs.in/">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#007bff">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.jetweblabs.in/">
+    <meta property="og:title" content="Jetweb Labs | Custom Web Development & Digital Strategy">
+    <meta property="og:description" content="Jetweb Labs delivers expert custom web development, UI/UX design, e-commerce solutions, and results-driven SEO to elevate your brand's digital presence.">
+    <meta property="og:image" content="https://i.ibb.co/6nZ14p4/logo-1.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.jetweblabs.in/">
+    <meta name="twitter:title" content="Jetweb Labs | Custom Web Development & Digital Strategy">
+    <meta name="twitter:description" content="Jetweb Labs delivers expert custom web development, UI/UX design, e-commerce solutions, and results-driven SEO to elevate your brand's digital presence.">
+    <meta name="twitter:image" content="https://i.ibb.co/6nZ14p4/logo-1.png">
+
+    <!-- 
+        ================================================================================
+        | STYLESHEETS & FONTS                                                          |
+        ================================================================================
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    
+    <!-- 
+        ================================================================================
+        | THIRD-PARTY SCRIPTS                                                          |
+        ================================================================================
+    -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <!-- 
+        ================================================================================
+        | EMBEDDED STYLESHEET                                                          |
+        ================================================================================
+    -->
+    <style>
+        /* * ===============================================================================
+         * | [01] CSS VARIABLES & THEME SETUP                                            |
+         * ===============================================================================
+        */
+        :root {
+            --primary-color: #007bff;
+            --primary-dark: #0056b3;
+            --primary-light: #e6f2ff;
+            --accent-color: #ffc107;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --background-color: #ffffff;
+            --surface-color: #f8f9fa;
+            --text-color: #495057;
+            --heading-color: #212529;
+            --border-color: #dee2e6;
+            --white: #fff;
+            --whatsapp-color: #25D366;
+            --font-main: 'Inter', sans-serif;
+            --font-heading: 'Poppins', sans-serif;
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 8px -2px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --border-radius: 12px;
+            --transition-speed: 0.3s;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #0d6efd;
+            --primary-dark: #0a58ca;
+            --primary-light: rgba(13, 110, 253, 0.1);
+            --background-color: #0d1117;
+            --surface-color: #161b22;
+            --text-color: #adb5bd;
+            --heading-color: #e9ecef;
+            --border-color: #30363d;
+        }
+
+        /* * ===============================================================================
+         * | [02] BASE & RESET STYLES                                                    |
+         * ===============================================================================
+        */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-main);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        section.page { padding: 100px 0; display: none; }
+        section.page.active { display: block; animation: fadeIn 0.6s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* * ===============================================================================
+         * | [03] TYPOGRAPHY & BUTTONS                                                   |
+         * ===============================================================================
+        */
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); color: var(--heading-color); line-height: 1.3; font-weight: 700; }
+        h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); font-weight: 800; letter-spacing: -1px;}
+        h2 { font-size: clamp(2rem, 4vw, 2.8rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 1.75rem); }
+        .section-title { text-align: center; margin-bottom: 20px; }
+        .section-subtitle { font-size: 1.125rem; color: var(--text-color); max-width: 48rem; margin: 0 auto 50px; text-align: center; }
+        
+        .btn { padding: 14px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all var(--transition-speed) ease; display: inline-block; border: 2px solid transparent; font-family: var(--font-heading); cursor: pointer; text-align: center; font-size: 1rem; position: relative; overflow: hidden; z-index: 1;}
+        .btn:before { content: ""; position: absolute; left: 50%; top: 50%; width: 150%; height: 250%; z-index: -1; background-color: rgba(255, 255, 255, 0.15); transition: all 0.5s; transform-origin: center; transform: translate(-50%, -50%) rotate(45deg); }
+        .btn:hover:before { width: 0; height: 0; }
+
+        .btn-primary { background-image: linear-gradient(45deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: var(--white); box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2); }
+        .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3); }
+        
+        .btn-secondary { background-color: transparent; color: var(--primary-color); border-color: var(--primary-color); }
+        .btn-secondary:hover { background-color: var(--primary-color); color: var(--white); }
+
+        .btn-razorpay { background-color: #3B82F6; color: var(--white); }
+        .btn-razorpay:hover { background-color: #2563EB; }
+
+        .btn-whatsapp { background-color: var(--whatsapp-color); color: var(--white); }
+        .btn-whatsapp:hover { background-color: #1EBE57; }
+        
+        /* * ===============================================================================
+         * | [04] SITE-WIDE COMPONENTS (PRELOADER, HEADER, FOOTER, ETC)                  |
+         * ===============================================================================
+        */
+
+        /* Preloader */
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #0d1117; display: flex; justify-content: center; align-items: center; z-index: 9999; }
+        #preloader img { width: 150px; animation: pulse 1.5s infinite ease-in-out; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.8; } }
+
+        /* Header & Navigation */
+        .main-header { padding: 15px 0; position: sticky; top: 0; z-index: 1000; transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed); }
+        .main-header.scrolled {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+        }
+        [data-theme="dark"] .main-header.scrolled { background-color: rgba(13, 17, 23, 0.8); }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { height: 50px; transition: transform var(--transition-speed); }
+        .logo:hover { transform: scale(1.05); }
+        .nav-links { list-style: none; display: flex; gap: 35px; }
+        .nav-links a { text-decoration: none; color: var(--text-color); font-weight: 600; transition: color 0.2s; position: relative; padding-bottom: 8px; font-family: var(--font-heading); }
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 3px; bottom: 0; left: 50%; transform: translateX(-50%); background-color: var(--primary-color); transition: width var(--transition-speed) ease-in-out; border-radius: 2px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 60%; }
+        .header-actions { display: flex; align-items: center; gap: 20px; }
+        .theme-switch-container { display: flex; align-items: center; gap: 8px; color: var(--text-color); }
+        .theme-switch { position: relative; display: inline-block; width: 50px; height: 26px; }
+        .theme-switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 26px; }
+        .slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--primary-color); }
+        input:checked + .slider:before { transform: translateX(24px); }
+        .hamburger { display: none; font-size: 1.5rem; background: none; border: none; color: var(--text-color); cursor: pointer; }
+
+        /* Sidebar (Mobile Menu) */
+        .sidebar { position: fixed; top: 0; right: -280px; width: 280px; height: 100%; background-color: var(--surface-color); box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.3s ease-in-out; z-index: 1001; padding: 20px; }
+        .sidebar.open { right: 0; }
+        .sidebar ul { list-style: none; margin-top: 40px; }
+        .sidebar ul li a { display: block; padding: 15px; text-decoration: none; color: var(--text-color); font-size: 1.1rem; border-radius: 5px; font-family: var(--font-heading); }
+        .sidebar ul li a:hover { background-color: var(--border-color); }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 2.5rem; background: none; border: none; color: var(--text-color); cursor: pointer; }
+
+        /* Footer */
+        .main-footer { background-color: var(--heading-color); color: rgba(255, 255, 255, 0.7); padding: 80px 0 30px 0; }
+        [data-theme="dark"] .main-footer { background-color: #0d1117;}
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+        .footer-about .logo { margin-bottom: 20px; }
+        .footer-about p { margin-bottom: 20px; }
+        .footer-links h4 { margin-bottom: 20px; color: var(--white); font-weight: 600; }
+        .footer-links ul { list-style: none; padding-left: 0; }
+        .footer-links ul li a { text-decoration: none; color: rgba(255, 255, 255, 0.7); margin-bottom: 12px; display: block; transition: color var(--transition-speed), padding-left var(--transition-speed); }
+        .footer-links ul li a:hover { color: var(--white); padding-left: 5px; }
+        .social-icons { display: flex; gap: 15px; }
+        .social-icons a { font-size: 1.5rem; color: rgba(255, 255, 255, 0.7); transition: color var(--transition-speed), transform var(--transition-speed); }
+        .social-icons a:hover { color: var(--white); transform: scale(1.1); }
+        .footer-bottom { text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 30px; font-size: 0.9rem; }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: var(--whatsapp-color); color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 100; transition: transform 0.3s ease; display: flex; justify-content: center; align-items: center; }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        /* * ===============================================================================
+         * | [05] HOME PAGE SECTIONS                                                     |
+         * ===============================================================================
+        */
+        
+        /* Hero Section */
+        .hero { min-height: 90vh; display: flex; align-items: center; background: radial-gradient(circle, var(--primary-light) 0%, var(--background-color) 70%);}
+        [data-theme="dark"] .hero { background: radial-gradient(circle, #161b22 0%, #0d1117 70%); }
+        .hero .container { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 50px; }
+        .hero-image img { width: 100%; height: auto; animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-25px); } 100% { transform: translateY(0px); } }
+        .hero h1 { margin-bottom: 20px; line-height: 1.2; }
+        .hero .pitch { font-size: 1.25rem; margin-bottom: 35px; max-width: 550px; color: var(--text-color); }
+        
+        /* Stats Counter Section */
+        .stats-section { padding: 60px 0; background-color: var(--surface-color); }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; }
+        .stat-item .stat-number { font-size: 3rem; font-weight: 800; color: var(--primary-color); font-family: var(--font-heading); }
+        .stat-item .stat-label { font-size: 1rem; font-weight: 500; color: var(--text-color); }
+
+        /* Services Overview Section */
+        .services-overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { background-color: var(--surface-color); padding: 35px; border-radius: var(--border-radius); border: 1px solid var(--border-color); transition: transform var(--transition-speed), box-shadow var(--transition-speed); position: relative; overflow: hidden; }
+        .service-card::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0, 123, 255, 0.1), transparent 40%); transition: opacity var(--transition-speed); opacity: 0; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+        .service-card:hover::before { opacity: 1; animation: rotate 4s linear infinite; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .service-card .icon { font-size: 2.8rem; margin-bottom: 20px; color: var(--primary-color); }
+        .service-card h4 { font-size: 1.5rem; margin-bottom: 10px; }
+        .service-card .learn-more { color: var(--primary-color); text-decoration: none; font-weight: 600; margin-top: 20px; display: inline-block; font-family: var(--font-heading); }
+        .service-card .learn-more:hover { text-decoration: underline; }
+
+        /* Portfolio & Case Studies */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
+        .portfolio-card { background-color: var(--surface-color); border-radius: var(--border-radius); border: 1px solid var(--border-color); overflow: hidden; box-shadow: var(--shadow-md); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
+        .portfolio-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+        .portfolio-card .portfolio-image { width: 100%; height: 220px; object-fit: cover; display: block; }
+        .portfolio-card .portfolio-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .portfolio-card h4 { margin-bottom: 10px; }
+        .portfolio-card .portfolio-description { flex-grow: 1; }
+        .portfolio-actions { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+
+        /* Testimonials Section */
+        .testimonial-card { background-color: var(--surface-color); padding: 30px; border-radius: var(--border-radius); border-left: 5px solid var(--primary-color); }
+        .testimonial-author { display: flex; align-items: center; gap: 15px; margin-top: 20px; }
+        .testimonial-author img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
+        .testimonial-author-info strong { display: block; color: var(--heading-color); }                
+        .scroller { overflow: hidden; -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent); mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent); }
+        .scroller__inner { display: flex; flex-wrap: nowrap; gap: 30px; width: max-content; animation: scroll 60s linear infinite; }
+        .scroller[data-animated="true"]:hover .scroller__inner { animation-play-state: paused; }
+        @keyframes scroll { to { transform: translate(calc(-50% - 15px)); } }
+        .testimonial-card-scrolling { width: 380px; flex-shrink: 0; }
+        .brand-logo-scrolling { height: 60px; filter: grayscale(100%); transition: filter 0.3s; opacity: 0.8; object-fit: contain; width: 150px; }
+        .brand-logo-scrolling:hover { filter: grayscale(0%); opacity: 1; }
+        .brands-scroller .scroller__inner { animation-duration: 40s; }
+
+        /* Tech Stack Section */
+        .tech-stack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 20px; }
+        .tech-item { text-align: center; }
+        .tech-item i { font-size: 2.5rem; color: var(--text-color); transition: color 0.3s, transform 0.3s; }
+        .tech-item:hover i { color: var(--primary-color); transform: scale(1.1); }
+        .tech-item span { font-size: 0.8rem; display: block; margin-top: 5px; }
+        #hidden-tech-stacks { display: none; margin-top: 30px; }
+        .tech-category { margin-top: 30px; }
+        .tech-category h4 { margin-bottom: 15px; border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; display: inline-block; }
+        .view-more-btn { margin-top: 30px; display: block; margin-left: auto; margin-right: auto; }
+        
+        /* FAQ Section */
+        .faq-section { padding: 100px 0; background-color: var(--surface-color); }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border-color); }
+        .faq-question { width: 100%; background: none; border: none; text-align: left; padding: 20px 0; font-size: 1.1rem; font-weight: 600; color: var(--heading-color); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-question::after { content: '\f078'; font-family: 'Font Awesome 6 Free'; font-weight: 900; transition: transform var(--transition-speed); }
+        .faq-item.active .faq-question::after { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; }
+        .faq-item.active .faq-answer { max-height: 300px; /* Adjust as needed */ }
+        .faq-answer p { padding: 0 0 20px; }
+
+        /* CTA Section */
+        .cta-section { background-image: linear-gradient(45deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: var(--white); padding: 80px 0; text-align: center; border-radius: var(--border-radius); }
+        .cta-section h2 { color: var(--white); }
+        .cta-section p { max-width: 600px; margin: 20px auto 30px; opacity: 0.9; }
+        [data-theme="dark"] .cta-section { background-image: linear-gradient(45deg, #161b22 0%, #0d1117 100%); }
+        [data-theme="dark"] .cta-section h2, [data-theme="dark"] .cta-section p { color: var(--heading-color); }
+
+        /* * ===============================================================================
+         * | [06] INTERIOR PAGE STYLES (SERVICES, ABOUT, CONTACT, ETC.)                  |
+         * ===============================================================================
+        */
+
+        /* Services Page - Pricing Plans */
+        .service-tabs-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 50px; }
+        .tab-button { padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all var(--transition-speed); border: 2px solid var(--border-color); background-color: var(--surface-color); color: var(--text-color); }
+        .tab-button.active { background-color: var(--primary-color); color: var(--white); border-color: var(--primary-color); box-shadow: var(--shadow-md); }
+        .tab-content.hidden { display: none; }
+        .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; align-items: stretch; }
+        .plan-card { display: flex; flex-direction: column; background-color: var(--surface-color); padding: 30px; border-radius: var(--border-radius); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); transition: all var(--transition-speed); position: relative; }
+        .plan-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .plan-card.highlighted { border: 2px solid var(--primary-color); box-shadow: 0 8px 30px rgba(0, 123, 255, 0.15); }
+        .plan-card .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background-image: linear-gradient(45deg, var(--accent-color) 0%, #ffcd38 100%); color: var(--heading-color); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; font-family: var(--font-heading); }
+        .plan-card h3 { font-size: 1.75rem; font-weight: 700; color: var(--heading-color); }
+        .plan-card .price { font-size: 2.8rem; font-weight: 800; color: var(--primary-color); margin: 5px 0; }
+        .plan-card .price-sub { font-size: 0.9rem; color: var(--text-color); margin-bottom: 1.2rem; }
+        .plan-card .feature-category { font-size: 1rem; font-weight: 700; color: var(--heading-color); margin-top: 1.2rem; margin-bottom: 0.75rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; }
+        .plan-card ul { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+        .plan-card li { display: flex; align-items: flex-start; margin-bottom: 0.8rem; font-size: 0.9rem; color: var(--text-color); line-height: 1.4; }
+        .plan-card li .icon { margin-right: 12px; margin-top: 5px; flex-shrink: 0; width: 18px; text-align: center; }
+        .plan-card li .icon.fa-check-circle { color: var(--success-color); }
+        .plan-card li .icon.fa-times-circle { color: var(--danger-color); }
+        .plan-actions { margin-top: auto; padding-top: 25px; display: flex; flex-direction: column; gap: 12px; }
+        .plan-actions .btn { width: 100%; }
+
+        /* Generic Interior Page Layouts */
+        .page-header { text-align: center; margin-bottom: 60px; }
+        .page-header h1 { font-size: 3rem; }
+        .page-header p { font-size: 1.2rem; max-width: 700px; margin: 15px auto 0; }
+        .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; }
+        .main-content h3 { margin-top: 40px; margin-bottom: 15px; }
+        .sidebar-box { background: var(--surface-color); padding: 25px; border-radius: var(--border-radius); position: sticky; top: 120px; }
+        .sidebar-box h4 { margin-bottom: 15px; }
+        .sidebar-box ul { list-style: none; padding-left: 0; }
+        .sidebar-box ul li { margin-bottom: 10px; display: flex; align-items: flex-start; }
+        .sidebar-box ul li i { color: var(--primary-color); margin-right: 10px; margin-top: 4px; }
+        .process-list { list-style: none; counter-reset: process-counter; margin-top: 20px; padding-left: 0;}
+        .process-list li { counter-increment: process-counter; margin-bottom: 20px; display: flex; align-items: flex-start; }
+        .process-list li::before { content: counter(process-counter); font-weight: 700; background: var(--primary-color); color: var(--white); width: 30px; height: 30px; border-radius: 50%; display: inline-flex; justify-content: center; align-items: center; margin-right: 15px; flex-shrink: 0; }
+        
+        /* About Page */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
+        .team-member { text-align: center; }
+        .team-member img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 4px solid var(--surface-color); box-shadow: var(--shadow-md); }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
+        .value-card { background: var(--surface-color); padding: 20px; border-radius: var(--border-radius); text-align: center; }
+        .value-card i { font-size: 2rem; color: var(--primary-color); margin-bottom: 10px; }
+        
+        /* Contact Page */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: flex-start; }
+        .contact-form .form-group { margin-bottom: 20px; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 15px; border-radius: 8px; border: 1px solid var(--border-color); background-color: var(--surface-color); color: var(--text-color); font-family: var(--font-main); font-size: 1rem; }
+        .contact-info-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .contact-info-item i { font-size: 1.5rem; color: var(--primary-color); }
+
+        /* * ===============================================================================
+         * | [07] UTILITIES & ANIMATIONS                                                 |
+         * ===============================================================================
+        */
+        .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+
+        /* * ===============================================================================
+         * | [08] RESPONSIVE MEDIA QUERIES                                               |
+         * ===============================================================================
+        */
+        @media (max-width: 992px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.2rem; }
+            .hero .container, .about-grid, .content-grid, .contact-grid { grid-template-columns: 1fr; }
+            .hero .container { text-align: center; }
+            .hero-image { order: -1; margin-bottom: 40px; }
+            .hero .pitch { margin-left: auto; margin-right: auto; }
+            .sidebar-box { position: static; margin-top: 40px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            section.page { padding: 80px 0; }
+            .nav-links { display: none; }
+            .hamburger { display: block; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .testimonial-card-scrolling { width: calc(100vw - 40px); }
+            .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 24px; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+        ================================================================================
+        | [HTML] PRELOADER, HEADER, SIDEBAR                                            |
+        ================================================================================
+    -->
+    <div id="preloader">
+        <img src="https://i.ibb.co/6nZ14p4/logo-1.png" alt="Jetweb Labs Logo Loading Animation">
+    </div>
+
+    <header class="main-header" id="main-header">
+        <div class="container">
+            <a href="#home" class="logo-link nav-link" aria-label="Go to Homepage">
+                <img src="https://i.ibb.co/6nZ14p4/logo-1.png" alt="Jetweb Labs Logo" class="logo">
+            </a>
+            <nav class="main-nav" aria-label="Main Navigation">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="theme-switch-container">
+                    <i class="fas fa-sun"></i>
+                    <label class="theme-switch" for="theme-toggle" aria-label="Toggle dark and light theme">
+                      <input type="checkbox" id="theme-toggle">
+                      <span class="slider"></span>
+                    </label>
+                    <i class="fas fa-moon"></i>
+                </div>
+                <button class="hamburger" id="hamburger-menu" aria-label="Open mobile menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" id="close-btn" aria-label="Close mobile menu">&times;</button>
+        <nav aria-label="Mobile Navigation">
+            <ul>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- 
+        ================================================================================
+        | [HTML] MAIN CONTENT WRAPPER                                                  |
+        ================================================================================
+    -->
+    <main id="main-content">
+        <!-- 
+            ================================================================================
+            | [PAGE] HOME                                                                  |
+            ================================================================================
+        -->
+        <section id="home" class="page active">
+            <!-- Hero Section -->
+            <div class="hero">
+                <div class="container">
+                    <div class="hero-content fade-in-section is-visible">
+                        <h1>Crafting Digital Excellence, Forged in Code.</h1>
+                        <p class="pitch">We engineer high-performance websites and bespoke digital solutions that accelerate growth for ambitious startups and global enterprises.</p>
+                        <a href="#contact" class="btn btn-primary nav-link">Schedule a Strategy Call</a>
+                        <a href="#portfolio" class="btn btn-secondary nav-link" style="margin-left: 10px;">Explore Our Work</a>
+                    </div>
+                    <div class="hero-image fade-in-section is-visible">
+                        <img src="https://i.ibb.co/h9yS9S1/undraw-programming-re-kg9v.png" alt="A team collaborating on a web development project">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Animated Stats Section -->
+            <div class="stats-section fade-in-section">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="50">0</div>
+                            <div class="stat-label">Projects Delivered</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="100">0</div>
+                            <div class="stat-label">Client Satisfaction (%)</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="2">0</div>
+                            <div class="stat-label">Global Timezones</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="150">0</div>
+                            <div class="stat-label">Cups of Coffee (Daily)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Services Section -->
+            <div class="container fade-in-section" style="padding: 100px 20px;">
+                <h2 class="section-title">Our Architecture of Services</h2>
+                <p class="section-subtitle">From foundational websites to enterprise-grade applications, we offer a spectrum of solutions designed to scale with your vision.</p>
+                <div class="services-overview-grid">
+                    <div class="service-card">
+                        <div class="icon"><i class="fas fa-laptop-code"></i></div>
+                        <h4>Custom Web Development</h4>
+                        <p>Bespoke websites built from the ground up to meet your unique business goals.</p>
+                        <a href="#service-development" class="learn-more nav-link">Learn More →</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon"><i class="fas fa-drafting-compass"></i></div>
+                        <h4>UI/UX Design</h4>
+                        <p>Intuitive, beautiful interfaces designed to delight users and drive conversions.</p>
+                        <a href="#service-uiux" class="learn-more nav-link">Learn More →</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon"><i class="fas fa-shopping-cart"></i></div>
+                        <h4>E-commerce Solutions</h4>
+                        <p>Powerful online stores that turn visitors into loyal customers.</p>
+                        <a href="#service-ecommerce" class="learn-more nav-link">Learn More →</a>
+                    </div>
+                </div>
+                 <div style="text-align: center; margin-top: 50px;">
+                    <a href="#services" class="btn btn-primary nav-link">View All Services & Pricing</a>
+                </div>
+            </div>
+
+            <!-- Featured Work Section -->
+            <div class="fade-in-section" style="padding: 100px 0; background-color: var(--surface-color);">
+                <div class="container">
+                    <h2 class="section-title">Featured Work</h2>
+                    <p class="section-subtitle">We don’t just build websites; we build partnerships that drive success. Here’s a glimpse into the problems we’ve solved and the value we’ve created.</p>
+                    <div class="portfolio-grid">
+                        <div class="portfolio-card">
+                            <img src="https://placehold.co/600x400/17a2b8/white?text=Imperial+Logistics" alt="Imperial Logistics Website Screenshot" class="portfolio-image">
+                            <div class="portfolio-content">
+                                <h4>Imperial Logistics</h4>
+                                <p>A professional site that boosted quote requests by 30%.</p>
+                                <a href="#case-study-imperial" class="learn-more nav-link">View Case Study →</a>
+                            </div>
+                        </div>
+                        <div class="portfolio-card">
+                             <img src="https://placehold.co/600x400/6f42c1/white?text=Safarmiles" alt="Safarmiles Travel Agency Website" class="portfolio-image">
+                            <div class="portfolio-content">
+                                <h4>Safarmiles Travel Agency</h4>
+                                <p>A modern travel portal with a focus on user experience.</p>
+                                <div class="portfolio-actions" style="margin-top:15px;">
+                                    <a href="https://safar-miles.vercel.app" target="_blank" class="btn btn-secondary" style="padding: 5px 10px; font-size: 0.8rem;">View Project</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-card">
+                            <img src="https://placehold.co/600x400/007bff/white?text=Academica" alt="Academica Coaching Platform Screenshot" class="portfolio-image">
+                            <div class="portfolio-content">
+                                <h4>Academica Institute</h4>
+                                <p>An interactive learning platform that doubled online conversions.</p>
+                                <a href="#case-study-academica" class="learn-more nav-link">View Case Study →</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div style="text-align: center; margin-top: 40px;">
+                        <a href="#portfolio" class="btn btn-primary nav-link">View All Projects</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonials Section -->
+            <div style="padding: 100px 0;">
+                <div class="container fade-in-section">
+                    <h2 class="section-title">What Our Partners Say</h2>
+                    <p class="section-subtitle">Our success is measured by the success of our clients. We are proud to be a trusted technology partner for industry leaders.</p>
+                </div>
+                <div class="scroller testimonial-scroller fade-in-section" data-animated="true">
+                    <div class="scroller__inner" id="testimonial-scroller-inner">
+                        <div class="testimonial-card testimonial-card-scrolling">
+                            <p>"The platform provided by Jetweb Labs has been a game-changer. Our online conversions have doubled since our new website launch. Their team is professional, responsive, and truly cares about our success."</p>
+                            <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=GB" alt="Gopal Burman"><div class="testimonial-author-info"><strong>Gopal Burman</strong><span>Founder, Academica Institute</span></div></div>
+                        </div>
+                        <div class="testimonial-card testimonial-card-scrolling">
+                           <p>"Jetweb Labs delivered a world-class website that perfectly represents our global brand. The new tracking feature is a huge hit with our clients. Professional, efficient, and highly recommended."</p>
+                           <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=RK" alt="Ravi Kumar"><div class="testimonial-author-info"><strong>Ravi Kumar</strong><span>CEO, Imperial Logistics</span></div></div>
+                        </div>
+                         <div class="testimonial-card testimonial-card-scrolling">
+                            <p>"The team's attention to detail in the UI/UX for our travel portal was outstanding. They understood our vision perfectly and delivered a product that our customers love to use."</p>
+                            <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=AV" alt="Anjali Verma"><div class="testimonial-author-info"><strong>Anjali Verma</strong><span>Founder, Safarmiles</span></div></div>
+                        </div>
+                        <div class="testimonial-card testimonial-card-scrolling">
+                            <p>"The Notion automation they built for us has been a game-changer for our internal processes. It saved us countless hours of manual work. A truly innovative solution."</p>
+                            <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=SR" alt="Sanjay Rawal"><div class="testimonial-author-info"><strong>Sanjay Rawal</strong><span>Director, Rawalwasia Group</span></div></div>
+                        </div>
+                         <div class="testimonial-card testimonial-card-scrolling">
+                            <p>"Developing a dating site requires a deep understanding of user interaction and security. Jetweb Labs handled the complexity with ease and delivered a robust, scalable platform."</p>
+                            <div class="testimonial-author"><img src="https://placehold.co/100x100/0d1117/c9d1d9?text=VS" alt="Vikram Singh"><div class="testimonial-author-info"><strong>Vikram Singh</strong><span>Project Lead, FriendshipKlub</span></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack Section -->
+            <div class="fade-in-section" style="padding: 100px 0; background-color: var(--surface-color);">
+                <div class="container">
+                    <h2 class="section-title">Our Technology Arsenal</h2>
+                    <p class="section-subtitle">We leverage a modern, robust technology stack to build solutions that are not only powerful and scalable but also secure and future-proof.</p>
+                     <div class="tech-stack-grid">
+                        <div class="tech-item"><i class="devicon-html5-plain"></i><span>HTML5</span></div>
+                        <div class="tech-item"><i class="devicon-css3-plain"></i><span>CSS3</span></div>
+                        <div class="tech-item"><i class="devicon-javascript-plain"></i><span>JavaScript</span></div>
+                        <div class="tech-item"><i class="devicon-react-original"></i><span>React</span></div>
+                        <div class="tech-item"><i class="devicon-nodejs-plain"></i><span>Node.js</span></div>
+                        <div class="tech-item"><i class="devicon-python-plain"></i><span>Python</span></div>
+                        <div class="tech-item"><i class="devicon-php-plain"></i><span>PHP</span></div>
+                        <div class="tech-item"><i class="devicon-mysql-plain"></i><span>MySQL</span></div>
+                        <div class="tech-item"><i class="devicon-amazonwebservices-original"></i><span>AWS</span></div>
+                        <div class="tech-item"><i class="devicon-docker-plain"></i><span>Docker</span></div>
+                        <div class="tech-item"><i class="devicon-git-plain"></i><span>Git</span></div>
+                        <div class="tech-item"><i class="devicon-figma-plain"></i><span>Figma</span></div>
+                    </div>
+                    <div id="hidden-tech-stacks">
+                        <div class="tech-category"><h4>Frontend</h4><div class="tech-stack-grid">
+                            <div class="tech-item"><i class="devicon-typescript-plain"></i><span>TypeScript</span></div>
+                            <div class="tech-item"><i class="devicon-angularjs-plain"></i><span>Angular</span></div>
+                            <div class="tech-item"><i class="devicon-vuejs-plain"></i><span>Vue.js</span></div>
+                            <div class="tech-item"><i class="devicon-nextjs-original"></i><span>Next.js</span></div>
+                            <div class="tech-item"><i class="devicon-svelte-plain"></i><span>Svelte</span></div>
+                            <div class="tech-item"><i class="devicon-jquery-plain"></i><span>jQuery</span></div>
+                            <div class="tech-item"><i class="devicon-bootstrap-plain"></i><span>Bootstrap</span></div>
+                            <div class="tech-item"><i class="devicon-tailwindcss-plain"></i><span>TailwindCSS</span></div>
+                            <div class="tech-item"><i class="devicon-sass-original"></i><span>SASS</span></div>
+                            <div class="tech-item"><i class="devicon-less-plain-wordmark"></i><span>LESS</span></div>
+                            <div class="tech-item"><i class="devicon-redux-original"></i><span>Redux</span></div>
+                            <div class="tech-item"><i class="devicon-webpack-plain"></i><span>Webpack</span></div>
+                            <div class="tech-item"><i class="devicon-babel-plain"></i><span>Babel</span></div>
+                            <div class="tech-item"><i class="devicon-graphql-plain"></i><span>GraphQL</span></div>
+                            <div class="tech-item"><i class="devicon-jest-plain"></i><span>Jest</span></div>
+                        </div></div>
+                        <div class="tech-category"><h4>Backend</h4><div class="tech-stack-grid">
+                            <div class="tech-item"><i class="devicon-express-original"></i><span>Express</span></div>
+                            <div class="tech-item"><i class="devicon-django-plain"></i><span>Django</span></div>
+                            <div class="tech-item"><i class="devicon-flask-original"></i><span>Flask</span></div>
+                            <div class="tech-item"><i class="devicon-laravel-plain"></i><span>Laravel</span></div>
+                            <div class="tech-item"><i class="devicon-ruby-plain"></i><span>Ruby</span></div>
+                            <div class="tech-item"><i class="devicon-rails-plain"></i><span>Rails</span></div>
+                            <div class="tech-item"><i class="devicon-java-plain"></i><span>Java</span></div>
+                            <div class="tech-item"><i class="devicon-spring-plain"></i><span>Spring</span></div>
+                            <div class="tech-item"><i class="devicon-go-original-wordmark"></i><span>Go</span></div>
+                            <div class="tech-item"><i class="devicon-csharp-plain"></i><span>C#</span></div>
+                            <div class="tech-item"><i class="devicon-dot-net-plain"></i><span>.NET</span></div>
+                            <div class="tech-item"><i class="devicon-nestjs-plain"></i><span>NestJS</span></div>
+                        </div></div>
+                        <div class="tech-category"><h4>Databases</h4><div class="tech-stack-grid">
+                            <div class="tech-item"><i class="devicon-postgresql-plain"></i><span>PostgreSQL</span></div>
+                            <div class="tech-item"><i class="devicon-mongodb-plain"></i><span>MongoDB</span></div>
+                            <div class="tech-item"><i class="devicon-redis-plain"></i><span>Redis</span></div>
+                            <div class="tech-item"><i class="devicon-firebase-plain"></i><span>Firebase</span></div>
+                            <div class="tech-item"><i class="devicon-sqlite-plain"></i><span>SQLite</span></div>
+                            <div class="tech-item"><i class="devicon-oracle-original"></i><span>Oracle</span></div>
+                            <div class="tech-item"><i class="devicon-microsoftsqlserver-plain"></i><span>SQL Server</span></div>
+                            <div class="tech-item"><i><i class="fas fa-database"></i></i><span>MariaDB</span></div>
+                            <div class="tech-item"><i><i class="fas fa-database"></i></i><span>DynamoDB</span></div>
+                        </div></div>
+                        <div class="tech-category"><h4>Mobile</h4><div class="tech-stack-grid">
+                            <div class="tech-item"><i class="devicon-react-original"></i><span>React Native</span></div>
+                            <div class="tech-item"><i class="devicon-flutter-plain"></i><span>Flutter</span></div>
+                            <div class="tech-item"><i class="devicon-swift-plain"></i><span>Swift</span></div>
+                            <div class="tech-item"><i class="devicon-kotlin-plain"></i><span>Kotlin</span></div>
+                            <div class="tech-item"><i class="devicon-android-plain"></i><span>Android</span></div>
+                            <div class="tech-item"><i class="devicon-apple-original"></i><span>iOS</span></div>
+                        </div></div>
+                         <div class="tech-category"><h4>CMS</h4><div class="tech-stack-grid">
+                            <div class="tech-item"><i class="devicon-wordpress-plain"></i><span>WordPress</span></div>
+                            <div class="tech-item"><i class="devicon-shopify-plain"></i><span>Shopify</span></div>
+                            <div class="tech-item"><i class="devicon-drupal-plain"></i><span>Drupal</span></div>
+                            <div class="tech-item"><i class="devicon-joomla-plain"></i><span>Joomla</span></div>
+                            <div class="tech-item"><i><i class="fas fa-feather"></i></i><span>Strapi</span></div>
+                            <div class="tech-item"><i><i class="fas fa-ghost"></i></i><span>Ghost</span></div>
+                            <div class="tech-item"><i><i class="fas fa-file-alt"></i></i><span>Contentful</span></div>
+                        </div></div>
+                        <div class="tech-category"><h4>Cloud & DevOps</h4><div class="tech-stack-grid">
+                            <div class="tech-item"><i class="devicon-googlecloud-plain"></i><span>Google Cloud</span></div>
+                            <div class="tech-item"><i class="devicon-azure-plain"></i><span>Azure</span></div>
+                            <div class="tech-item"><i class="devicon-kubernetes-plain"></i><span>Kubernetes</span></div>
+                            <div class="tech-item"><i class="devicon-jenkins-line"></i><span>Jenkins</span></div>
+                            <div class="tech-item"><i class="devicon-githubactions-original"></i><span>GH Actions</span></div>
+                            <div class="tech-item"><i class="devicon-gitlab-plain"></i><span>GitLab CI</span></div>
+                            <div class="tech-item"><i class="devicon-terraform-plain"></i><span>Terraform</span></div>
+                            <div class="tech-item"><i class="devicon-ansible-plain"></i><span>Ansible</span></div>
+                            <div class="tech-item"><i class="devicon-nginx-original"></i><span>Nginx</span></div>
+                        </div></div>
+                        <div class="tech-category"><h4>Design & PM</h4><div class="tech-stack-grid">
+                            <div class="tech-item"><i class="devicon-xd-plain"></i><span>Adobe XD</span></div>
+                            <div class="tech-item"><i class="devicon-photoshop-plain"></i><span>Photoshop</span></div>
+                            <div class="tech-item"><i class="devicon-illustrator-plain"></i><span>Illustrator</span></div>
+                            <div class="tech-item"><i class="devicon-sketch-line"></i><span>Sketch</span></div>
+                            <div class="tech-item"><i class="devicon-jira-plain"></i><span>Jira</span></div>
+                            <div class="tech-item"><i class="devicon-trello-plain"></i><span>Trello</span></div>
+                            <div class="tech-item"><i class="devicon-slack-plain"></i><span>Slack</span></div>
+                        </div></div>
+                    </div>
+                    <button id="view-more-tech-btn" class="btn btn-secondary view-more-btn">Show More</button>
+                </div>
+            </div>
+
+            <!-- Brands Section -->
+             <div class="fade-in-section" style="padding: 100px 0;">
+                <div class="container">
+                    <h2 class="section-title">Trusted by Industry Leaders</h2>
+                    <div class="scroller brands-scroller" data-animated="true">
+                        <div class="scroller__inner" id="brands-scroller-inner">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=Imperial+Logistics" alt="Brand Logo Imperial Logistics" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=Safarmiles" alt="Brand Logo Safarmiles" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=Patni+Asset" alt="Brand Logo Patni Asset" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=Rawalwasia" alt="Brand Logo Rawalwasia Group" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=Oven+Cakes" alt="Brand Logo Oven Cakes" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=FriendshipKlub" alt="Brand Logo FriendshipKlub" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=Academica" alt="Brand Logo Academica" class="brand-logo-scrolling">
+                            <img src="https://placehold.co/150x60/f8f9fa/343a40?text=Tambola" alt="Brand Logo Tambola" class="brand-logo-scrolling">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section fade-in-section">
+                <div class="container">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Have questions? We have answers. Here are some of the most common inquiries we receive from prospective partners.</p>
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <button class="faq-question">What is your development process like?</button>
+                            <div class="faq-answer"><p>Our process is collaborative and transparent. We follow an agile methodology starting with Discovery & Strategy, moving to UI/UX Design, Development, rigorous Quality Assurance, and finally, a seamless Deployment. You'll have a dedicated project manager and regular updates throughout.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">How long does it take to build a website?</button>
+                            <div class="faq-answer"><p>Timelines vary based on complexity. A 'JetSpark' single-page site might take 1-2 weeks, a 'JetBoost' multi-page site 4-6 weeks, and a custom 'JetVelocity' web application 8 weeks or more. We'll provide a detailed project timeline after our initial strategy call.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">Can you work with clients internationally?</button>
+                            <div class="faq-answer"><p>Absolutely. We are a remote-first company with clients across the globe, from India to the United States. We leverage modern communication tools like Slack, Zoom, and Jira to ensure smooth collaboration regardless of your timezone.</p></div>
+                        </div>
+                         <div class="faq-item">
+                            <button class="faq-question">What about website maintenance after launch?</button>
+                            <div class="faq-answer"><p>We offer comprehensive maintenance and support packages to ensure your website remains secure, updated, and performing optimally. We believe in long-term partnerships and can discuss a plan that fits your needs post-launch.</p></div>
+                        </div>
+                         <div class="faq-item">
+                            <button class="faq-question">How do you handle payments?</button>
+                            <div class="faq-answer"><p>We offer flexible payment options. For our standard plans, you can pay directly and securely through our website using Razorpay for Indian and international cards. For custom projects, we typically structure payments in milestones (e.g., 50% upfront, 50% on completion). We accept bank transfers and all major credit cards.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        
+            <!-- CTA Section -->
+            <div class="container fade-in-section" style="padding-bottom: 100px;">
+                <div class="cta-section">
+                    <h2>Let's Build Your Digital Future</h2>
+                    <p>Ready to start a project or have a question? We are here to help you turn your vision into a reality.</p>
+                    <a href="#contact" class="btn btn-primary nav-link">Get a Free Proposal</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            ================================================================================
+            | [PAGE] SERVICES (PRICING TABLES)                                             |
+            ================================================================================
+        -->
+        <section id="services" class="page">
+            <div class="container">
+                <div class="page-header fade-in-section">
+                    <h2 class="section-title">The JetWeb Labs Comprehensive Service Matrix</h2>
+                    <p class="section-subtitle">Our complete ecosystem of solutions. Each plan is meticulously detailed to demonstrate overwhelming value, building client trust and creating clear pathways for their growth with us.</p>
+                </div>
+                
+                <div class="service-tabs-container" id="serviceTabs">
+                    <button class="tab-button active" data-tab="websites">Websites</button>
+                    <button class="tab-button" data-tab="ecommerce">E-commerce</button>
+                    <button class="tab-button" data-tab="software">Software</button>
+                    <button class="tab-button" data-tab="marketing">Marketing</button>
+                </div>
+
+                <div id="websites" class="tab-content fade-in-section">
+                    <div class="plans-grid">
+                        <div class="plan-card">
+                            <h3>JetHandle</h3>
+                            <div class="price">₹1,999</div>
+                            <p class="price-sub">+ GST / $29 USD (One-time)</p>
+                            <div class="feature-category">Core Offering</div>
+                            <ul>                                
+                                <li><span class="icon fas fa-check-circle"></span>Digital ID Card Site</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>your-name.jetweblabs.in</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>QR Code for Instant Sharing</li>
+                                <li><span class="icon fas fa-check-circle"></span>1 Year Secure Hosting</li>
+                                <li><span class="icon fas fa-times-circle"></span>Custom Domain Support</li>
+                                <li><span class="icon fas fa-times-circle"></span>Content Management System</li>
+                            </ul>
+                            <div class="plan-actions">
+                                <button class="btn btn-razorpay" data-plan="JetHandle" data-amount="199900" data-description="JetHandle Digital ID Plan"><i class="fas fa-bolt"></i> Buy with Razorpay</button>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetHandle%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                         <div class="plan-card">
+                            <h3>JetSpark</h3>
+                            <div class="price">₹9,999</div>
+                            <p class="price-sub">+ GST / $199 USD</p>
+                            <div class="feature-category">Design & Content</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>1-Page Professional Website</li>
+                                <li><span class="icon fas fa-check-circle"></span>Choice of 15 Premium Templates</li>
+                                <li><span class="icon fas fa-check-circle"></span>Client's Branding & Colors</li>
+                                <li><span class="icon fas fa-check-circle"></span>Up to 8 Content Sections</li>
+                            </ul>
+                            <div class="feature-category">Technical Features</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>1 Year Free .com Domain</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Interactive Contact Form</li>
+                                <li><span class="icon fas fa-check-circle"></span>Image & Video Gallery</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>1 Business Email Account</b></li>
+                                <li><span class="icon fas fa-times-circle"></span>Blog / CMS Functionality</li>
+                            </ul>
+                             <div class="plan-actions">
+                                <button class="btn btn-razorpay" data-plan="JetSpark" data-amount="999900" data-description="JetSpark Website Plan"><i class="fas fa-bolt"></i> Buy with Razorpay</button>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetSpark%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                        <div class="plan-card highlighted">
+                            <div class="popular-badge">Most Popular</div>
+                            <h3>JetBoost</h3>
+                            <div class="price">₹49,999</div>
+                            <p class="price-sub">+ GST / $999 USD</p>
+                            <div class="feature-category">Design & Architecture</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>Up to 10 Custom Pages</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Custom UI/UX Design Process</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>Full Blog/Portfolio CMS</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>2 Rounds of Major Revisions</li>
+                            </ul>
+                            <div class="feature-category">Technical & Marketing</div>
+                            <ul>
+                                 <li><span class="icon fas fa-check-circle"></span><b>Basic E-commerce (50 products)</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Basic On-Page SEO Setup</li>
+                                <li><span class="icon fas fa-check-circle"></span>Google Analytics Setup</li>
+                                 <li><span class="icon fas fa-check-circle"></span>5 Business Email Accounts</li>
+                                 <li><span class="icon fas fa-check-circle"></span><b>Chat & Email Support + Training</b></li>
+                            </ul>
+                             <div class="plan-actions">
+                                <button class="btn btn-razorpay" data-plan="JetBoost" data-amount="4999900" data-description="JetBoost Website Plan"><i class="fas fa-bolt"></i> Buy with Razorpay</button>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetBoost%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                         <div class="plan-card">
+                            <h3>JetVelocity</h3>
+                            <div class="price">₹1,49,999</div>
+                            <p class="price-sub">+ GST / $2,999 USD</p>
+                              <div class="feature-category">Design & Architecture</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>Up to 20 Pages or Web App</b></li>
+                                 <li><span class="icon fas fa-check-circle"></span>Data-Driven UI/UX Research</li>
+                                 <li><span class="icon fas fa-check-circle"></span>Wireframing & Prototyping</li>
+                            </ul>
+                            <div class="feature-category">Technical & Marketing</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>Advanced E-commerce Suite</b></li>
+                                 <li><span class="icon fas fa-check-circle"></span>Custom User Dashboards</li>
+                                 <li><span class="icon fas fa-check-circle"></span>Third-party API Integrations</li>
+                                 <li><span class="icon fas fa-check-circle"></span>Advanced Technical SEO</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>Priority Phone Support</b></li>
+                            </ul>
+                             <div class="plan-actions">
+                                <button class="btn btn-razorpay" data-plan="JetVelocity" data-amount="14999900" data-description="JetVelocity Website Plan"><i class="fas fa-bolt"></i> Buy with Razorpay</button>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetVelocity%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                        <div class="plan-card">
+                            <h3>Custom Quote</h3>
+                            <div class="price">Let's Talk</div>
+                            <p class="price-sub">Enterprise & Bespoke Solutions</p>
+                            <div class="feature-category">What You Get</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>Full Project Discovery & Scoping</li>
+                                <li><span class="icon fas fa-check-circle"></span>Dedicated Project Manager</li>
+                                <li><span class="icon fas fa-check-circle"></span>Agile Development Sprints</li>
+                                <li><span class="icon fas fa-check-circle"></span>Scalable Cloud Architecture</li>
+                                <li><span class="icon fas fa-check-circle"></span>Ongoing Support & SLA</li>
+                                <li><span class="icon fas fa-check-circle"></span>Anything You Can Imagine</li>
+                            </ul>
+                            <div class="plan-actions">
+                                <a href="#contact" class="btn btn-primary nav-link">Request a Quote</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'd%20like%20a%20custom%20quote%20for%20a%20website%20project." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ecommerce" class="tab-content hidden fade-in-section">
+                     <div class="plans-grid">
+                         <div class="plan-card">
+                            <h3>JetPay</h3>
+                            <div class="price">₹3,999</div>
+                            <p class="price-sub">+ GST / $79 USD</p>
+                            <div class="feature-category">Core Offering</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>Integrate Payment Button</li>
+                                <li><span class="icon fas fa-check-circle"></span>For Existing Website/Social Page</li>
+                                <li><span class="icon fas fa-check-circle"></span>Sell 1 Product or Service</li>
+                                <li><span class="icon fas fa-check-circle"></span>Razorpay/Stripe Setup Aid</li>
+                                <li><span class="icon fas fa-times-circle"></span>Shopping Cart Functionality</li>
+                                <li><span class="icon fas fa-times-circle"></span>Inventory Management</li>
+                            </ul>
+                             <div class="plan-actions">
+                                <button class="btn btn-razorpay" data-plan="JetPay" data-amount="399900" data-description="JetPay E-commerce Plan"><i class="fas fa-bolt"></i> Buy with Razorpay</button>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetPay%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                        <div class="plan-card">
+                            <h3>JetCart</h3>
+                            <div class="price">₹14,999</div>
+                            <p class="price-sub">+ GST / $299 USD</p>
+                              <div class="feature-category">Store Add-on</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>Add Store to Existing Site</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Up to 25 Products Uploaded</li>
+                                <li><span class="icon fas fa-check-circle"></span>Full Cart & Checkout Pages</li>
+                                <li><span class="icon fas fa-check-circle"></span>Basic Inventory Tracking</li>
+                                 <li><span class="icon fas fa-times-circle"></span>Full Website Design</li>
+                            </ul>
+                             <div class="plan-actions">
+                                <button class="btn btn-razorpay" data-plan="JetCart" data-amount="1499900" data-description="JetCart E-commerce Plan"><i class="fas fa-bolt"></i> Buy with Razorpay</button>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetCart%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                        <div class="plan-card highlighted">
+                            <div class="popular-badge">Best Value</div>
+                            <h3>JetStore</h3>
+                            <div class="price">₹74,999</div>
+                            <p class="price-sub">+ GST / $1,499 USD</p>
+                            <div class="feature-category">Complete Store Build</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>Full E-commerce Website</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Up to 250 Products</li>
+                                <li><span class="icon fas fa-check-circle"></span>Premium Theme Customization</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>Discount & Coupon Engine</b></li>
+                                <li><span class="icon fas fa-check-circle"></span><b>Abandoned Cart Recovery</b></li>
+                                 <li><span class="icon fas fa-check-circle"></span>Customer Account System</li>
+                            </ul>
+                             <div class="plan-actions">
+                                <button class="btn btn-razorpay" data-plan="JetStore" data-amount="7499900" data-description="JetStore E-commerce Plan"><i class="fas fa-bolt"></i> Buy with Razorpay</button>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetStore%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                        <div class="plan-card">
+                            <h3>JetMarketplace</h3>
+                            <div class="price">From ₹2,99,999</div>
+                            <p class="price-sub">+ GST / $5,999 USD</p>
+                            <div class="feature-category">Platform Development</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>Multi-Vendor Marketplace</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Unlimited Products & Vendors</li>
+                                <li><span class="icon fas fa-check-circle"></span>Vendor Dashboards & Payouts</li>
+                                <li><span class="icon fas fa-check-circle"></span>Multi-Currency & Language</li>
+                                <li><span class="icon fas fa-check-circle"></span>Headless Commerce / API-first</li>
+                            </ul>
+                             <div class="plan-actions">
+                                <a href="#contact" class="btn btn-primary nav-link">Request a Quote</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetMarketplace%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                        <div class="plan-card">
+                            <h3>Custom Quote</h3>
+                            <div class="price">Let's Talk</div>
+                            <p class="price-sub">Enterprise & Bespoke Solutions</p>
+                            <div class="feature-category">What You Get</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>Custom Marketplace Features</li>
+                                <li><span class="icon fas fa-check-circle"></span>Advanced Commission Structures</li>
+                                <li><span class="icon fas fa-check-circle"></span>Dedicated API Development</li>
+                                <li><span class="icon fas fa-check-circle"></span>Full Systems Integration</li>
+                                <li><span class="icon fas fa-check-circle"></span>Performance & Scalability Consulting</li>
+                            </ul>
+                            <div class="plan-actions">
+                                <a href="#contact" class="btn btn-primary nav-link">Request a Quote</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'd%20like%20a%20custom%20quote%20for%20an%20e-commerce%20project." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="software" class="tab-content hidden fade-in-section">
+                    <div class="plans-grid">
+                        <div class="plan-card">
+                            <h3>JetForm</h3>
+                            <div class="price">₹4,999</div>
+                            <p class="price-sub">+ GST / $99 USD</p>
+                            <div class="feature-category">Advanced Forms</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>Multi-Step Quote/Contact Form</li>
+                                <li><span class="icon fas fa-check-circle"></span>Conditional Logic Fields</li>
+                                <li><span class="icon fas fa-check-circle"></span>Integration into your site</li>
+                                <li><span class="icon fas fa-check-circle"></span>Email Notifications Setup</li>
+                                 <li><span class="icon fas fa-times-circle"></span>Data storage / Database</li>
+                                 <li><span class="icon fas fa-times-circle"></span>PDF Generation</li>
+                            </ul>
+                             <div class="plan-actions">
+                                <button class="btn btn-razorpay" data-plan="JetForm" data-amount="499900" data-description="JetForm Software Plan"><i class="fas fa-bolt"></i> Buy with Razorpay</button>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetForm%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                        <div class="plan-card">
+                            <h3>JetTool</h3>
+                            <div class="price">₹24,999</div>
+                            <p class="price-sub">+ GST / $499 USD</p>
+                            <div class="feature-category">Branded Software Solution</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>Standalone Invoice Generator</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Secure User Login System</li>
+                                <li><span class="icon fas fa-check-circle"></span>Client & Item Database</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>Your Logo & Branding</b></li>
+                                 <li><span class="icon fas fa-check-circle"></span>Export Invoices to PDF</li>
+                                 <li><span class="icon fas fa-check-circle"></span>1 Year Hosting & Maintenance</li>
+                            </ul>
+                             <div class="plan-actions">
+                                <button class="btn btn-razorpay" data-plan="JetTool" data-amount="2499900" data-description="JetTool Software Plan"><i class="fas fa-bolt"></i> Buy with Razorpay</button>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetTool%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                        <div class="plan-card highlighted">
+                            <div class="popular-badge">For Business</div>
+                            <h3>JetDash</h3>
+                            <div class="price">From ₹99,999</div>
+                            <p class="price-sub">+ GST / $1,999 USD</p>
+                            <div class="feature-category">Custom BI Dashboard</div>
+                            <ul>
+                                 <li><span class="icon fas fa-check-circle"></span><b>Custom Business Dashboard</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Connect up to 3 Data Sources</li>
+                                <li><span class="icon fas fa-check-circle"></span>Real-time Charts & KPIs</li>
+                                <li><span class="icon fas fa-check-circle"></span>Secure User Roles & Permissions</li>
+                                 <li><span class="icon fas fa-check-circle"></span>Automated Email Reports</li>
+                            </ul>
+                             <div class="plan-actions">
+                                <a href="#contact" class="btn btn-primary nav-link">Request a Quote</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetDash%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                        <div class="plan-card">
+                            <h3>JetLogic</h3>
+                            <div class="price">Custom Quote</div>
+                            <p class="price-sub">(Enterprise Scale)</p>
+                            <div class="feature-category">Full Application Build</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>Custom Web/Mobile App</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Full SDLC: Discovery to Deploy</li>
+                                <li><span class="icon fas fa-check-circle"></span>Scalable Cloud Architecture</li>
+                                <li><span class="icon fas fa-check-circle"></span>Dedicated Project Manager</li>
+                                <li><span class="icon fas fa-check-circle"></span>Ongoing Support & SLA</li>
+                            </ul>
+                             <div class="plan-actions">
+                                <a href="#contact" class="btn btn-primary nav-link">Request a Quote</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetLogic%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                         <div class="plan-card">
+                            <h3>Custom Quote</h3>
+                            <div class="price">Let's Talk</div>
+                            <p class="price-sub">Enterprise & Bespoke Solutions</p>
+                            <div class="feature-category">What You Get</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>Complete SaaS Product Dev</li>
+                                <li><span class="icon fas fa-check-circle"></span>AI & Machine Learning Integration</li>
+                                <li><span class="icon fas fa-check-circle"></span>Blockchain Development</li>
+                                <li><span class="icon fas fa-check-circle"></span>Enterprise Resource Planning (ERP)</li>
+                                <li><span class="icon fas fa-check-circle"></span>DevOps & CI/CD Pipeline Setup</li>
+                            </ul>
+                            <div class="plan-actions">
+                                <a href="#contact" class="btn btn-primary nav-link">Request a Quote</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'd%20like%20a%20custom%20quote%20for%20a%20software%20project." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="marketing" class="tab-content hidden fade-in-section">
+                    <div class="plans-grid">
+                        <div class="plan-card">
+                            <h3>JetSpark Social</h3>
+                            <div class="price">₹4,999</div>
+                            <p class="price-sub">/month + GST | $99 USD</p>
+                            <div class="feature-category">Starter Social Media</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>1 Social Platform (FB or IG)</li>
+                                <li><span class="icon fas fa-check-circle"></span>8 Template-based Posts/Month</li>
+                                <li><span class="icon fas fa-check-circle"></span>Basic Community Engagement</li>
+                                 <li><span class="icon fas fa-times-circle"></span>Custom Graphics / Reels</li>
+                                <li><span class="icon fas fa-times-circle"></span>Monthly Reporting</li>
+                            </ul>
+                             <div class="plan-actions">
+                                <button class="btn btn-razorpay" data-plan="JetSpark Social" data-amount="499900" data-description="JetSpark Social Marketing Plan"><i class="fas fa-bolt"></i> Buy with Razorpay</button>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetSpark%20Social%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                        <div class="plan-card">
+                            <h3>JetSignal</h3>
+                            <div class="price">₹19,999</div>
+                            <p class="price-sub">/month + GST | $399 USD</p>
+                               <div class="feature-category">Managed Presence</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>2 Social Platforms</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>12 Custom Posts per Month</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Basic On-Page SEO Monitoring</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>Monthly Performance Report</b></li>
+                                <li><span class="icon fas fa-times-circle"></span>Paid Ad Management</li>
+                            </ul>
+                             <div class="plan-actions">
+                                <button class="btn btn-razorpay" data-plan="JetSignal" data-amount="1999900" data-description="JetSignal Marketing Plan"><i class="fas fa-bolt"></i> Buy with Razorpay</button>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetSignal%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                        <div class="plan-card highlighted">
+                            <div class="popular-badge">Growth Engine</div>
+                            <h3>JetThrust</h3>
+                            <div class="price">₹59,999</div>
+                            <p class="price-sub">/month + GST | $1,199 USD</p>
+                            <div class="feature-category">Growth Engine</div>
+                            <ul>
+                                 <li><span class="icon fas fa-check-circle"></span>3 Social Platforms</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>20 Posts + 2 Reels/Shorts</b></li>
+                                 <li><span class="icon fas fa-check-circle"></span><b>Technical SEO & Link Building</b></li>
+                                 <li><span class="icon fas fa-check-circle"></span>Basic Google/Meta Ads Mgmt</li>
+                                 <li><span class="icon fas fa-check-circle"></span><b>Bi-weekly Reporting & Call</b></li>
+                            </ul>
+                             <div class="plan-actions">
+                                <button class="btn btn-razorpay" data-plan="JetThrust" data-amount="5999900" data-description="JetThrust Marketing Plan"><i class="fas fa-bolt"></i> Buy with Razorpay</button>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetThrust%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                        <div class="plan-card">
+                            <h3>JetOrbit</h3>
+                            <div class="price">From ₹1,24,999</div>
+                            <p class="price-sub">/month + GST | $2,499 USD</p>
+                               <div class="feature-category">Market Domination</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span><b>Omni-channel Strategy</b></li>
+                                <li><span class="icon fas fa-check-circle"></span>Full Content Marketing Engine</li>
+                                 <li><span class="icon fas fa-check-circle"></span>Advanced SEO & CRO</li>
+                                 <li><span class="icon fas fa-check-circle"></span>Multi-platform Ad Campaigns</li>
+                                <li><span class="icon fas fa-check-circle"></span><b>Dedicated Account Strategist</b></li>
+                            </ul>
+                             <div class="plan-actions">
+                                <a href="#contact" class="btn btn-primary nav-link">Request a Quote</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'm%20interested%20in%20the%20JetOrbit%20plan." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                        <div class="plan-card">
+                            <h3>Custom Quote</h3>
+                            <div class="price">Let's Talk</div>
+                            <p class="price-sub">Enterprise & Bespoke Solutions</p>
+                            <div class="feature-category">What You Get</div>
+                            <ul>
+                                <li><span class="icon fas fa-check-circle"></span>Full Funnel Marketing Strategy</li>
+                                <li><span class="icon fas fa-check-circle"></span>Advanced Programmatic Advertising</li>
+                                <li><span class="icon fas fa-check-circle"></span>Marketing Automation & CRM</li>
+                                <li><span class="icon fas fa-check-circle"></span>Market Research & Analysis</li>
+                                <li><span class="icon fas fa-check-circle"></span>PR & Brand Management</li>
+                            </ul>
+                            <div class="plan-actions">
+                                <a href="#contact" class="btn btn-primary nav-link">Request a Quote</a>
+                                <a href="https://wa.me/910000000000?text=Hi%2C%20I'd%20like%20a%20custom%20quote%20for%20a%20marketing%20project." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact Us Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            ================================================================================
+            | [PAGE] PORTFOLIO                                                             |
+            ================================================================================
+        -->
+        <section id="portfolio" class="page">
+            <div class="container">
+                <div class="page-header fade-in-section">
+                    <h1>Our Work</h1>
+                    <p>We are proud of the work we do and the results we deliver. Explore our case studies to see how we've helped businesses like yours succeed in the digital world.</p>
+                </div>
+                <div class="portfolio-grid fade-in-section">
+                    <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/17a2b8/white?text=Imperial+Logistics" class="portfolio-image" alt="Imperial Logistics Website">
+                        <div class="portfolio-content">
+                            <h4>Imperial Logistics</h4>
+                            <p class="portfolio-description">Developed a professional, responsive corporate website to enhance their global brand image. The site features a clean UI, detailed service pages, and an intuitive 'Track & Trace' portal, resulting in a 30% increase in quote requests.</p>
+                            <div class="portfolio-actions">
+                                <a href="https://imperiallogistics.online" target="_blank" class="btn btn-primary">View Live Site</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/6f42c1/white?text=Safarmiles" class="portfolio-image" alt="Safarmiles Travel Agency Website">
+                        <div class="portfolio-content">
+                            <h4>Safarmiles</h4>
+                            <p class="portfolio-description">Designed and built a dynamic travel agency website with a focus on user experience. Features a robust search and booking interface for flights and hotels, showcasing modern frontend development with a Vercel deployment pipeline.</p>
+                            <div class="portfolio-actions">
+                                <a href="https://safar-miles.vercel.app" target="_blank" class="btn btn-primary">View Project</a>
+                                <a href="https://github.com/psyschology/safar-miles" target="_blank" class="btn btn-secondary">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/28a745/white?text=Patni+Asset+Dashboard" class="portfolio-image" alt="Patni Asset Financial Dashboard">
+                        <div class="portfolio-content">
+                            <h4>Patni Asset Financial Dashboard</h4>
+                            <p class="portfolio-description">Created a bespoke financial data visualization dashboard. The tool provides real-time insights into market trends and portfolio performance through interactive charts, enabling data-driven decision-making for asset managers.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/343a40/white?text=Rawalwasia+Group" class="portfolio-image" alt="Rawalwasia Group Notion Automation">
+                        <div class="portfolio-content">
+                            <h4>Rawalwasia Group Notion Automation</h4>
+                            <p class="portfolio-description">Engineered a custom Notion automation solution to streamline internal workflows. The system automates task management, document generation, and reporting, significantly improving operational efficiency and reducing manual data entry.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/ffc107/black?text=Oven+Cakes" class="portfolio-image" alt="Oven Cakes Local SEO">
+                        <div class="portfolio-content">
+                            <h4>Oven Cakes Local Growth</h4>
+                            <p class="portfolio-description">Executed a targeted local SEO and Google Business Profile optimization strategy. Achieved top-3 local map rankings for key search terms, leading to a measurable increase in foot traffic, online orders, and phone inquiries.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/fd7e14/white?text=FriendshipKlub" class="portfolio-image" alt="FriendshipKlub Dating Site">
+                        <div class="portfolio-content">
+                            <h4>FriendshipKlub Dating Site</h4>
+                            <p class="portfolio-description">Developed the core platform for FriendshipKlub, a social discovery and dating website. Built features for secure user profiles, intelligent matching algorithms, real-time chat functionality, and a robust membership system.</p>
+                        </div>
+                    </div>
+                     <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/dc3545/white?text=Tambola+Game" class="portfolio-image" alt="Tambola Housie Game">
+                        <div class="portfolio-content">
+                            <h4>Tambola Housie Game</h4>
+                            <p class="portfolio-description">Created an engaging online multiplayer Tambola (Housie) game. The application features real-time ticket generation, randomized number calling, and automatic win detection, providing a seamless digital version of the popular game.</p>
+                        </div>
+                    </div>
+                     <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/007bff/white?text=Academica" class="portfolio-image" alt="Academica Institute Website">
+                        <div class="portfolio-content">
+                            <h4>Academica Institute</h4>
+                            <p class="portfolio-description">Provided a dual solution of local SEO boosting and full website development. Enhanced local search visibility while delivering an interactive platform for course information and student enrollment, resulting in doubled online conversions.</p>
+                             <div class="portfolio-actions">
+                                <a href="#case-study-academica" class="btn btn-secondary nav-link">View Case Study</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 
+            ================================================================================
+            | [PAGE] ABOUT US                                                              |
+            ================================================================================
+        -->
+        <section id="about" class="page">
+            <div class="container">
+                <div class="page-header fade-in-section">
+                    <h1>Pioneering Your Digital Future</h1>
+                    <p>We are more than just a technology company; we are architects of the digital frontier, committed to innovation and our clients' success.</p>
+                </div>
+                <div class="about-grid fade-in-section">
+                    <div class="about-image">
+                        <img src="https://i.ibb.co/VMy4v2h/undraw-about-us-page-re-2jfm.png" alt="Illustration of the Jetweb Labs team working together" style="border-radius: 12px;">
+                    </div>
+                    <div class="about-content">
+                        <h3>Our Story</h3>
+                        <p>Founded on the principle of turning great ideas into digital reality, Jetweb Labs started as a small team of passionate developers and designers. We saw a need for a web development partner that was not just technically proficient, but also deeply invested in the business goals of its clients. Today, we've grown into a full-service agency that helps businesses of all sizes to thrive online.</p>
+                        <h3>What's in a Name?</h3>
+                        <p>Our name reflects our core philosophy:</p>
+                        <ul>
+                            <li><strong>Jet:</strong> We operate with the speed and precision of a jet, ensuring your project is delivered efficiently without compromising on quality.</li>
+                            <li><strong>Web:</strong> We are masters of the digital world, navigating the complexities of the web to build your kingdom online.</li>
+                            <li><strong>Labs:</strong> We are constantly experimenting with the latest technologies and strategies, ensuring your solution is innovative and future-proof.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fade-in-section" style="margin-top: 80px;">
+                    <h2 class="section-title">Meet the Team</h2>
+                    <div class="team-grid">
+                        <div class="team-member"><img src="https://placehold.co/150x150/0d1117/c9d1d9?text=CEO" alt="Team Member"><h4>Alex Johnson</h4><p>Founder & CEO</p></div>
+                        <div class="team-member"><img src="https://placehold.co/150x150/0d1117/c9d1d9?text=Lead" alt="Team Member"><h4>Jane Doe</h4><p>Lead Developer</p></div>
+                        <div class="team-member"><img src="https://placehold.co/150x150/0d1117/c9d1d9?text=Designer" alt="Team Member"><h4>Sam Wilson</h4><p>Lead UI/UX Designer</p></div>
+                        <div class="team-member"><img src="https://placehold.co/150x150/0d1117/c9d1d9?text=Manager" alt="Team Member"><h4>Emily Carter</h4><p>Project Manager</p></div>
+                    </div>
+                </div>
+                 <div class="fade-in-section" style="margin-top: 80px;">
+                    <h2 class="section-title">Our Values</h2>
+                     <div class="values-grid">
+                         <div class="value-card"><h4><i class="fas fa-handshake"></i> Partnership</h4><p>We work with you, not for you. Your success is our success.</p></div>
+                         <div class="value-card"><h4><i class="fas fa-lightbulb"></i> Innovation</h4><p>We embrace new ideas and technologies to deliver the best solutions.</p></div>
+                         <div class="value-card"><h4><i class="fas fa-check-circle"></i> Quality</h4><p>We hold ourselves to the highest standards of excellence in every line of code and pixel we design.</p></div>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            ================================================================================
+            | [PAGE] CONTACT                                                               |
+            ================================================================================
+        -->
+        <section id="contact" class="page">
+             <div class="container">
+                <div class="page-header fade-in-section">
+                    <h1>Get in Touch</h1>
+                    <p>Have a project in mind or just want to say hello? We'd love to hear from you. Fill out the form or use one of the methods below to reach us.</p>
+                </div>
+                <div class="contact-grid fade-in-section">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p>We're available to discuss your project from Monday to Friday, 9 AM to 6 PM.</p>
+                        <div class="contact-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                <a href="mailto:support@jetweblabs.in">support@jetweblabs.in</a>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Phone</strong><br>
+                                <span>(Phone number placeholder)</span>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Location</strong><br>
+                                <span>City, Country (Placeholder)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <div class="form-group">
+                            <label for="name" class="sr-only">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="sr-only">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="sr-only">Message</label>
+                            <textarea name="message" id="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <p style="font-size: 0.8rem; margin-top: 15px;">We respect your privacy. Read our Privacy Policy.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            ================================================================================
+            | [LOGIC] DYNAMIC PAGE CONTAINER (FOR JS ROUTER)                               |
+            ================================================================================
+        -->
+        <div id="dynamic-page-content"></div>
+
+    </main>
+
+    <!-- 
+        ================================================================================
+        | [HTML] FLOATING WHATSAPP & FOOTER                                            |
+        ================================================================================
+    -->
+    <a href="https://wa.me/910000000000?text=Hi%2C%20I%20found%20your%20website%20and%20would%20like%20to%20inquire%20about%20your%20services." class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="https://i.ibb.co/6nZ14p4/logo-1.png" alt="Jetweb Labs Logo" class="logo">
+                    <p>Architects of the digital frontier, building exceptional web experiences for a global clientele.</p>
+                    <div class="social-icons">
+                        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                 <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about" class="nav-link">About Us</a></li>
+                        <li><a href="#services" class="nav-link">Services</a></li>
+                        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#contact" class="nav-link">Contact Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#service-development" class="nav-link">Web Development</a></li>
+                        <li><a href="#service-uiux" class="nav-link">UI/UX Design</a></li>
+                        <li><a href="#service-ecommerce" class="nav-link">E-commerce</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Jetweb Labs. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 
+        ================================================================================
+        | [JAVASCRIPT] APPLICATION LOGIC                                               |
+        ================================================================================
+    -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // ================================================================================
+        // | [01] CONFIGURATION & GLOBAL STATE                                            |
+        // ================================================================================
+        
+        const RAZORPAY_KEY_ID = 'rzp_test_YOUR_KEY_ID'; // IMPORTANT: Replace with your Razorpay Key ID
+        const COMPANY_NAME = 'Jetweb Labs';
+        
+        const pageContent = {
+            'service-development': {
+                title: 'Custom Web Development | Jetweb Labs',
+                description: 'Expert custom web development services for businesses that need a powerful, scalable, and unique online presence. We build websites that perform.',
+                content: `
+                    <section id="service-development" class="page">
+                        <div class="container">
+                            <div class="page-header fade-in-section">
+                                <h1>Custom Website Development</h1>
+                                <p>Tired of generic templates? We build bespoke websites from the ground up that are fast, secure, and perfectly aligned with your brand.</p>
+                            </div>
+                            <div class="content-grid fade-in-section">
+                                <div class="main-content">
+                                    <h3>Your Website is Your Digital Storefront. Make it Count.</h3>
+                                    <p>In today's digital marketplace, a one-size-fits-all website doesn't cut it. Your business is unique, and your website should be too. Off-the-shelf solutions often come with limitations in design, functionality, and scalability, holding back your potential for growth.</p>
+                                    <h3>Our Solution: A Tailored Digital Experience</h3>
+                                    <p>At Jetweb Labs, we take a collaborative approach to web development. We dive deep to understand your business, your audience, and your goals. Our team then designs and develops a custom website that not only looks stunning but also functions flawlessly and drives results.</p>
+                                    <h3>Our Process</h3>
+                                    <ol class="process-list">
+                                        <li><strong>Discovery & Strategy:</strong> We start by defining project goals, target audience, and key functionalities.</li>
+                                        <li><strong>Design & Prototyping:</strong> We create wireframes and high-fidelity mockups for your review and approval.</li>
+                                        <li><strong>Development:</strong> Our expert developers write clean, efficient code using the latest technologies.</li>
+                                        <li><strong>Testing & QA:</strong> We rigorously test across all devices and browsers to ensure a bug-free launch.</li>
+                                        <li><strong>Deployment & Launch:</strong> We handle the seamless launch of your new website.</li>
+                                    </ol>
+                                </div>
+                                <aside class="sidebar-box">
+                                    <h4>Benefits & Value</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> A unique design that stands out.</li>
+                                        <li><i class="fas fa-check-circle"></i> Optimized for search engines (SEO).</li>
+                                        <li><i class="fas fa-check-circle"></i> Scalable architecture for future growth.</li>
+                                        <li><i class="fas fa-check-circle"></i> Full control over features and content.</li>
+                                        <li><i class="fas fa-check-circle"></i> Enhanced security against threats.</li>
+                                    </ul>
+                                    <a href="#contact" class="btn btn-primary nav-link" style="width: 100%; text-align: center; margin-top: 20px;">Request a Custom Plan</a>
+                                </aside>
+                            </div>
+                        </div>
+                    </section>`
+            },
+            'service-uiux': {
+                title: 'UI/UX Design Services | Jetweb Labs',
+                description: 'User-centric UI/UX design services that create intuitive, engaging, and beautiful digital products. We design experiences that users love.',
+                content: `
+                    <section id="service-uiux" class="page">
+                        <div class="container">
+                            <div class="page-header fade-in-section">
+                                <h1>UI/UX Design</h1>
+                                <p>Good design is good business. We create intuitive and beautiful user experiences that captivate your audience and drive conversions.</p>
+                            </div>
+                             <div class="content-grid fade-in-section">
+                                <div class="main-content">
+                                    <h3>Is Your Website Frustrating Your Visitors?</h3>
+                                    <p>A confusing layout, hard-to-find information, or an unappealing design can cause visitors to leave your site in seconds. Poor user experience leads to high bounce rates, low engagement, and lost revenue. Your digital product should be a joy to use, not a chore.</p>
+                                    <h3>Our Solution: Design That Puts Users First</h3>
+                                    <p>Our UI/UX design process is rooted in a deep understanding of your users. We conduct research, create user personas, and map out user journeys to inform every design decision. The result is a product that is not only visually stunning (UI) but also easy and enjoyable to use (UX).</p>
+                                </div>
+                                <aside class="sidebar-box">
+                                    <h4>Benefits & Value</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> Increased user engagement and retention.</li>
+                                        <li><i class="fas fa-check-circle"></i> Higher conversion rates.</li>
+                                        <li><i class="fas fa-check-circle"></i> Stronger brand loyalty and trust.</li>
+                                        <li><i class="fas fa-check-circle"></i> Reduced development rework.</li>
+                                    </ul>
+                                    <a href="#contact" class="btn btn-primary nav-link" style="width: 100%; text-align: center; margin-top: 20px;">Schedule a Design Consultation</a>
+                                </aside>
+                            </div>
+                        </div>
+                    </section>`
+            },
+            'service-ecommerce': {
+                 title: 'E-commerce Solutions | Jetweb Labs',
+                description: 'Powerful e-commerce solutions with Shopify, WooCommerce, and custom platforms. We build online stores that sell and scale.',
+                content: `
+                    <section id="service-ecommerce" class="page">
+                        <div class="container">
+                             <div class="page-header fade-in-section">
+                                <h1>E-commerce Integration</h1>
+                                <p>Turn your website into a powerful sales engine. We build secure, scalable, and user-friendly online stores that convert visitors into customers.</p>
+                            </div>
+                             <div class="content-grid fade-in-section">
+                                <div class="main-content">
+                                    <h3>Losing Sales to a Clunky Online Store?</h3>
+                                    <p>An unreliable or difficult-to-navigate e-commerce platform can kill your sales. Complicated checkouts, slow loading times, and poor product displays lead to abandoned carts and lost customers. You need an online store that works as hard as you do.</p>
+                                    <h3>Our Solution: Seamless & Secure E-commerce</h3>
+                                    <p>We build robust e-commerce solutions on platforms like Shopify and WooCommerce, or create fully custom platforms for unique needs. Our focus is on creating a seamless shopping experience, from product discovery to secure checkout, encouraging repeat business and building customer loyalty.</p>
+                                     <p style="margin-top: 15px;"><strong>Check out our <a href="#services" class="nav-link" style="font-weight: bold;">E-commerce Plans</a> to get started.</strong></p>
+                                </div>
+                                <aside class="sidebar-box">
+                                    <h4>Benefits & Value</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> Secure payment gateway integration.</li>
+                                        <li><i class="fas fa-check-circle"></i> Easy-to-manage product inventory.</li>
+                                        <li><i class="fas fa-check-circle"></i> Mobile-optimized for shopping on the go.</li>
+                                        <li><i class="fas fa-check-circle"></i> SEO-friendly to attract more shoppers.</li>
+                                    </ul>
+                                    <a href="#contact" class="btn btn-primary nav-link" style="width: 100%; text-align: center; margin-top: 20px;">Request an E-commerce Plan</a>
+                                </aside>
+                            </div>
+                        </div>
+                    </section>`
+            },
+            'case-study-academica': {
+                title: 'Case Study: Academica Coaching | Jetweb Labs',
+                description: 'Discover how we built an interactive learning platform for Academica Coaching that doubled their online conversions and streamlined their operations.',
+                content: `
+                    <section id="case-study-academica" class="page">
+                        <div class="container">
+                            <div class="page-header fade-in-section">
+                                <h1>Academica Coaching Platform</h1>
+                                <p>An interactive learning platform that doubled online conversions and reduced administrative workload by 60%.</p>
+                            </div>
+                             <div class="content-grid fade-in-section">
+                                <div class="main-content">
+                                    <h3>The Challenge</h3>
+                                    <p>Academica Coaching Center was grappling with inefficient, manual systems for student enrollment, fee collection, and communication. This led to significant administrative bottlenecks, a risk of human error, and a disconnected experience for students and parents.</p>
+                                    <h3>Our Process & Strategy</h3>
+                                    <p>Our primary goal was to digitize and automate their core operations. We began with a thorough discovery phase, interviewing staff and students to map out existing workflows and identify pain points. Based on this, we designed a role-based web application with three distinct portals: one for administrators, one for teachers, and one for students. The architecture was built using Laravel for a robust and secure backend.</p>
+                                    <h3>The Solution</h3>
+                                    <p>We delivered a comprehensive web application that transformed their operations. The platform allows admins to manage courses and fees effortlessly, teachers to upload materials and track attendance, and students to access resources and monitor their progress. An integrated payment gateway automated fee collection, providing a seamless experience for parents.</p>
+                                    <h3>The Results</h3>
+                                    <div class="testimonial-card" style="margin-top: 20px;">
+                                        <p>"The platform provided by Jetweb Labs has been a game-changer. Our online conversions have doubled since our new website launch. Their team is professional, responsive, and truly cares about our success."</p>
+                                        <div class="testimonial-author">
+                                            <img src="https://placehold.co/100x100/0d1117/c9d1d9?text=GB" alt="Gopal Burman, Founder of Academica">
+                                            <div class="testimonial-author-info"><strong>Gopal Burman</strong><span>Founder, Academica</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <aside class="sidebar-box">
+                                    <h4>Project Details</h4>
+                                    <ul>
+                                        <li><i class="fas fa-user"></i> <strong>Client:</strong> Academica Coaching</li>
+                                        <li><i class="fas fa-cogs"></i> <strong>Services:</strong> Web App Development, UI/UX Design</li>
+                                        <li><i class="fas fa-code"></i> <strong>Tech:</strong> Laravel, MySQL, JavaScript</li>
+                                        <li><i class="fas fa-link"></i> <strong>Link:</strong> <a href="#">View Live Project</a></li>
+                                    </ul>
+                                     <h4 style="margin-top:20px;">Key Outcomes</h4>
+                                    <ul>
+                                        <li><i class="fas fa-arrow-up"></i> <strong>Doubled</strong> Online Conversions</li>
+                                        <li><i class="fas fa-arrow-down"></i> <strong>60% Reduction</strong> in Admin Work</li>
+                                        <li><i class="fas fa-smile"></i> Improved Student & Parent Satisfaction</li>
+                                    </ul>
+                                </aside>
+                            </div>
+                        </div>
+                    </section>`
+            },
+            'case-study-imperial': {
+                title: 'Case Study: Imperial Logistics | Jetweb Labs',
+                description: 'Learn how we developed a professional website for Imperial Logistics, increasing their quote requests by 30% and enhancing customer experience.',
+                content: `
+                    <section id="case-study-imperial" class="page">
+                        <div class="container">
+                            <div class="page-header fade-in-section">
+                                <h1>Imperial Logistics</h1>
+                                <p>A modern, professional website for a global logistics leader that increased quote requests by 30%.</p>
+                            </div>
+                             <div class="content-grid fade-in-section">
+                                <div class="main-content">
+                                    <h3>The Challenge</h3>
+                                    <p>Imperial Logistics, a global freight forwarder, had an outdated web presence that failed to reflect their company's scale and professionalism. They needed a modern, trustworthy website to clearly present their complex services, establish credibility with enterprise clients, and offer a simple way for customers to track shipments.</p>
+                                    <h3>Our Process & Strategy</h3>
+                                    <p>Our strategy focused on building trust and simplifying complexity. We conducted competitor analysis to identify industry best practices and designed a clean, corporate aesthetic. The information architecture was restructured to logically categorize their services (Air, Sea, Land). We prioritized a "Track & Trace" feature, making it highly visible on the homepage to improve customer experience.</p>
+                                    <h3>The Solution</h3>
+                                    <p>We developed a fully responsive, professional website using Next.js for superior performance and SEO. The site features clear calls-to-action for "Get a Quote," detailed service pages to inform potential clients, and an intuitive tracking portal. The final product is a credible, high-performance digital hub for their global operations.</p>
+                                    <h3>The Results</h3>
+                                    <div class="testimonial-card" style="margin-top: 20px;">
+                                        <p>"Jetweb Labs delivered a world-class website that perfectly represents our global brand. The new tracking feature is a huge hit with our clients. Professional, efficient, and highly recommended."</p>
+                                        <div class="testimonial-author">
+                                            <img src="https://placehold.co/100x100/0d1117/c9d1d9?text=RK" alt="Ravi Kumar, CEO of Imperial Logistics">
+                                            <div class="testimonial-author-info"><strong>Ravi Kumar</strong><span>CEO, Imperial Logistics</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <aside class="sidebar-box">
+                                    <h4>Project Details</h4>
+                                    <ul>
+                                        <li><i class="fas fa-user"></i> <strong>Client:</strong> Imperial Logistics</li>
+                                        <li><i class="fas fa-cogs"></i> <strong>Services:</strong> Custom Web Development</li>
+                                        <li><i class="fas fa-code"></i> <strong>Tech:</strong> Next.js, React, Node.js</li>
+                                        <li><i class="fas fa-link"></i> <strong>Link:</strong> <a href="https://imperiallogistics.online" target="_blank">View Live Project</a></li>
+                                    </ul>
+                                     <h4 style="margin-top:20px;">Key Outcomes</h4>
+                                    <ul>
+                                        <li><i class="fas fa-arrow-up"></i> <strong>30% Increase</strong> in Quote Requests</li>
+                                        <li><i class="fas fa-phone-slash"></i> Reduced Customer Service Calls</li>
+                                        <li><i class="fas fa-globe"></i> Strengthened Global Brand Image</li>
+                                    </ul>
+                                </aside>
+                            </div>
+                        </div>
+                    </section>`
+            },
+        };
+
+
+        // ================================================================================
+        // | [02] INITIALIZATION & CORE LOGIC                                             |
+        // ================================================================================
+        
+        function init() {
+            initPreloader();
+            initSPA();
+            initHeaderScroll();
+            initMobileMenu();
+            initThemeToggle();
+            initScrollers();
+            initTechStackToggle();
+            initServiceTabs();
+            initFaqAccordion();
+            initRazorpayButtons();
+            initAnimations();
+        }
+        
+        function initPreloader() {
+            const preloader = document.getElementById('preloader');
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    preloader.addEventListener('transitionend', () => preloader.style.display = 'none');
+                }, 500);
+            });
+        }
+
+        function initHeaderScroll() {
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('scrolled', window.scrollY > 50);
+            });
+        }
+
+        function initMobileMenu() {
+            const hamburger = document.getElementById('hamburger-menu');
+            const sidebar = document.getElementById('sidebar');
+            const closeBtn = document.getElementById('close-btn');
+            hamburger.addEventListener('click', () => sidebar.classList.add('open'));
+            closeBtn.addEventListener('click', () => sidebar.classList.remove('open'));
+        }
+
+        function initThemeToggle() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') themeToggle.checked = true;
+
+            themeToggle.addEventListener('change', function() {
+                const theme = this.checked ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+            });
+        }
+
+        function initScrollers() {
+            const scrollers = document.querySelectorAll(".scroller");
+            if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                scrollers.forEach((scroller) => {
+                    scroller.setAttribute("data-animated", true);
+                    const scrollerInner = scroller.querySelector(".scroller__inner");
+                    if (scrollerInner) {
+                        const scrollerContent = Array.from(scrollerInner.children);
+                        scrollerContent.forEach((item) => {
+                            const duplicatedItem = item.cloneNode(true);
+                            duplicatedItem.setAttribute("aria-hidden", true);
+                            scrollerInner.appendChild(duplicatedItem);
+                        });
+                    }
+                });
+            }
+        }
+
+        function initTechStackToggle() {
+            const viewMoreBtn = document.getElementById('view-more-tech-btn');
+            const hiddenStacks = document.getElementById('hidden-tech-stacks');
+            if (viewMoreBtn && hiddenStacks) {
+                viewMoreBtn.addEventListener('click', () => {
+                    const isHidden = hiddenStacks.style.display === 'none' || hiddenStacks.style.display === '';
+                    hiddenStacks.style.display = isHidden ? 'block' : 'none';
+                    viewMoreBtn.textContent = isHidden ? 'Show Less' : 'Show More';
+                });
+            }
+        }
+
+        function initServiceTabs() {
+            const serviceTabsContainer = document.getElementById('serviceTabs');
+            if (serviceTabsContainer) {
+                const tabButtons = serviceTabsContainer.querySelectorAll('.tab-button');
+                const tabContents = document.querySelectorAll('#services .tab-content');
+
+                serviceTabsContainer.addEventListener('click', (e) => {
+                    const targetButton = e.target.closest('.tab-button');
+                    if (targetButton) {
+                        const tab = targetButton.dataset.tab;
+                        tabButtons.forEach(button => button.classList.remove('active'));
+                        targetButton.classList.add('active');
+                        tabContents.forEach(content => {
+                            if (content.id === tab) {
+                                content.classList.remove('hidden');
+                            } else {
+                                content.classList.add('hidden');
+                            }
+                        });
+                    }
+                });
+            }
+        }
+        
+        function initFaqAccordion() {
+            const faqContainer = document.querySelector('.faq-container');
+            if (!faqContainer) return;
+            faqContainer.addEventListener('click', (e) => {
+                const question = e.target.closest('.faq-question');
+                if (question) {
+                    const item = question.parentElement;
+                    const currentlyActive = document.querySelector('.faq-item.active');
+                    if (currentlyActive && currentlyActive !== item) {
+                        currentlyActive.classList.remove('active');
+                    }
+                    item.classList.toggle('active');
+                }
+            });
+        }
+
+
+        // ================================================================================
+        // | [03] SINGLE PAGE APPLICATION (SPA) ROUTER                                    |
+        // ================================================================================
+
+        function initSPA() {
+            const dynamicContentContainer = document.getElementById('dynamic-page-content');
+            
+            function updateMeta(pageId) {
+                const pageData = pageContent[pageId];
+                if (pageData && pageData.title) {
+                    document.title = pageData.title;
+                    document.querySelector('meta[name="description"]').setAttribute("content", pageData.description);
+                } else {
+                    const defaultTitle = 'Jetweb Labs | Custom Web Development & Digital Strategy';
+                    const defaultDesc = 'Jetweb Labs delivers expert custom web development, UI/UX design, e-commerce solutions, and results-driven SEO to elevate your brand\'s digital presence.';
+                    const staticPage = document.getElementById(pageId);
+                    const pageTitleElement = staticPage ? staticPage.querySelector('h1, h2') : null;
+                    const pageDescElement = staticPage ? staticPage.querySelector('p') : null;
+
+                    document.title = pageTitleElement ? `${pageTitleElement.textContent.trim()} | Jetweb Labs` : defaultTitle;
+                    document.querySelector('meta[name="description"]').setAttribute("content", pageDescElement ? pageDescElement.textContent.trim() : defaultDesc);
+                }
+            }
+
+            function showPage(pageId) {
+                const allPages = document.querySelectorAll('.page');
+                allPages.forEach(page => page.classList.remove('active'));
+                
+                const staticPage = document.getElementById(pageId);
+
+                if (staticPage) {
+                    staticPage.classList.add('active');
+                    dynamicContentContainer.innerHTML = '';
+                } else if (pageContent[pageId]) {
+                    dynamicContentContainer.innerHTML = pageContent[pageId].content;
+                    const newPage = document.getElementById(pageId);
+                    if (newPage) newPage.classList.add('active');
+                } else {
+                    document.getElementById('home').classList.add('active');
+                    pageId = 'home';
+                }
+
+                updateMeta(pageId);
+                updateActiveLink(pageId);
+                window.scrollTo(0, 0);
+            }
+
+            function updateActiveLink(pageId) {
+                const allLinks = document.querySelectorAll('.nav-link');
+                allLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const linkPage = link.getAttribute('href').substring(1);
+                    
+                    let mainPage = pageId.startsWith('service-') ? 'services' :
+                                   pageId.startsWith('case-study-') ? 'portfolio' :
+                                   pageId;
+                    
+                    if (linkPage === mainPage) {
+                        // Only add active to header and sidebar links
+                        if(link.closest('.main-header') || link.closest('.sidebar')) {
+                           link.classList.add('active');
+                        }
+                    }
+                });
+            }
+
+            document.body.addEventListener('click', e => {
+                const link = e.target.closest('.nav-link');
+                if (link) {
+                    e.preventDefault();
+                    const pageId = link.getAttribute('href').substring(1);
+                    if (pageId && window.location.hash !== `#${pageId}`) {
+                        history.pushState({ pageId }, null, `#${pageId}`);
+                        showPage(pageId);
+                        if (document.getElementById('sidebar').classList.contains('open')) {
+                            document.getElementById('sidebar').classList.remove('open');
+                        }
+                    }
+                }
+            });
+
+            window.addEventListener('popstate', (e) => {
+                const pageId = (e.state && e.state.pageId) ? e.state.pageId : 'home';
+                showPage(pageId);
+            });
+            
+            const handleInitialLoad = () => {
+                const hash = window.location.hash.substring(1) || 'home';
+                history.replaceState({ pageId: hash }, null, `#${hash}`);
+                showPage(hash);
+            };
+
+            window.addEventListener('load', () => {
+                setTimeout(handleInitialLoad, 50); // Run shortly after preloader finishes
+            });
+        }
+        
+        // ================================================================================
+        // | [04] ANIMATIONS & DYNAMIC CONTENT                                            |
+        // ================================================================================
+        
+        function initAnimations() {
+             const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        if (entry.target.classList.contains('stat-number')) {
+                            animateCounter(entry.target);
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            const observeElements = () => {
+                document.querySelectorAll('.fade-in-section, .stat-number').forEach(el => {
+                    if (el) observer.observe(el);
+                });
+            };
+            
+            const mutationObserver = new MutationObserver(observeElements);
+            const mainContentNode = document.getElementById('main-content');
+            const dynamicContentNode = document.getElementById('dynamic-page-content');
+            if (mainContentNode) mutationObserver.observe(mainContentNode, { childList: true, subtree: true });
+            if (dynamicContentNode) mutationObserver.observe(dynamicContentNode, { childList: true, subtree: true });
+            
+            observeElements();
+        }
+
+        function animateCounter(element) {
+            const target = +element.getAttribute('data-target');
+            if (isNaN(target)) return;
+            let current = 0;
+            const duration = 2000;
+            const stepTime = 16; // approx 60fps
+            const totalSteps = duration / stepTime;
+            const increment = target / totalSteps;
+
+            const step = () => {
+                current += increment;
+                if (current < target) {
+                    element.innerText = Math.ceil(current).toLocaleString();
+                    requestAnimationFrame(step);
+                } else {
+                    element.innerText = target.toLocaleString();
+                }
+            };
+            requestAnimationFrame(step);
+        }
+
+        // ================================================================================
+        // | [05] RAZORPAY CHECKOUT INTEGRATION                                           |
+        // ================================================================================
+
+        function initRazorpayButtons() {
+            document.body.addEventListener('click', function(e) {
+                const button = e.target.closest('.btn-razorpay');
+                if (button) {
+                    const plan = button.dataset.plan;
+                    const amount = button.dataset.amount;
+                    const description = button.dataset.description;
+                    handleRazorpayCheckout(plan, amount, description);
+                }
+            });
+        }
+
+        function handleRazorpayCheckout(plan, amount, description) {
+            if (!RAZORPAY_KEY_ID || RAZORPAY_KEY_ID === 'rzp_test_YOUR_KEY_ID') {
+                alert('Razorpay integration is not configured. Please contact support to complete your purchase.');
+                return;
+            }
+
+            const options = {
+                "key": RAZORPAY_KEY_ID,
+                "amount": amount,
+                "currency": "INR",
+                "name": COMPANY_NAME,
+                "description": description,
+                "image": "https://i.ibb.co/6nZ14p4/logo-1.png",
+                "handler": function (response){
+                    alert(`Payment successful! Payment ID: ${response.razorpay_payment_id}. We will be in touch with you shortly.`);
+                },
+                "prefill": {
+                    "name": "",
+                    "email": "",
+                    "contact": ""
+                },
+                "notes": {
+                    "plan_name": plan,
+                },
+                "theme": {
+                    "color": "#007bff"
+                }
+            };
+            const rzp1 = new Razorpay(options);
+            rzp1.on('payment.failed', function (response){
+                    alert(`Payment failed. Error: ${response.error.description}. Please try again or contact us for assistance.`);
+            });
+            rzp1.open();
+        }
+
+        // ================================================================================
+        // | [06] APPLICATION ENTRY POINT                                                 |
+        // ================================================================================
+        init();
+
+    });
+    </script>
+</body>
+</html>
+
